@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 61e538b08fb8a59409e4510739ea8c03
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - GOPlayer: {fileID: 4386348819001177772, guid: 8b2bc2a662b89e64d8edab133d4e7e84,
+      type: 3}
+  - GOTree: {fileID: 6760362676562834332, guid: c272f36cf74217d43bd66c90ab066e6c,
+      type: 3}
+  - GONone: {fileID: 3634920090487087015, guid: da69e9226e55c534bb1611939d8a9354,
+      type: 3}
+  - GOFire: {fileID: 2210401485838915063, guid: 5e1af33e3485f684db4521dabd1dcaf1,
+      type: 3}
+  - Plateau: {fileID: 3875074767358216400, guid: 0e8a5ab0c385a324b8457ff063491b50,
+      type: 3}
+  - Witch: {fileID: 6013546689971063837, guid: 879afaefd20195f4388e0f736f86665d, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
