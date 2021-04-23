@@ -10,6 +10,8 @@ public class BuildButton : MonoBehaviour
 
     [SerializeField] GameObject informationPanel;
     [SerializeField] int informationPanelMargin;
+
+    [TextArea(5, 20)]
     [SerializeField] string mouseOverText;
 
     public void SetSelectedObject()

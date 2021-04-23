@@ -2276,9 +2276,8 @@ MonoBehaviour:
   informationPanel: {fileID: 6118556885408345947, guid: 9a5e0d628adf7f849805f147232fa927,
     type: 3}
   informationPanelMargin: 200
-  mouseOverText: "B\xFBcher : c'est la case d'arriv\xE9e. Si vous parvenez \xE0 mettre
-    la sorci\xE8re sur le b\xFBcher vous avez gagn\xE9. ATTENTION : le b\xFBcher
-    tue le paysan."
+  mouseOverText: 'Stake: this is the finishing square. If you manage to put the witch
+    on the pyre you have won. WARNING: the pyre kills the peasant.'
 --- !u!114 &207743970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4519,8 +4518,8 @@ MonoBehaviour:
   informationPanel: {fileID: 6118556885408345947, guid: 9a5e0d628adf7f849805f147232fa927,
     type: 3}
   informationPanelMargin: 200
-  mouseOverText: "Portail de t\xE9l\xE9portation : une fois celui-ci pos\xE9, vous
-    devrez poser la sortie. Ne fonctionne que POUR le paysan."
+  mouseOverText: 'Teleportation portal: once the entrance is placed, you must place
+    the exit before you can place another object.'
 --- !u!114 &456377729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5170,6 +5169,9 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
+  m_OnSubmit:
+    m_PersistentCalls:
+      m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5656,6 +5658,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_OnSubmit:
+    m_PersistentCalls:
+      m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6209,11 +6214,10 @@ MonoBehaviour:
   informationPanel: {fileID: 6118556885408345947, guid: 9a5e0d628adf7f849805f147232fa927,
     type: 3}
   informationPanelMargin: 200
-  mouseOverText: "La sorci\xE8re : c'est votre ENNEMI. Vous contr\xF4lez aussi la
-    sorci\xE8re, mais elle fait les mouvement inverses de ceux que vous donnez (en
-    miroir). Vous devez \xE9viter qu'elle se trouve sur la m\xEAme case qu'un pi\xE8ge,
-    sinon elle se lib\xE8re de la mal\xE9diction et vous avez perdu... Vous devez
-    l'emmener sur la case \"B\xFBcher\""
+  mouseOverText: 'The witch: this is your ENEMY. You also control the witch, but
+    she makes the opposite moves of those you give (in mirror). You must avoid that
+    she is on the same square as a trap, otherwise she will free herself from the
+    curse and you will have lost... To win, you must take her to the "Stake" square.'
 --- !u!114 &607520744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8352,6 +8356,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_OnSubmit:
+    m_PersistentCalls:
+      m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -9401,9 +9408,9 @@ MonoBehaviour:
   informationPanel: {fileID: 6118556885408345947, guid: 9a5e0d628adf7f849805f147232fa927,
     type: 3}
   informationPanelMargin: 200
-  mouseOverText: "Lampe : \xE0 utiliser exclusivement sur les niveaux de nuit. Quand
-    le paysan se retrouve sur la m\xEAme case que la lampe, le niveau \"s'\xE9claire\".
-    Une fois que le paysan quitte la case, le niveau \"s'\xE9teint\" \xE0 nouveau."
+  mouseOverText: 'Lamp: To be used only on night levels. When the peasant is on the
+    same square as the lamp, the level "lights up". Once the peasant leaves the square,
+    the level "goes out" again.'
 --- !u!114 &856669612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14439,9 +14446,9 @@ MonoBehaviour:
   informationPanel: {fileID: 6118556885408345947, guid: 9a5e0d628adf7f849805f147232fa927,
     type: 3}
   informationPanelMargin: 200
-  mouseOverText: "Pi\xE8ge : peut appara\xEEtre et dispara\xEEtre pendant la partie.
-    Il TUE le paysan et lib\xE8re la sorci\xE8re de sa mal\xE9diction. Si la sorci\xE8re
-    ou le paysan se retrouve sur la m\xEAme case qu'un pi\xE8ge, vous avez perdu."
+  mouseOverText: 'Trap: can appear and disappear during the game. It KILLS the peasant
+    and releases the witch from her curse. If the witch or the peasant ends up on
+    the same square as a trap, you have lost.'
 --- !u!114 &1380066794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14882,8 +14889,8 @@ MonoBehaviour:
   informationPanel: {fileID: 6118556885408345947, guid: 9a5e0d628adf7f849805f147232fa927,
     type: 3}
   informationPanelMargin: 200
-  mouseOverText: "Le paysan : c'est VOUS. Vous devez \xE9viter qu'il se retrouve
-    sur la m\xEAme case qu'un pi\xE8ge ou que le b\xFBcher, sinon c'est la mort..."
+  mouseOverText: The peasant is YOU. You must avoid that he ends up on the same square
+    as a trap or the stake, otherwise it is death...
 --- !u!114 &1405909159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15735,6 +15742,9 @@ MonoBehaviour:
   m_CharacterValidation: 1
   m_CharacterLimit: 2
   m_OnEndEdit:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
   m_OnValueChanged:
@@ -18607,6 +18617,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_OnSubmit:
+    m_PersistentCalls:
+      m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -19478,6 +19491,9 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
+  m_OnSubmit:
+    m_PersistentCalls:
+      m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -19909,6 +19925,9 @@ MonoBehaviour:
   m_CharacterValidation: 1
   m_CharacterLimit: 2
   m_OnEndEdit:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
   m_OnValueChanged:
@@ -21342,8 +21361,8 @@ MonoBehaviour:
   informationPanel: {fileID: 6118556885408345947, guid: 9a5e0d628adf7f849805f147232fa927,
     type: 3}
   informationPanelMargin: 200
-  mouseOverText: "Arbre : peut appara\xEEtre et dispara\xEEtre pendant la partie.
-    Quand il est sur une case, il emp\xEAche le paysan et la sorci\xE8re d'y aller."
+  mouseOverText: 'Tree: can appear and disappear during the game. When it is on a
+    square, it prevents the peasant and the witch from going there.'
 --- !u!114 &2141270000
 MonoBehaviour:
   m_ObjectHideFlags: 0
