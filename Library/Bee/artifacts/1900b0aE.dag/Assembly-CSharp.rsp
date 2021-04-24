@@ -328,6 +328,8 @@
 "Assets/Scripts/Menus/LoadMainScene.cs"
 "Assets/Scripts/Menus/LoadScene.cs"
 "Assets/Scripts/Menus/QuitGame.cs"
+"Assets/Scripts/Niveau/Camera/CameraProjectionChange.cs"
+"Assets/Scripts/Niveau/Camera/ChangeCameraView.cs"
 "Assets/Scripts/Niveau/Divers/BoxesScript.cs"
 "Assets/Scripts/Niveau/Divers/CancelLifeCustomization.cs"
 "Assets/Scripts/Niveau/Divers/CustomizeObjectLife.cs"
