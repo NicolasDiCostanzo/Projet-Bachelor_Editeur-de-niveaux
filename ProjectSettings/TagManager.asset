@@ -3,12 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Red square
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Red square
   - Water
   - UI
   - 

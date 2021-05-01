@@ -1,27 +1,36 @@
-﻿using System.Threading.Tasks;
-using UnityEngine;
-using System.Collections;
+﻿using UnityEngine;
 
 public class CharactersBehaviour : MonoBehaviour
 {
     GameObject gameManager_go;
     GameManager gameManager_script;
     MovementManager movementManager_script;
-    //public (int x, int y) characterCoordinates;
+
     public bool isDead;
+
+    [SerializeField] GameObject redSquare;
+    GameObject redSquare_instance = null;
 
     private void Start()
     {
         gameManager_go = GameObject.Find("Game Manager");
         gameManager_script = gameManager_go.GetComponent<GameManager>();
         movementManager_script = gameManager_go.GetComponent<MovementManager>();
-        //characterCoordinates = gameManager.ConvertPosToBoxes(transform.position);
     }
 
     public void CharacMove(float xMove, float zMove)
     {
+        Debug.Log("move");
+
         transform.position = new Vector3(transform.position.x + xMove, transform.position.y, transform.position.z + zMove);
         DisplayInformationMessage.HideInfoPanel();
+
+        if (redSquare_instance != null)
+        {
+            Destroy(redSquare_instance);
+            redSquare_instance = null;
+        }
+
         NewBoxParent();
     }
 
@@ -37,11 +46,12 @@ public class CharactersBehaviour : MonoBehaviour
     void NewBoxParent()
     {
         Vector3 characPos = transform.position;
-        if(transform.parent.GetComponent<BoxDatas>().box.type == LevelBoardBoxType.Witch || transform.parent.GetComponent<BoxDatas>().box.type == LevelBoardBoxType.Player) transform.parent.GetComponent<BoxDatas>().box.type = LevelBoardBoxType.None;
+        if (transform.parent.GetComponent<BoxDatas>().box.type == LevelBoardBoxType.Witch || transform.parent.GetComponent<BoxDatas>().box.type == LevelBoardBoxType.Player) transform.parent.GetComponent<BoxDatas>().box.type = LevelBoardBoxType.None;
         int objectIndex = (int)(transform.position.x + (characPos.z * GameManager.level.w));
 
         transform.parent = movementManager_script.board.GetChild(objectIndex).transform;
-        //transform.parent.GetComponent<BoxDatas>().box.type = LevelBoardBoxType.None;
+
+        Debug.Log("newbox parent");
     }
 
     public void Die(LevelBoardBoxType boxType)
@@ -54,5 +64,12 @@ public class CharactersBehaviour : MonoBehaviour
         DisplayInformationMessage.Message(transform.name + " dies on a " + boxType.ToString() + " on " + x + "-" + y + "\n");
 
         if (!GeneralManager.isInBuildMode) gameManager_script.LevelLost();
+
+        if (redSquare_instance == null)
+        {
+            redSquare_instance = Instantiate(redSquare);
+            redSquare_instance.name = "Red Square";
+            redSquare_instance.transform.position = new Vector3(transform.parent.position.x, .02f, transform.parent.position.z);
+        }
     }
 }

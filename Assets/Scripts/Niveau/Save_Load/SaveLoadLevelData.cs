@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SaveLoadLevelData : MonoBehaviour
 {
-    public static string directoryStoryModeLevels = "/StoryMode/";
+    public static string directoryStoryModeLevels = "/Mode Histoire/";
     public static string directoryDownloadedLevels = "/LevelsSaved/";
 
     public static Level levelToSave = new Level();
@@ -44,12 +44,10 @@ public class SaveLoadLevelData : MonoBehaviour
 
             boxDatas.index = i;
 
-            if (box.transform.childCount == 1 && box.transform.GetChild(0).name == "Player")
-                boxDatas.type = LevelBoardBoxType.Player;
-            else if (box.transform.childCount == 1 && box.transform.GetChild(0).name == "Witch")
-                boxDatas.type = LevelBoardBoxType.Witch;
+            if (box.transform.childCount == 1 && box.transform.GetChild(0).name == "Player")     boxDatas.type = LevelBoardBoxType.Player;
+            else if (box.transform.childCount == 1 && box.transform.GetChild(0).name == "Witch") boxDatas.type = LevelBoardBoxType.Witch;
 
-            if(boxDatas.type != LevelBoardBoxType.None) Debug.Log(boxDatas.type);
+            //if(boxDatas.type != LevelBoardBoxType.None) Debug.Log(boxDatas.type);
             levelToSave.boxes.Add(boxDatas);
         }
 

@@ -130,17 +130,12 @@ isInBuildMode = true;
 
     public void CreateLevel(Level level)
     {
-
-        Debug.Log("create level");
-        //string levelNameToReload = level.levelName;
         alreadyDied = false;
         currentTurn = 0;
 
         GetComponent<MovementManager>().ResetNbOfMovesDisplayed();
 
         int n = level.w * level.h;
-
-        if (n < 64) Debug.LogError("Nombre de cases du niveau : " + n);
 
         BuildManager _BM = GetComponent<BuildManager>();
 
@@ -149,7 +144,6 @@ isInBuildMode = true;
 
         descriptionGO.GetComponent<TextMeshProUGUI>().text = level.description;
         clueGO.GetComponent<TextMeshProUGUI>().text = level.clue;
-        Debug.Log(level.boxes[0].type);
 
         for (int i = 0; i < n; i++)
         {

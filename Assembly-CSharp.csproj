@@ -57,11 +57,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Menus\LoadScene.cs" />
+    <Compile Include="Assets\Scripts\Niveau\Camera\CameraProjectionChange.cs" />
     <Compile Include="Assets\Scripts\Niveau\Objects parameters\ObjectManager.cs" />
     <Compile Include="Assets\Scripts\Niveau\UI\Diegetic\HideButtonTextInEditor.cs" />
     <Compile Include="Assets\Scripts\Niveau\UI\Diegetic\DisplayInformationMessage.cs" />
     <Compile Include="Assets\Scripts\Display levels\DeactiveLevelsDataEditButton.cs" />
     <Compile Include="Assets\Scripts\Menus\LoadMainScene.cs" />
+    <Compile Include="Assets\Scripts\Niveau\Camera\ChangeCameraView.cs" />
     <Compile Include="Assets\Scripts\Niveau\Divers\BoxesScript.cs" />
     <Compile Include="Assets\Scripts\Communication with database\WindowButtonBehavior.cs" />
     <Compile Include="Assets\Scripts\Niveau\Divers\CancelLifeCustomization.cs" />
@@ -106,8 +108,7 @@
     <Compile Include="Assets\Scripts\Niveau\Managers\LightManagement.cs" />
     <Compile Include="Assets\Scripts\Display levels\DeleteLevel.cs" />
     <Compile Include="Assets\Scripts\GeneralManager.cs" />
-    <Compile Include="Assets\Scripts\Niveau\Camera\ChangeCameraView.cs" />
-    <Compile Include="Assets\Scripts\Niveau\Camera\CameraProjectionChange.cs" />
+    <Compile Include="Assets\TestLevelAppearance.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />

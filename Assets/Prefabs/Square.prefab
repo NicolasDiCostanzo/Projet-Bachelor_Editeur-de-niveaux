@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6235731612251402735}
   - component: {fileID: 6235731612251402732}
   - component: {fileID: -421325490992781048}
-  - component: {fileID: 3168930410150569794}
   m_Layer: 9
   m_Name: Square
   m_TagString: Untagged
@@ -55,6 +54,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -136,22 +136,3 @@ MonoBehaviour:
     buildTurn: 0
     destroyTurn: 0
   index: 0
---- !u!95 &3168930410150569794
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6235731612251402737}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: af5dc97fc9a322840ae80f1aeec3841c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

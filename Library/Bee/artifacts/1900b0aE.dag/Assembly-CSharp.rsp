@@ -365,6 +365,7 @@
 "Assets/Scripts/Niveau/UI/Extra diegetic/SaveButtonManagement.cs"
 "Assets/Scripts/Niveau/UI/Not used/ScrollingTurns.cs"
 "Assets/Scripts/Niveau/UI/UI_Manager.cs"
+"Assets/TestLevelAppearance.cs"
 -langversion:8.0
 
 /deterministic

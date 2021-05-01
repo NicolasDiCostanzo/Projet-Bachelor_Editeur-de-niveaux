@@ -30,7 +30,7 @@ public class BuildButton : MonoBehaviour
 
         if (a_displayInformation)
         {
-            Toggle toggle = GameObject.Find("Toggle").GetComponent<Toggle>();
+            Toggle toggle = GameObject.Find("Description boutons toggle").GetComponent<Toggle>();
 
             if (toggle.isOn)
             {

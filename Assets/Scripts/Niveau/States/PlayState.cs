@@ -50,9 +50,9 @@ public class PlayState : MonoBehaviour
             if (GameManager.i_currentLevel == generalManager_script.storyLevelsName.Count - 1 && GeneralManager.isInBuildMode == false) return;
 
             if (GameManager.i_currentLevel < generalManager_script.storyLevelsName.Count && GeneralManager.isInBuildMode == false)
-                InitLevelDynamicsObjects(false);
+                RestartLevel(false);
             else
-                InitLevelDynamicsObjects(true);
+                RestartLevel(true);
         }
         else //Si on rentre dans ce 'else', c'est que tous les niveaux sont terminés
         {
@@ -91,13 +91,20 @@ public class PlayState : MonoBehaviour
             }
         }
 
-        if (generalManager_script && GameManager.i_currentLevel < generalManager_script.storyLevelsName.Count) InitLevelDynamicsObjects(false);
+        if (generalManager_script && GameManager.i_currentLevel < generalManager_script.storyLevelsName.Count) RestartLevel(false);
     }
 
-    public void InitLevelDynamicsObjects(bool goToBuildMode)
+    public void RestartLevel(bool goToBuildMode)
     {
         GameManager.currentTurn = 0;
         movementManager_script.ResetNbOfMovesDisplayed();
+
+        GameObject[] redSquares = GameObject.FindGameObjectsWithTag("Red square");
+
+        for (int i = 0; i < redSquares.Length; i++)
+        {
+            Destroy(redSquares[i]);
+        }
 
 
         if (!goToBuildMode)
