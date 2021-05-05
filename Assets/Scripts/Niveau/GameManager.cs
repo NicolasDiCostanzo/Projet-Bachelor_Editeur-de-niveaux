@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
@@ -84,6 +85,23 @@ isInBuildMode = true;
 
     private void Start()
     {
+        bool newGame = GeneralManager.newGame;
+
+        if (!newGame)
+        {
+            i_currentLevel = SaveSystem.GetBinarySavedData().levelReached;
+
+            Debug.Log(i_currentLevel);
+
+            if (i_currentLevel <= 0) i_currentLevel = 0;
+
+            if (i_currentLevel >= generalManager_script.storyLevelsName.Count - 1) i_currentLevel = generalManager_script.storyLevelsName.Count - 1;
+        }
+        else
+        {
+            i_currentLevel = 0;
+        }
+
         if (isInBuildMode)
         {
             StartInBuildMode();
@@ -91,7 +109,7 @@ isInBuildMode = true;
         }
         else
         {
-            if (isInStoryMode)                     levelNameToStartWith = generalManager_script.storyLevelsName[0];
+            if (isInStoryMode)                     levelNameToStartWith = generalManager_script.storyLevelsName[i_currentLevel];
             else if (isComingFromLocalLevelChoice) levelNameToStartWith = GeneralManager.sceneNameToLoad;
 
             StartInPlayMode(levelNameToStartWith);
@@ -99,6 +117,7 @@ isInBuildMode = true;
             playState_script.enabled = true;
         }
     }
+
 
     void Update() { 
         if (Input.GetKeyDown(KeyCode.Escape)) pausePanel.SetActive(!pausePanel.activeInHierarchy); 
@@ -144,6 +163,15 @@ isInBuildMode = true;
 
         descriptionGO.GetComponent<TextMeshProUGUI>().text = level.description;
         clueGO.GetComponent<TextMeshProUGUI>().text = level.clue;
+
+        if (level.isInDarkMode) {
+            if (state == State.Build) GameObject.Find("DarkMode_toggle").GetComponent<Toggle>().isOn = true;
+            else LightManagement.ToggleLight(false);
+        }
+        else
+        {
+            LightManagement.ToggleLight(true);
+        }
 
         for (int i = 0; i < n; i++)
         {
@@ -195,9 +223,6 @@ isInBuildMode = true;
 
     public static void RepositionBothCharacters()
     {
-        //if (player == null) player = GameObject.Find("Player");
-        //if (witch == null) witch = GameObject.Find("Witch");
-
         if(player) RepositionCharacter(player.transform, playerIndex);
         if(witch)  RepositionCharacter(witch.transform, witchIndex);
     }
@@ -255,11 +280,35 @@ isInBuildMode = true;
     //On ne peut pas appeler la coroutine directement depuis le script 'CharactersBehaviour' puisque ce script est détruit quand on appelle 'EraseLevel'. On passe donc par une fonction intermédiaire qui, elle, n'est jamais détruite
     public void LevelLost() { StartCoroutine(LevelTransition()); }
 
+    void WhenCompleteLocallySavedLevel()
+    {
+        GameObject.Find("Win Panel").GetComponent<Animator>().enabled = true;
+
+        string thisLevelName = levelNameToStartWith;
+
+        string directory = SaveLoadLevelData.directoryDownloadedLevels;
+        string path = Application.persistentDataPath + directory;
+
+        if (Directory.Exists(path))
+        {
+            string levelPath = path + thisLevelName + ".txt";
+
+            string levelJson = File.ReadAllText(levelPath);
+
+            Level thisLevel = JsonUtility.FromJson<Level>(levelJson);
+            thisLevel.completed = true;
+
+            levelJson = JsonUtility.ToJson(thisLevel, true);
+
+            File.WriteAllText(levelPath, levelJson);
+        }
+    }
+
     public IEnumerator LevelTransition()
     {
         GetComponent<MovementManager>().enabled = false;
-        
-        if(!GeneralManager.isInStoryMode && levelCompleted) GameObject.Find("Win Panel").GetComponent<Animator>().enabled = true;
+
+        if (!GeneralManager.isInStoryMode && levelCompleted) WhenCompleteLocallySavedLevel();
 
 
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
@@ -336,6 +385,15 @@ public enum State
     Build
 }
 
+[Serializable]
+public class ResultFromDB
+{
+    public bool success;
+
+    public Level[] data;
+}
+
+[Serializable]
 public class Level
 {
     public string creatorName;
@@ -354,6 +412,8 @@ public class Level
     public int nbTurns;
     public bool isInDarkMode;
     public List<LevelBoardBox> boxes = new List<LevelBoardBox>();
+
+    public bool completed;
 }
 
 [Serializable]

@@ -65,6 +65,7 @@ public class SaveLevelToDataBase : MonoBehaviour
         if (!Directory.Exists(directory)) Directory.CreateDirectory(directory);
 
         Level level = JsonUtility.FromJson<Level>(json);
+        level.completed = true;
 
         string levelName = level.levelName;
         json = JsonUtility.ToJson(level, true);

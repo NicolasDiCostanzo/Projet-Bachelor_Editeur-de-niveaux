@@ -71,12 +71,14 @@
     <Compile Include="Assets\Scripts\Niveau\UI\Diegetic\RepositionCustomisationPanel.cs" />
     <Compile Include="Assets\Scripts\Niveau\UI\Diegetic\AppearanceOfCustomizablePanel.cs" />
     <Compile Include="Assets\Scripts\Niveau\Objects parameters\LinkedGameObject.cs" />
+    <Compile Include="Assets\Scripts\Class\GameData.cs" />
     <Compile Include="Assets\Scripts\Communication with database\SaveLevelToDataBase.cs" />
     <Compile Include="Assets\Scripts\Niveau\Managers\MovementManager.cs" />
     <Compile Include="Assets\Scripts\Niveau\UI\Not used\ScrollingTurns.cs" />
     <Compile Include="Assets\Scripts\Display levels\WindowConstructor.cs" />
     <Compile Include="Assets\Scripts\Niveau\UI\Extra diegetic\ControlWinPanelAnimation.cs" />
     <Compile Include="Assets\Scripts\Niveau\States\SwitchState.cs" />
+    <Compile Include="Assets\Scripts\Class\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\Niveau\Divers\ObjectBlinking.cs" />
     <Compile Include="Assets\Scripts\Niveau\UI\Extra diegetic\SaveButtonManagement.cs" />
     <Compile Include="Assets\Scripts\Niveau\UI\Diegetic\DisplayAlertMessages.cs" />
@@ -84,6 +86,7 @@
     <Compile Include="Assets\Scripts\Niveau\UI\Extra diegetic\DisplayingOfObjectLifeDatas.cs" />
     <Compile Include="Assets\Scripts\Niveau\Divers\CustomizeObjectLife.cs" />
     <Compile Include="Assets\Scripts\Niveau\Divers\Teleport\Link_TpIN_to_TpOUT.cs" />
+    <Compile Include="Assets\TestLevelAppearance.cs" />
     <Compile Include="Assets\Scripts\Niveau\Save_Load\LoadLevel.cs" />
     <Compile Include="Assets\Scripts\Niveau\Managers\BoxDatas.cs" />
     <Compile Include="Assets\Scripts\Display levels\QueryManager.cs" />
@@ -108,7 +111,6 @@
     <Compile Include="Assets\Scripts\Niveau\Managers\LightManagement.cs" />
     <Compile Include="Assets\Scripts\Display levels\DeleteLevel.cs" />
     <Compile Include="Assets\Scripts\GeneralManager.cs" />
-    <Compile Include="Assets\TestLevelAppearance.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />

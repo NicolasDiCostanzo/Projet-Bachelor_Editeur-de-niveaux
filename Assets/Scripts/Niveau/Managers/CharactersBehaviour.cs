@@ -20,8 +20,6 @@ public class CharactersBehaviour : MonoBehaviour
 
     public void CharacMove(float xMove, float zMove)
     {
-        Debug.Log("move");
-
         transform.position = new Vector3(transform.position.x + xMove, transform.position.y, transform.position.z + zMove);
         DisplayInformationMessage.HideInfoPanel();
 
@@ -50,8 +48,6 @@ public class CharactersBehaviour : MonoBehaviour
         int objectIndex = (int)(transform.position.x + (characPos.z * GameManager.level.w));
 
         transform.parent = movementManager_script.board.GetChild(objectIndex).transform;
-
-        Debug.Log("newbox parent");
     }
 
     public void Die(LevelBoardBoxType boxType)

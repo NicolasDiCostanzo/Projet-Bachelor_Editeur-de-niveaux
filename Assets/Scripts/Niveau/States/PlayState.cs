@@ -36,6 +36,14 @@ public class PlayState : MonoBehaviour
 
     private void OnDisable()
     {
+        bool editionUnlocked = GeneralManager.editionUnlocked;
+
+        if (GameManager.i_currentLevel >= GeneralManager._levelToReachToUnlockLevelCreation) editionUnlocked = true;
+
+        SaveSystem.SaveLevelReached(GameManager.i_currentLevel, editionUnlocked);
+
+        Debug.Log(GameManager.i_currentLevel);
+
         buildLevelState_script.enabled = true;
 
         if (testUI) testUI.SetActive(false);
@@ -44,7 +52,7 @@ public class PlayState : MonoBehaviour
 
         if (generalManager_script && GameManager.i_currentLevel < generalManager_script.storyLevelsName.Count)
         {
-            if (GameManager.level.isInDarkMode) LightManagement.ToggleLight(true);
+            if (!GameManager.level.isInDarkMode) LightManagement.ToggleLight(true);
 
             //Entre dans le 'if' ci-dessous si on vient de terminer le dernier niveau du mode histoire
             if (GameManager.i_currentLevel == generalManager_script.storyLevelsName.Count - 1 && GeneralManager.isInBuildMode == false) return;

@@ -31,7 +31,7 @@ public class BoxesScript : MonoBehaviour
     private void Update()
     {
         //Destruction d'objets
-        if(GameManager.state == State.Build)
+        if (GameManager.state == State.Build)
         {
             Ray ray;
             RaycastHit hit;
@@ -56,7 +56,7 @@ public class BoxesScript : MonoBehaviour
     //Changement couleur case quand la souris la survole
     private void OnMouseOver()
     {
-        if(GameManager.state == State.Build) rend.material.color = overColor;
+        if (GameManager.state == State.Build) rend.material.color = overColor;
     }
 
     //Case reprend sa couleur originale quand la souris ne la survole plus

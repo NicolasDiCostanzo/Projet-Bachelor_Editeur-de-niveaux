@@ -113,7 +113,7 @@ public class SaveLoadLevelData : MonoBehaviour
 
         string fullPath = Application.persistentDataPath + directory + a_levelNameToLoad + ".txt";
 
-        Debug.Log(fullPath);
+        //Debug.Log(fullPath);
 
         if (File.Exists(fullPath))
         {
@@ -124,13 +124,13 @@ public class SaveLoadLevelData : MonoBehaviour
         }
 
         //Affiche un message si le niveau n'existe pas
-        DisplayAlertMessages.DisplayMessage("Ce niveau n'a pas été trouvé.");
+        //DisplayAlertMessages.DisplayMessage("Ce niveau n'a pas été trouvé.");
     }
 
     //Pour charger
     public static void LoadLevelFromJson(string level_json)
     {
-        Debug.Log(level_json);
+        //Debug.Log(level_json);
         GameManager.level = JsonUtility.FromJson<Level>(level_json);
         _GM.CreateLevel(GameManager.level);
     }

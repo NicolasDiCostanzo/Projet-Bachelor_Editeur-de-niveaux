@@ -46,6 +46,8 @@ public class WindowConstructor : MonoBehaviour, IPointerEnterHandler, IPointerEx
         if (GeneralManager.isComingFromDatabaseLevelsChoice)   button.GetComponentInChildren<TextMeshProUGUI>().text = "Download";
         else if (GeneralManager.isComingFromLocalLevelsChoice) button.GetComponentInChildren<TextMeshProUGUI>().text = "Play";
 
+        if (level.isInDarkMode) GetComponent<Image>().color = new Color(0,0,0, GetComponent<Image>().color.a);
+
         DisplayImages();
     }
     void DisplayImages()

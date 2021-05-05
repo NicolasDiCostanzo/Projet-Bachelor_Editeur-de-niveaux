@@ -38,8 +38,6 @@ public class BuildManager : MonoBehaviour
                 GameManager.witchIndex = box.GetSiblingIndex();
             }
 
-            if (boxType == LevelBoardBoxType.Lamp) Debug.Log("ya une lampe");
-
             return newGo;
         }
         else if (box.childCount > 0)

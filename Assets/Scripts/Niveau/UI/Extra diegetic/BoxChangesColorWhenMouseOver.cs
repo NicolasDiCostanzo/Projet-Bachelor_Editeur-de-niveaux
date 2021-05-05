@@ -19,16 +19,16 @@ public class BoxChangesColorWhenMouseOver : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (parentRend) parentRend.material.color = overColor;
+        if (parentRend && GameManager.state == State.Build) parentRend.material.color = overColor;
     }
 
     private void OnMouseExit()
     {
-        if (parentRend) parentRend.material.color = startColor;
+        if (parentRend && GameManager.state == State.Build) parentRend.material.color = startColor;
     }
 
     private void OnDestroy()
     {
-        if (parentRend) parentRend.material.color = startColor;
+        if (parentRend && GameManager.state == State.Build) parentRend.material.color = startColor;
     }
 }

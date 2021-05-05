@@ -140,8 +140,6 @@ public class MovementManager : MonoBehaviour
 
         if (playerCoordonates == witchCoordonates) playerBehavioursScript.Die(LevelBoardBoxType.Witch);
 
-        Debug.Log(GameManager.alreadyDied);
-
         if (IsOnBonfire(witchCoordonates) && !GameManager.alreadyDied) _GM.LevelCompleted();
         if (IsOnBonfire(playerCoordonates)) playerBehavioursScript.Die(LevelBoardBoxType.Fire);
     }
