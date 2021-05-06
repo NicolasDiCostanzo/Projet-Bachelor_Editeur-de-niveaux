@@ -42,8 +42,6 @@ public class PlayState : MonoBehaviour
 
         SaveSystem.SaveLevelReached(GameManager.i_currentLevel, editionUnlocked);
 
-        Debug.Log(GameManager.i_currentLevel);
-
         buildLevelState_script.enabled = true;
 
         if (testUI) testUI.SetActive(false);

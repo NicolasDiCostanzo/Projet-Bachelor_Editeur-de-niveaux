@@ -28,6 +28,8 @@ public class BuildLevelState : MonoBehaviour
         movementManager_script.enabled = false;
 
         SaveLoadLevelData.levelToSave_json = "";
+
+        LightManagement.ToggleLight(true);
     }
 
     private void OnDisable()

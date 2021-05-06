@@ -138,6 +138,8 @@ public class MovementManager : MonoBehaviour
         if (GameManager.level.isInDarkMode)
             LightManagement.ToggleLight(isOnLamp(playerCoordonates));
 
+        Debug.Log(GameManager.level.isInDarkMode);
+
         if (playerCoordonates == witchCoordonates) playerBehavioursScript.Die(LevelBoardBoxType.Witch);
 
         if (IsOnBonfire(witchCoordonates) && !GameManager.alreadyDied) _GM.LevelCompleted();

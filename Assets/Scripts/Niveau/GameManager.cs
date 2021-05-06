@@ -130,7 +130,7 @@ isInBuildMode = true;
         GeneralManager.sceneNameToLoad = "";
     }
 
-    public void ToggleDarkMode() { level.isInDarkMode = !level.isInDarkMode; }
+    public void ToggleDarkMode() { level.isInDarkMode = GameObject.Find("DarkMode_toggle").GetComponent<Toggle>().isOn; }
 
     void StartInBuildMode()
     {
@@ -164,6 +164,9 @@ isInBuildMode = true;
         descriptionGO.GetComponent<TextMeshProUGUI>().text = level.description;
         clueGO.GetComponent<TextMeshProUGUI>().text = level.clue;
 
+        Debug.Log(level.isInDarkMode);
+
+
         if (level.isInDarkMode) {
             if (state == State.Build) GameObject.Find("DarkMode_toggle").GetComponent<Toggle>().isOn = true;
             else LightManagement.ToggleLight(false);
@@ -180,7 +183,6 @@ isInBuildMode = true;
 
             if (boxData.type != LevelBoardBoxType.None)
             {
-
                 GameObject newObject = _BM.CreateObject(boxData.type, currentBox);
 
                 if (newObject != null)
