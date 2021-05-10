@@ -24,7 +24,6 @@ public class GeneralManager : MonoBehaviour
 
     public static GeneralManager _instance;
 
-
     private void Start()
     {
         //if (_instance != null && _instance != this)
@@ -46,6 +45,7 @@ public class GeneralManager : MonoBehaviour
         binaryDataPath = Application.persistentDataPath + "/BinaryData";
 
         _levelToReachToUnlockLevelCreation = levelToReachToUnlockLevelCreation;
+
         LoadBinaryData();
     }
 
@@ -54,6 +54,11 @@ public class GeneralManager : MonoBehaviour
         newGame = newGameValue;
     }
 
+    public void ResetDataSaved()
+    {
+        SaveSystem.SaveLevelReached(0, false);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
 
     void LoadBinaryData()
     {
