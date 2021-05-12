@@ -316,8 +316,8 @@
 "Assets/Memo.cs"
 "Assets/Scripts/Class/GameData.cs"
 "Assets/Scripts/Class/SaveSystem.cs"
+"Assets/Scripts/Communication with database/DataBaseRequest.cs"
 "Assets/Scripts/Communication with database/DisplayLocallySavedLevels.cs"
-"Assets/Scripts/Communication with database/GetLevelsDataFromDatabase.cs"
 "Assets/Scripts/Communication with database/SaveLevelToDataBase.cs"
 "Assets/Scripts/Communication with database/WindowButtonBehavior.cs"
 "Assets/Scripts/Display levels/DeactiveLevelsDataEditButton.cs"
@@ -366,8 +366,8 @@
 "Assets/Scripts/Niveau/UI/Extra diegetic/ObjectColorManagement.cs"
 "Assets/Scripts/Niveau/UI/Extra diegetic/SaveButtonManagement.cs"
 "Assets/Scripts/Niveau/UI/Not used/ScrollingTurns.cs"
+"Assets/Scripts/Niveau/UI/TestLevelAppearance.cs"
 "Assets/Scripts/Niveau/UI/UI_Manager.cs"
-"Assets/TestLevelAppearance.cs"
 -langversion:8.0
 
 /deterministic

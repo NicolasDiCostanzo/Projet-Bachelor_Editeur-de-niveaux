@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using System.Data.SqlTypes;
 
 public class QueryManager : MonoBehaviour
 {
@@ -28,37 +25,83 @@ public class QueryManager : MonoBehaviour
     [SerializeField] Text maxNb;
 
 
-    //Date limits
-    [SerializeField] Toggle from;
-    [SerializeField] Toggle to;
+    bool trapFiltered;
+    string req;
+    bool alreadyFiltered;
 
-    public void CollectUIData()
+    public string CreateQuery()
     {
-        string data = "";
+        req = "SELECT * FROM level";
+        trapFiltered = false;
+        alreadyFiltered = false;
 
-        if (trap.isOn)     data += " Trap ";
-        if(tree.isOn)      data += " Tree ";
-        if (teleport.isOn) data += " Teleport ";
 
-        if (nightLevel.value == 1)      data += " nightLevel ";
-        else if (nightLevel.value == 2) data += " lightLevel ";
+        //TRAPS FILTERS
+        if (trap.isOn || tree.isOn || teleport.isOn)
+        {
+            if (!(trap.isOn && tree.isOn && teleport.isOn))
+            {
 
-        if (minTour.isOn) data += " minTour = " + minNb.text;
-        if (maxTour.isOn) data += " maxTour = " + maxNb.text;
+                alreadyFiltered = true;
 
-        if (from.isOn) data += " from " + " date";
-        if (to.isOn)   data += " to " + " date";
+                req += " WHERE traps LIKE";
 
-        Debug.Log(data);
+                if (trap.isOn) FilterTrap("trap");
+                if (tree.isOn) FilterTrap("tree");
+                if (teleport.isOn) FilterTrap("teleport");
+            }
+        }
 
-       //CreateLevelView();
+
+        //NIGHT FILTER
+        if (nightLevel.value == 1 || nightLevel.value == 2)
+        {
+            if (alreadyFiltered) req += " AND";
+            else req += " WHERE";
+
+            req += " nightLevel = " + (nightLevel.value - 1).ToString();
+
+            alreadyFiltered = true;
+        }
+
+        //TOUR NB FILTERS
+        if (minTour.isOn)
+        {
+            if (alreadyFiltered) req += " AND";
+            else req += " WHERE";
+
+            req += " max_turns >= " + minNb.text;
+
+            alreadyFiltered = true;
+        }
+
+        if (maxTour.isOn)
+        {
+            if (alreadyFiltered) req += " AND";
+            else req += " WHERE";
+
+            req += " max_turns <= " + maxNb.text;
+
+            alreadyFiltered = true;
+        }
+
+        req += " ORDER BY `Level`.`level_name` ASC";
+
+        return req;
     }
 
-    //public void CreateLevelView()
-    //{
-    //    for (int i = 0; i < 10; i++)
-    //    {
-    //        Instantiate(window, windowsParent.transform);
-    //    }
-    //}
+    void FilterTrap(string a_trapFilterName)
+    {
+        string toAdd = " '%" + a_trapFilterName + "%'";
+
+        if (!trapFiltered)
+        {
+            req += toAdd;
+            trapFiltered = true;
+        }
+        else
+        {
+            req += " AND traps LIKE " + toAdd;
+        }
+    }
 }

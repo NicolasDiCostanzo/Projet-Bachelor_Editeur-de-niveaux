@@ -6,7 +6,7 @@ using System.IO;
 
 public class DisplayLevelManager : MonoBehaviour
 {
-    GetLevelsDataFromDatabase getDataFromDB_script;
+    DataBaseRequest getDataFromDB_script;
     DisplayLocallySavedLevels getDataFromLocal_script;
 
     public static List<Level> levelsToDisplay = new List<Level>();
@@ -23,7 +23,7 @@ public class DisplayLevelManager : MonoBehaviour
     {
         descriptionTMP = GameObject.Find("Description TMP").GetComponent<TextMeshProUGUI>();
 
-        getDataFromDB_script = GetComponent<GetLevelsDataFromDatabase>();
+        getDataFromDB_script = GetComponent<DataBaseRequest>();
         getDataFromLocal_script = GetComponent<DisplayLocallySavedLevels>();
 
         if (GeneralManager.isComingFromDatabaseLevelsChoice) getDataFromDB_script.enabled = true;
@@ -32,6 +32,8 @@ public class DisplayLevelManager : MonoBehaviour
 
     public void f_DisplayLevels()
     {
+        Debug.Log(levelsToDisplay.Count);
+
         for (int i = 0; i < levelsToDisplay.Count; i++)
         {
             Level newLevel = levelsToDisplay[i];

@@ -91,8 +91,6 @@ isInBuildMode = true;
         {
             i_currentLevel = SaveSystem.GetBinarySavedData().levelReached;
 
-            Debug.Log(i_currentLevel);
-
             if (i_currentLevel <= 0) i_currentLevel = 0;
 
             if (i_currentLevel >= generalManager_script.storyLevelsName.Count - 1) i_currentLevel = generalManager_script.storyLevelsName.Count - 1;
@@ -163,9 +161,6 @@ isInBuildMode = true;
 
         descriptionGO.GetComponent<TextMeshProUGUI>().text = level.description;
         clueGO.GetComponent<TextMeshProUGUI>().text = level.clue;
-
-        Debug.Log(level.isInDarkMode);
-
 
         if (level.isInDarkMode) {
             if (state == State.Build) GameObject.Find("DarkMode_toggle").GetComponent<Toggle>().isOn = true;
@@ -413,10 +408,16 @@ public class Level
     //Limite nombre de tours pour faire ce niveau
     public int nbTurns;
     public bool isInDarkMode;
-    public List<LevelBoardBox> boxes = new List<LevelBoardBox>();
+    public List<LevelBoardBox> boxes;
 
     public bool completed;
+
+    public Level()
+    {
+        boxes = new List<LevelBoardBox>();
+    }
 }
+
 
 [Serializable]
 public class LevelBoardBox

@@ -7,7 +7,9 @@ using System.IO;
 
 public class SaveLevelToDataBase : MonoBehaviour
 {
+    [SerializeField] bool local;
     [SerializeField] string url;
+    [SerializeField] string urlLocal;
     [SerializeField] string addLevel;
 
     [SerializeField] GameObject waitingPanel;
@@ -16,6 +18,8 @@ public class SaveLevelToDataBase : MonoBehaviour
 
     public IEnumerator SendLevelToDatabase()
     {
+        if (local) url = urlLocal;
+
         Level level = SaveLoadLevelData.levelToSave;
 
         WWWForm form = new WWWForm();
@@ -49,8 +53,11 @@ public class SaveLevelToDataBase : MonoBehaviour
             else
             {
                 string responseText = www.downloadHandler.text;
-
                 Debug.Log(responseText);
+                LevelError response = JsonUtility.FromJson<LevelError>(responseText);
+
+                //Debug.Log(response.error.message);
+                //Debug.Log(response.error.code);
                 DisplayAlertMessages.DisplayMessage("Niveau enregistré ! :D");
             }
         }

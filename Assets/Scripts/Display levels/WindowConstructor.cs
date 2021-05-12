@@ -36,9 +36,8 @@ public class WindowConstructor : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
         levelNameTMP.text = levelName; 
 
-
         imagesParent = gameObject.transform.Find("Images").gameObject.transform;
-        creationDateTMP.text = DateParsed(level.creationDate);
+        //creationDateTMP.text = DateParsed(level.creationDate);
         json = JsonUtility.ToJson(level, true);
 
         Button button = GetComponentInChildren<Button>();
