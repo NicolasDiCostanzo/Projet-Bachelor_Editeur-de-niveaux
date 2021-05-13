@@ -16,7 +16,6 @@ public class QueryManager : MonoBehaviour
     //Night level?
     [SerializeField] TMP_Dropdown nightLevel;
 
-
     //Turns limits
     [SerializeField] Toggle minTour;
     [SerializeField] Text minNb;
@@ -31,7 +30,7 @@ public class QueryManager : MonoBehaviour
 
     public string CreateQuery()
     {
-        req = "SELECT * FROM level";
+        req = "SELECT * FROM `Level`";
         trapFiltered = false;
         alreadyFiltered = false;
 
@@ -39,17 +38,14 @@ public class QueryManager : MonoBehaviour
         //TRAPS FILTERS
         if (trap.isOn || tree.isOn || teleport.isOn)
         {
-            if (!(trap.isOn && tree.isOn && teleport.isOn))
-            {
 
                 alreadyFiltered = true;
 
                 req += " WHERE traps LIKE";
 
-                if (trap.isOn) FilterTrap("trap");
-                if (tree.isOn) FilterTrap("tree");
+                if (trap.isOn)     FilterTrap("trap");
+                if (tree.isOn)     FilterTrap("tree");
                 if (teleport.isOn) FilterTrap("teleport");
-            }
         }
 
 
@@ -63,6 +59,8 @@ public class QueryManager : MonoBehaviour
 
             alreadyFiltered = true;
         }
+
+        string req2 = req;
 
         //TOUR NB FILTERS
         if (minTour.isOn)
@@ -80,12 +78,22 @@ public class QueryManager : MonoBehaviour
             if (alreadyFiltered) req += " AND";
             else req += " WHERE";
 
-            req += " max_turns <= " + maxNb.text;
+            req += " max_turns <= " + maxNb.text + " AND max_turns != 0";
 
             alreadyFiltered = true;
         }
 
-        req += " ORDER BY `Level`.`level_name` ASC";
+        if (minTour.isOn && !maxTour.isOn) 
+        {
+            req += " UNION " + req2;
+
+            if (!req.Contains("AND")) req += " WHERE";
+            else req += " AND";
+
+            req += " max_turns = 0";
+        }
+
+        req += " ORDER BY `level_name` ASC";
 
         return req;
     }

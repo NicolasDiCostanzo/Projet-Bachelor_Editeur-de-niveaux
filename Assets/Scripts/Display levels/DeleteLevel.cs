@@ -6,7 +6,16 @@ public class DeleteLevel : MonoBehaviour
     string locallySavedLevelsPath;
     private void Start()
     {
-        if (GeneralManager.isComingFromLocalLevelsChoice) locallySavedLevelsPath = GeneralManager.locallySavedLevelsPath;
+        if (GeneralManager.isComingFromLocalLevelsChoice)
+        {
+            locallySavedLevelsPath = GeneralManager.locallySavedLevelsPath;
+        }
+        //else
+        //{
+        //    Debug.Log(GetComponentInParent<WindowConstructor>().level.creatorName);
+        //    Debug.Log(System.Environment.UserName);
+        //    if (GetComponentInParent<WindowConstructor>().level.creatorName != System.Environment.UserName) Destroy(gameObject);
+        //}
     }
 
     public void EraseLocallySavedLevel()

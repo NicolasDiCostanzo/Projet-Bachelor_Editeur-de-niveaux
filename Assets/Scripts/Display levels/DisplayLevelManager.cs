@@ -32,16 +32,21 @@ public class DisplayLevelManager : MonoBehaviour
 
     public void f_DisplayLevels()
     {
-        Debug.Log(levelsToDisplay.Count);
-
-        for (int i = 0; i < levelsToDisplay.Count; i++)
+        if (levelsToDisplay.Count > 0)
         {
-            Level newLevel = levelsToDisplay[i];
-            GameObject windowInstance = Instantiate(window, windowsParent.transform);
-            windows.Add(windowInstance);
-            windowInstance.name = "Level data " + (i + 1);
+            for (int i = 0; i < levelsToDisplay.Count; i++)
+            {
+                Level newLevel = levelsToDisplay[i];
+                GameObject windowInstance = Instantiate(window, windowsParent.transform);
+                windows.Add(windowInstance);
+                windowInstance.name = "Level data " + (i + 1);
 
-            windowInstance.GetComponent<WindowConstructor>().CreateWindow(newLevel);
+                windowInstance.GetComponent<WindowConstructor>().CreateWindow(newLevel);
+            }
+        }
+        else
+        {
+            DisplayAlertMessages.DisplayMessage("No level stored");
         }
 
         ReinitData();

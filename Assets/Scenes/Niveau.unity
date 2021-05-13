@@ -9307,7 +9307,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7785589, y: 1}
+    m_SensorSize: {x: 1.778163, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -12885,7 +12885,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7785589, y: 1}
+    m_SensorSize: {x: 1.778163, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -20265,7 +20265,6 @@ GameObject:
   - component: {fileID: 1858192207}
   - component: {fileID: 1858192209}
   - component: {fileID: 1858192211}
-  - component: {fileID: 1858192212}
   - component: {fileID: 1858192213}
   - component: {fileID: 1858192210}
   m_Layer: 0
@@ -20362,20 +20361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb6c27b387aa3c4cb41956d5abf03d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1858192212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858192206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf4a0501d919ea4ca09593badc2d291, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  errorMessagePanel: {fileID: 3883596340692684331, guid: bc5ce81cbb76d8d4d9e3c80097fc8291,
-    type: 3}
 --- !u!114 &1858192213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20388,7 +20373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f050d703a8143ea4bbe22c8b55d527f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  local: 1
+  local: 0
   url: http://nicolasdicostanzo.atwebpages.com/levelEditor/webservice/database_queries.php?functionToCall=
   urlLocal: http://localhost/Level%20editor/webservice_rashid.php?functionToCall=
   addLevel: Send

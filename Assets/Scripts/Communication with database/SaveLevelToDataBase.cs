@@ -56,9 +56,20 @@ public class SaveLevelToDataBase : MonoBehaviour
                 Debug.Log(responseText);
                 LevelError response = JsonUtility.FromJson<LevelError>(responseText);
 
-                //Debug.Log(response.error.message);
-                //Debug.Log(response.error.code);
-                DisplayAlertMessages.DisplayMessage("Niveau enregistré ! :D");
+                Debug.Log(response.success);
+                Debug.Log(response.error.code);
+                Debug.Log(response.error.message);
+
+                if (!response.success)
+                {
+                    DisplayAlertMessages.DisplayMessage(response.error.message);
+
+                }
+                else
+                {
+                    DisplayAlertMessages.DisplayMessage("Niveau enregistré ! :D");
+                }
+
             }
         }
 

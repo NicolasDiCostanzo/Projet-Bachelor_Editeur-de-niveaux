@@ -90,6 +90,7 @@ public class DataBaseRequest : MonoBehaviour
             {
                 string jsonResult = System.Text.Encoding.UTF8.GetString(www.downloadHandler.data);
 
+                Debug.Log(jsonResult);
                 JsonLevelsResponse response = JsonUtility.FromJson<JsonLevelsResponse>(jsonResult);
 
                 DisplayLevelManager.levelsToDisplay.Clear();
@@ -153,24 +154,36 @@ public class DataBaseRequest : MonoBehaviour
             else
             {
                 string responseText = www.downloadHandler.text;
-                Debug.Log(responseText);
-
+                //Debug.Log(responseText);
 
                 if (www.isDone)
                 {
                     string jsonResult = System.Text.Encoding.UTF8.GetString(www.downloadHandler.data);
-                    Debug.Log(jsonResult);
+                    //Debug.Log(jsonResult);
 
                     JsonLevelsResponse response = JsonUtility.FromJson<JsonLevelsResponse>(jsonResult);
 
-                    DisplayLevelManager.levelsToDisplay.Clear();
-
-                    for (int i = 0; i < response.data.Count; i++)
+                    if (response.success)
                     {
-                        Level newLevel = response.data[i];
-                        DisplayLevelManager.levelsToDisplay.Add(newLevel);
+                        DisplayLevelManager.levelsToDisplay.Clear();
 
+
+                        for (int i = 0; i < response.data.Count; i++)
+                        {
+                            Level newLevel = response.data[i];
+                            DisplayLevelManager.levelsToDisplay.Add(newLevel);
+
+                        }
                     }
+                    else
+                    {
+                        Debug.Log(jsonResult);
+                        LevelError erreur = JsonUtility.FromJson<LevelError>(jsonResult);
+                        Debug.Log(erreur.error.message);
+                        DisplayAlertMessages.DisplayMessage(erreur.error.message);
+                    }
+
+
                 }
             }
 
@@ -196,6 +209,7 @@ class LevelError
     public Error error;
 }
 
+[Serializable]
 class Error
 {
     public int code;

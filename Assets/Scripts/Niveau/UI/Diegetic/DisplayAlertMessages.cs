@@ -8,7 +8,6 @@ public class DisplayAlertMessages : MonoBehaviour
 
     private void Start() {
         if (errorMessagePanel) staticErrorMessagePanel = errorMessagePanel;
-        else                   enabled = false;
     }
 
     public static void DisplayMessage(string message)
