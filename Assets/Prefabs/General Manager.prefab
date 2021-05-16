@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &876125524197980204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 876125524197980206}
+  - component: {fileID: 876125524197980207}
+  - component: {fileID: 876125524197980193}
+  m_Layer: 0
+  m_Name: General Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &876125524197980206
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876125524197980204}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &876125524197980207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876125524197980204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba894f2326b519458b537fc27f8a6ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storyLevelsName:
+  - testPierre
+  - testPierre
+  - testbug
+  - testbug2
+  - testEditErase
+  - testLocal
+  - testMemoryLeak
+  - Recharge
+  fpsLimit: 90
+  levelToReachToUnlockLevelCreation: 3
+  editionsButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  continueButton: {fileID: 0}
+--- !u!114 &876125524197980193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876125524197980204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf4a0501d919ea4ca09593badc2d291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  errorMessagePanel: {fileID: 3883596340692684331, guid: bc5ce81cbb76d8d4d9e3c80097fc8291,
+    type: 3}

@@ -16,7 +16,8 @@ public class DataBaseRequest : MonoBehaviour
     [SerializeField] string deleteLevel_phpFunctionName;
     [SerializeField] string filtering_phpFunctionName;
 
-    [SerializeField] GameObject filterByName;
+    [SerializeField] GameObject filterByName, loadingImage_prefab;
+    GameObject loadingImage_instance;
 
     private void Start()
     {
@@ -25,6 +26,7 @@ public class DataBaseRequest : MonoBehaviour
         if (!GeneralManager.isComingFromDatabaseLevelsChoice) GeneralManager.isComingFromDatabaseLevelsChoice = true;
 
         //filterByName.SetActive(true);
+        Debug.Log("coucou");
         DisplayAllLevels();
     }
 
@@ -41,7 +43,9 @@ public class DataBaseRequest : MonoBehaviour
 
             UnityWebRequest aaa = UnityWebRequest.Post(url, formData);
 
+            DisplayLoadingImage();
             yield return www.SendWebRequest();
+            Destroy(loadingImage_instance);
 
             if (www.result == UnityWebRequest.Result.ConnectionError) Debug.LogWarning(www.error);
 
@@ -82,15 +86,16 @@ public class DataBaseRequest : MonoBehaviour
 
             UnityWebRequest aaa = UnityWebRequest.Post(url, formData);
 
+            DisplayLoadingImage();
             yield return www.SendWebRequest();
+            Destroy(loadingImage_instance);
 
-            if (www.result == UnityWebRequest.Result.ConnectionError) Debug.LogWarning(www.error);
+            if (www.result == UnityWebRequest.Result.ConnectionError) DisplayAlertMessages.DisplayMessage(www.error);
 
             if (www.isDone)
             {
                 string jsonResult = System.Text.Encoding.UTF8.GetString(www.downloadHandler.data);
 
-                Debug.Log(jsonResult);
                 JsonLevelsResponse response = JsonUtility.FromJson<JsonLevelsResponse>(jsonResult);
 
                 DisplayLevelManager.levelsToDisplay.Clear();
@@ -107,10 +112,16 @@ public class DataBaseRequest : MonoBehaviour
         GetComponent<DisplayLevelManager>().f_DisplayLevels();
     }
 
+    private void DisplayLoadingImage()
+    {
+        loadingImage_instance = Instantiate(loadingImage_prefab);
+        loadingImage_instance.name = "Loading Image";
+        loadingImage_instance.transform.SetParent(GameObject.Find("Display Levels Parent").transform, false);
+        loadingImage_instance.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+    }
+
     public IEnumerator DeleteLevel(string levelName)
     {
-        Debug.Log(url + deleteLevel_phpFunctionName + "&levelName=" + levelName);
-
         using (UnityWebRequest www = UnityWebRequest.Get(url + deleteLevel_phpFunctionName + "&levelName=" + levelName))
         {
             List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
@@ -118,7 +129,9 @@ public class DataBaseRequest : MonoBehaviour
 
             UnityWebRequest aaa = UnityWebRequest.Post(url, formData);
 
+            DisplayLoadingImage();
             yield return www.SendWebRequest();
+            Destroy(loadingImage_instance);
 
             if (www.result == UnityWebRequest.Result.ConnectionError) Debug.LogWarning(www.error);
 
@@ -136,8 +149,6 @@ public class DataBaseRequest : MonoBehaviour
     {
         string query = GameObject.Find("Game Manager").GetComponent<QueryManager>().CreateQuery();
 
-        Debug.Log(query);
-
         WWWForm form = new WWWForm();
         form.AddField("sqlQuery", query);
 
@@ -145,7 +156,9 @@ public class DataBaseRequest : MonoBehaviour
         {
             www.downloadHandler = new DownloadHandlerBuffer();
 
+            DisplayLoadingImage();
             yield return www.SendWebRequest();
+            Destroy(loadingImage_instance);
 
             if (www.result != UnityWebRequest.Result.Success)
             {
@@ -153,13 +166,9 @@ public class DataBaseRequest : MonoBehaviour
             }
             else
             {
-                string responseText = www.downloadHandler.text;
-                //Debug.Log(responseText);
-
                 if (www.isDone)
                 {
                     string jsonResult = System.Text.Encoding.UTF8.GetString(www.downloadHandler.data);
-                    //Debug.Log(jsonResult);
 
                     JsonLevelsResponse response = JsonUtility.FromJson<JsonLevelsResponse>(jsonResult);
 
@@ -177,17 +186,11 @@ public class DataBaseRequest : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log(jsonResult);
                         LevelError erreur = JsonUtility.FromJson<LevelError>(jsonResult);
-                        Debug.Log(erreur.error.message);
                         DisplayAlertMessages.DisplayMessage(erreur.error.message);
                     }
-
-
                 }
             }
-
-
         }
 
         GetComponent<DisplayLevelManager>().EraseAllLevelsDisplayed();

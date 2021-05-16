@@ -52,9 +52,7 @@ public class SaveLoadLevelData : MonoBehaviour
         }
 
         levelToSave.creationDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-
         GiveValueToObjectContained();
-
         levelToSave_json = JsonUtility.ToJson(levelToSave, true);
 
         Debug.Log(levelToSave_json);

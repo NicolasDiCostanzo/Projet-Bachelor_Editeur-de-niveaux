@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -12,6 +13,7 @@ public class GeneralManager : MonoBehaviour
 
     [SerializeField] int fpsLimit, levelToReachToUnlockLevelCreation;
     [SerializeField] List<GameObject> editionsButtons = new List<GameObject>();
+    [SerializeField] GameObject continueButton;
 
     //Variables pour scène "Niveau"
     public static bool isInStoryMode, isInBuildMode, isComingFromDatabaseLevelsChoice, isComingFromLocalLevelsChoice, editionUnlocked;
@@ -24,16 +26,15 @@ public class GeneralManager : MonoBehaviour
 
     public static GeneralManager _instance;
 
-    private void Start()
+    void Start()
     {
-        //if (_instance != null && _instance != this)
-        //{
-        //    DestroyImmediate(gameObject);
-        //    Debug.Log("détruit");
-        //    return;
-        //}
+        if (_instance != null && _instance != this)
+        {
+            DestroyImmediate(gameObject);
+            return;
+        }
 
-        //_instance = this;
+        _instance = this;
 
         DontDestroyOnLoad(gameObject);
 
@@ -49,7 +50,7 @@ public class GeneralManager : MonoBehaviour
         LoadBinaryData();
     }
 
-    public void SetNewGame(bool newGameValue)
+    public static void SetNewGame(bool newGameValue)
     {
         newGame = newGameValue;
     }
@@ -65,12 +66,14 @@ public class GeneralManager : MonoBehaviour
         GameData gameData = SaveSystem.GetBinarySavedData();
         levelReached = gameData.levelReached;
 
+        if (levelReached > 0) continueButton.transform.GetComponent<Button>().interactable = true;
+
         editionUnlocked = gameData.editionUnlocked;
 
         if (!gameData.editionUnlocked) UnlockEditionButtons();
     }
 
-    private void UnlockEditionButtons()
+    void UnlockEditionButtons()
     {
         foreach (GameObject go in editionsButtons)
             go.transform.GetComponent<UnityEngine.UI.Button>().interactable = false;
@@ -92,7 +95,7 @@ public class GeneralManager : MonoBehaviour
         isComingFromLocalLevelsChoice = false;
     }
 
-    public void SetIsComingFromDatabaseLevelChoiceToTrue()
+    public static void SetIsComingFromDatabaseLevelChoiceToTrue()
     {
         isInStoryMode = false;
         isInBuildMode = false;
@@ -100,7 +103,7 @@ public class GeneralManager : MonoBehaviour
         isComingFromLocalLevelsChoice = false;
     }
 
-    public void SetIsComingFromLocalLevelChoiceToTrue()
+    public static void SetIsComingFromLocalLevelChoiceToTrue()
     {
         isInStoryMode = false;
         isInBuildMode = false;
@@ -108,14 +111,12 @@ public class GeneralManager : MonoBehaviour
         isComingFromLocalLevelsChoice = true;       //TRUE
     }
 
-    public void QuitApp()
+    public static void QuitApp()
     {
-        {
 #if UNITY_EDITOR
             EditorApplication.isPlaying = false;
 #else
 		    Application.Quit();
 #endif
-        }
     }
 }

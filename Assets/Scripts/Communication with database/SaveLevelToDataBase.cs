@@ -53,22 +53,12 @@ public class SaveLevelToDataBase : MonoBehaviour
             else
             {
                 string responseText = www.downloadHandler.text;
-                Debug.Log(responseText);
                 LevelError response = JsonUtility.FromJson<LevelError>(responseText);
 
-                Debug.Log(response.success);
-                Debug.Log(response.error.code);
-                Debug.Log(response.error.message);
-
                 if (!response.success)
-                {
                     DisplayAlertMessages.DisplayMessage(response.error.message);
-
-                }
                 else
-                {
                     DisplayAlertMessages.DisplayMessage("Niveau enregistré ! :D");
-                }
 
             }
         }

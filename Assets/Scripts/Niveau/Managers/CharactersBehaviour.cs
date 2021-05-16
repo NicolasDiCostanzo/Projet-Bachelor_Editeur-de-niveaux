@@ -47,7 +47,7 @@ public class CharactersBehaviour : MonoBehaviour
         if (transform.parent.GetComponent<BoxDatas>().box.type == LevelBoardBoxType.Witch || transform.parent.GetComponent<BoxDatas>().box.type == LevelBoardBoxType.Player) transform.parent.GetComponent<BoxDatas>().box.type = LevelBoardBoxType.None;
         int objectIndex = (int)(transform.position.x + (characPos.z * GameManager.level.w));
 
-        transform.parent = movementManager_script.board.GetChild(objectIndex).transform;
+        if(transform.parent && movementManager_script != null) transform.parent = movementManager_script.board.GetChild(objectIndex).transform;
     }
 
     public void Die(LevelBoardBoxType boxType)

@@ -323,6 +323,7 @@
 "Assets/Scripts/Communication with database/WindowButtonBehavior.cs"
 "Assets/Scripts/Display levels/DeactiveLevelsDataEditButton.cs"
 "Assets/Scripts/Display levels/DeleteLevel.cs"
+"Assets/Scripts/Display levels/DisplayFilter.cs"
 "Assets/Scripts/Display levels/DisplayLevelManager.cs"
 "Assets/Scripts/Display levels/QueryManager.cs"
 "Assets/Scripts/Display levels/WindowConstructor.cs"

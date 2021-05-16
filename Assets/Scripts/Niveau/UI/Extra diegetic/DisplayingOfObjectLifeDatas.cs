@@ -30,7 +30,7 @@ public class DisplayingOfObjectLifeDatas : MonoBehaviour
 
 
 
-    private void OnMouseEnter() { mouseInOn = true; }
+    private void OnMouseEnter() { if(GameManager.state == State.Build) mouseInOn = true; }
 
     private void OnMouseExit() { HidePanel(); }
 

@@ -126,6 +126,7 @@ isInBuildMode = true;
     private void OnDisable() { 
         if(level != null) EraseLevel(level);
         GeneralManager.sceneNameToLoad = "";
+        level.isInDarkMode = false;
     }
 
     public void ToggleDarkMode() { level.isInDarkMode = GameObject.Find("DarkMode_toggle").GetComponent<Toggle>().isOn; }
