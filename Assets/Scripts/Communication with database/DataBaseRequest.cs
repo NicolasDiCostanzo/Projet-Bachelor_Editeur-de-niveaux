@@ -26,7 +26,6 @@ public class DataBaseRequest : MonoBehaviour
         if (!GeneralManager.isComingFromDatabaseLevelsChoice) GeneralManager.isComingFromDatabaseLevelsChoice = true;
 
         //filterByName.SetActive(true);
-        Debug.Log("coucou");
         DisplayAllLevels();
     }
 
@@ -45,7 +44,7 @@ public class DataBaseRequest : MonoBehaviour
 
             DisplayLoadingImage();
             yield return www.SendWebRequest();
-            Destroy(loadingImage_instance);
+            DestroyLoadingImage();
 
             if (www.result == UnityWebRequest.Result.ConnectionError) Debug.LogWarning(www.error);
 
@@ -88,7 +87,7 @@ public class DataBaseRequest : MonoBehaviour
 
             DisplayLoadingImage();
             yield return www.SendWebRequest();
-            Destroy(loadingImage_instance);
+            DestroyLoadingImage();
 
             if (www.result == UnityWebRequest.Result.ConnectionError) DisplayAlertMessages.DisplayMessage(www.error);
 
@@ -112,7 +111,7 @@ public class DataBaseRequest : MonoBehaviour
         GetComponent<DisplayLevelManager>().f_DisplayLevels();
     }
 
-    private void DisplayLoadingImage()
+    void DisplayLoadingImage()
     {
         loadingImage_instance = Instantiate(loadingImage_prefab);
         loadingImage_instance.name = "Loading Image";
@@ -120,18 +119,26 @@ public class DataBaseRequest : MonoBehaviour
         loadingImage_instance.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
     }
 
+    void DestroyLoadingImage()
+    {
+        Destroy(loadingImage_instance);
+        loadingImage_instance = null;
+    }
+
     public IEnumerator DeleteLevel(string levelName)
     {
+    //Adresse passée en paramètre de UnityWebRequest.Get :
+    //http://nicolasdicostanzo.atwebpages.com/levelEditor/webservice/database_queries.php?functionToCall=Delete&levelName= + nom du niveau
+
         using (UnityWebRequest www = UnityWebRequest.Get(url + deleteLevel_phpFunctionName + "&levelName=" + levelName))
         {
             List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
-            formData.Add(new MultipartFormDataSection("field1=foo&field2=bar"));
 
             UnityWebRequest aaa = UnityWebRequest.Post(url, formData);
 
             DisplayLoadingImage();
             yield return www.SendWebRequest();
-            Destroy(loadingImage_instance);
+            DestroyLoadingImage();
 
             if (www.result == UnityWebRequest.Result.ConnectionError) Debug.LogWarning(www.error);
 
@@ -158,7 +165,7 @@ public class DataBaseRequest : MonoBehaviour
 
             DisplayLoadingImage();
             yield return www.SendWebRequest();
-            Destroy(loadingImage_instance);
+            DestroyLoadingImage();
 
             if (www.result != UnityWebRequest.Result.Success)
             {

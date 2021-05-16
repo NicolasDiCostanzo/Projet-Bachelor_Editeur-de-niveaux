@@ -1,3 +1,4 @@
+using System.Collections;
 using System.IO;
 using UnityEngine;
 
@@ -18,12 +19,17 @@ public class DeleteLevel : MonoBehaviour
         //}
     }
 
-    public void EraseLocallySavedLevel()
+    public void DeleteLevel_PublicTransport()
+    {
+        StartCoroutine(f_DeleteLevel());
+    }
+
+    public IEnumerator f_DeleteLevel()
     {
         string levelName = GetComponentInParent<WindowConstructor>().levelName;
 
         if (!GeneralManager.isComingFromLocalLevelsChoice)
-            StartCoroutine(GameObject.Find("Game Manager").GetComponent<DataBaseRequest>().DeleteLevel(levelName));
+            yield return StartCoroutine(GameObject.Find("Game Manager").GetComponent<DataBaseRequest>().DeleteLevel(levelName));
         else
         {
             File.Delete(locallySavedLevelsPath + levelName + ".txt");

@@ -87,7 +87,7 @@
     <Compile Include="Assets\Scripts\Niveau\Divers\CustomizeObjectLife.cs" />
     <Compile Include="Assets\Scripts\Niveau\Divers\Teleport\Link_TpIN_to_TpOUT.cs" />
     <Compile Include="Assets\Scripts\Niveau\UI\TestLevelAppearance.cs" />
-    <Compile Include="Assets\Scripts\Display levels\DisplayFilter.cs" />
+    <Compile Include="Assets\Scripts\Display levels\OnlyForDatabaseDisplaying.cs" />
     <Compile Include="Assets\Scripts\Niveau\Save_Load\LoadLevel.cs" />
     <Compile Include="Assets\Scripts\Niveau\Managers\BoxDatas.cs" />
     <Compile Include="Assets\Scripts\Display levels\QueryManager.cs" />

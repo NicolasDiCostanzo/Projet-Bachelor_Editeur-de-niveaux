@@ -40,14 +40,6 @@ public class BuildManager : MonoBehaviour
 
             return newGo;
         }
-        else if (box.childCount > 0)
-        {
-            //Debug.LogWarning("Cette case contient déjà un objet...");
-        }
-        else if (boxType == LevelBoardBoxType.None)
-        {
-            //Debug.LogWarning("Aucun objet sélectionné...");
-        }
 
         return null;
     }

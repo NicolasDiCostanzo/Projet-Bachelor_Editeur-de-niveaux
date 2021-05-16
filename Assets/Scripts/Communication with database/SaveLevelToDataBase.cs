@@ -1,9 +1,7 @@
 using System.Collections;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
-using System;
-using UnityEngine.UI;
-using System.IO;
 
 public class SaveLevelToDataBase : MonoBehaviour
 {
@@ -48,7 +46,7 @@ public class SaveLevelToDataBase : MonoBehaviour
 
             if (www.result != UnityWebRequest.Result.Success)
             {
-                DisplayAlertMessages.DisplayMessage("Error: "  + www.error);
+                DisplayAlertMessages.DisplayMessage("Error: " + www.error);
             }
             else
             {

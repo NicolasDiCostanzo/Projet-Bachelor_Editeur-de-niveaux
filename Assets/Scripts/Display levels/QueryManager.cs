@@ -23,23 +23,21 @@ public class QueryManager : MonoBehaviour
     [SerializeField] Toggle maxTour;
     [SerializeField] Text maxNb;
 
-
-    bool trapFiltered;
     string req;
-    bool alreadyFiltered;
+
+    bool trapHasAlreadyBeenFiltered;
+    bool filterAlreadyApplied;
 
     public string CreateQuery()
     {
         req = "SELECT * FROM `Level`";
-        trapFiltered = false;
-        alreadyFiltered = false;
-
+        trapHasAlreadyBeenFiltered = false;
+        filterAlreadyApplied = false;
 
         //TRAPS FILTERS
         if (trap.isOn || tree.isOn || teleport.isOn)
         {
-
-                alreadyFiltered = true;
+                filterAlreadyApplied = true;
 
                 req += " WHERE traps LIKE";
 
@@ -48,16 +46,15 @@ public class QueryManager : MonoBehaviour
                 if (teleport.isOn) FilterTrap("teleport");
         }
 
-
         //NIGHT FILTER
         if (nightLevel.value == 1 || nightLevel.value == 2)
         {
-            if (alreadyFiltered) req += " AND";
+            if (filterAlreadyApplied) req += " AND";
             else req += " WHERE";
 
             req += " nightLevel = " + (nightLevel.value - 1).ToString();
 
-            alreadyFiltered = true;
+            filterAlreadyApplied = true;
         }
 
         string req2 = req;
@@ -65,22 +62,22 @@ public class QueryManager : MonoBehaviour
         //TOUR NB FILTERS
         if (minTour.isOn)
         {
-            if (alreadyFiltered) req += " AND";
+            if (filterAlreadyApplied) req += " AND";
             else req += " WHERE";
 
             req += " max_turns >= " + minNb.text;
 
-            alreadyFiltered = true;
+            filterAlreadyApplied = true;
         }
 
         if (maxTour.isOn)
         {
-            if (alreadyFiltered) req += " AND";
+            if (filterAlreadyApplied) req += " AND";
             else req += " WHERE";
 
             req += " max_turns <= " + maxNb.text + " AND max_turns != 0";
 
-            alreadyFiltered = true;
+            filterAlreadyApplied = true;
         }
 
         if (minTour.isOn && !maxTour.isOn) 
@@ -102,10 +99,10 @@ public class QueryManager : MonoBehaviour
     {
         string toAdd = " '%" + a_trapFilterName + "%'";
 
-        if (!trapFiltered)
+        if (!trapHasAlreadyBeenFiltered)
         {
             req += toAdd;
-            trapFiltered = true;
+            trapHasAlreadyBeenFiltered = true;
         }
         else
         {

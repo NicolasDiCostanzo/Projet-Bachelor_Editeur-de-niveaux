@@ -1550,7 +1550,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4939551102633792494}
         m_TargetAssemblyTypeName: DeleteLevel, Assembly-CSharp
-        m_MethodName: EraseLocallySavedLevel
+        m_MethodName: DeleteLevel_PublicTransport
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
