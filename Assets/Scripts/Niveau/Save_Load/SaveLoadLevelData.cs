@@ -55,7 +55,7 @@ public class SaveLoadLevelData : MonoBehaviour
         GiveValueToObjectContained();
         levelToSave_json = JsonUtility.ToJson(levelToSave, true);
 
-        Debug.Log(levelToSave_json);
+        //Debug.Log(levelToSave_json);
     }
 
     public void SaveLevelNameToLevelStructure()

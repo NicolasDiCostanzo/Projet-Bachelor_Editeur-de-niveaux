@@ -134,6 +134,7 @@ public class MovementManager : MonoBehaviour
         }
 
         if (isOnTree(playerCoordonates)) playerBehavioursScript.Die(LevelBoardBoxType.Tree);
+        if (isOnTree(witchCoordonates)) witchBehavioursScript.Die(LevelBoardBoxType.Tree);
 
         if (GameManager.level.isInDarkMode)
             LightManagement.ToggleLight(isOnLamp(playerCoordonates));

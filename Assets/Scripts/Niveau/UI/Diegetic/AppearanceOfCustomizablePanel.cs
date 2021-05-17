@@ -28,7 +28,16 @@ public class AppearanceOfCustomizablePanel : MonoBehaviour
                 customisationPanel.transform.position = panelAnchorPos;
                 customisationPanel.GetComponent<LinkedGameObject>().linkedGameObject = gameObject;
 
-                GameObject.Find("Cancel_btn").GetComponent<Button>().interactable = gameObject.GetComponent<ObjectBlinking>().isActiveAndEnabled || gameObject.GetComponent<CustomizeObjectLife>().isActiveAndEnabled;
+
+
+                GameObject defineBlinkingPanel = customisationPanel.transform.GetChild(4).gameObject;
+                GameObject customCreationPanel = customisationPanel.transform.GetChild(5).gameObject;
+
+                if (defineBlinkingPanel.activeInHierarchy) defineBlinkingPanel.SetActive(false);
+                if (customCreationPanel.activeInHierarchy) customCreationPanel.SetActive(false);
+
+                GameObject.Find("Cancel_btn").GetComponent<Button>().interactable = gameObject.GetComponent<ObjectBlinking>().isActiveAndEnabled 
+                    || gameObject.GetComponent<CustomizeObjectLife>().isActiveAndEnabled;
             }
         }
     }

@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 22279364}
   - component: {fileID: 22279366}
   - component: {fileID: 22279365}
+  - component: {fileID: 22279367}
   m_Layer: 5
   m_Name: DefineBlinking_Panel
   m_TagString: Untagged
@@ -204,6 +205,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22279363}
   m_CullTransparentMesh: 0
+--- !u!114 &22279367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22279363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17479592a4ec81a47890065c72574b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputField: {fileID: 510363061}
+  dropdown: {fileID: 1333289754}
 --- !u!1 &26003024
 GameObject:
   m_ObjectHideFlags: 0
@@ -9307,7 +9322,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7772194, y: 1}
+    m_SensorSize: {x: 1.7785978, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -12885,7 +12900,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7772194, y: 1}
+    m_SensorSize: {x: 1.7785978, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -14360,6 +14375,7 @@ GameObject:
   - component: {fileID: 1317389683}
   - component: {fileID: 1317389685}
   - component: {fileID: 1317389684}
+  - component: {fileID: 1317389686}
   m_Layer: 5
   m_Name: CustomCreation_Panel
   m_TagString: Untagged
@@ -14428,6 +14444,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317389682}
   m_CullTransparentMesh: 0
+--- !u!114 &1317389686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317389682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff76958431ae7848bc47bda572b0dec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildAt_if: {fileID: 1907015411}
+  destroyAt_if: {fileID: 1858606835}
 --- !u!1001 &1331285997
 PrefabInstance:
   m_ObjectHideFlags: 0

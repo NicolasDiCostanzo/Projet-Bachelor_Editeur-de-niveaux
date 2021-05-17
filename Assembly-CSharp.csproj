@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Communication with database\SaveLevelToDataBase.cs" />
     <Compile Include="Assets\Scripts\Niveau\Managers\MovementManager.cs" />
     <Compile Include="Assets\Scripts\Niveau\UI\Not used\ScrollingTurns.cs" />
+    <Compile Include="Assets\CustomisationPanelDefaultValues.cs" />
     <Compile Include="Assets\Scripts\Display levels\WindowConstructor.cs" />
     <Compile Include="Assets\Scripts\Niveau\UI\Extra diegetic\ControlWinPanelAnimation.cs" />
     <Compile Include="Assets\Scripts\Niveau\States\SwitchState.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Assets\Scripts\Niveau\Divers\ObjectBlinking.cs" />
     <Compile Include="Assets\Scripts\Niveau\UI\Extra diegetic\SaveButtonManagement.cs" />
     <Compile Include="Assets\Scripts\Niveau\UI\Diegetic\DisplayAlertMessages.cs" />
+    <Compile Include="Assets\CustomisationPanelDefaultBlinkingValues.cs" />
     <Compile Include="Assets\Memo.cs" />
     <Compile Include="Assets\Scripts\Niveau\UI\Extra diegetic\DisplayingOfObjectLifeDatas.cs" />
     <Compile Include="Assets\Scripts\Niveau\Divers\CustomizeObjectLife.cs" />

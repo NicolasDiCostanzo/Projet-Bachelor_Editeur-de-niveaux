@@ -28,16 +28,18 @@ public class LightManagement : MonoBehaviour
 
     public static void ToggleItemsRendering(bool hasToBeRendered)
     {
-        if(squares.transform.childCount > 0)
+        if (squares)
         {
-            for (int i = 0; i < squares.transform.childCount; i++)
+            if (squares.transform.childCount > 0)
             {
-                GameObject square = squares.transform.GetChild(i).gameObject;
+                for (int i = 0; i < squares.transform.childCount; i++)
+                {
+                    GameObject square = squares.transform.GetChild(i).gameObject;
 
-                if (square.GetComponent<BoxDatas>().box.type == LevelBoardBoxType.Trap || square.GetComponent<BoxDatas>().box.type == LevelBoardBoxType.Tree)
-                    if(square.transform.childCount > 0) square.transform.GetChild(0).GetComponent<Renderer>().enabled = hasToBeRendered;
+                    if (square.GetComponent<BoxDatas>().box.type == LevelBoardBoxType.Trap || square.GetComponent<BoxDatas>().box.type == LevelBoardBoxType.Tree)
+                        if (square.transform.childCount > 0) square.transform.GetChild(0).GetComponent<Renderer>().enabled = hasToBeRendered;
+                }
             }
         }
-
     }
 }

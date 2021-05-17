@@ -275,7 +275,8 @@ isInBuildMode = true;
         }
     }
 
-    //On ne peut pas appeler la coroutine directement depuis le script 'CharactersBehaviour' puisque ce script est détruit quand on appelle 'EraseLevel'. On passe donc par une fonction intermédiaire qui, elle, n'est jamais détruite
+    //On ne peut pas appeler la coroutine directement depuis le script 'CharactersBehaviour' puisque ce script est détruit quand on appelle 'EraseLevel'. On passe donc par une fonction intermédiaire qui
+    //n'est jamais détruite
     public void LevelLost() { StartCoroutine(LevelTransition()); }
 
     void WhenCompleteLocallySavedLevel()
