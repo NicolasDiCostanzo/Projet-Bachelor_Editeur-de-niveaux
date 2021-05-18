@@ -34,18 +34,21 @@ public class WindowConstructor : MonoBehaviour, IPointerEnterHandler, IPointerEx
         levelName = level.levelName;
         maxTurnsTMP.text = level.nbTurns.ToString();
 
-        levelNameTMP.text = levelName; 
+        levelNameTMP.text = levelName;
+        level.creatorName = a_level.creatorName;
 
         imagesParent = gameObject.transform.Find("Images").gameObject.transform;
-        //creationDateTMP.text = DateParsed(level.creationDate);
+        creationDateTMP.text = DateParsed(level.creationDate);
         json = JsonUtility.ToJson(level, true);
 
         Button button = GetComponentInChildren<Button>();
 
-        if (GeneralManager.isComingFromDatabaseLevelsChoice)   button.GetComponentInChildren<TextMeshProUGUI>().text = "Download";
+        if (GeneralManager.isComingFromDatabaseLevelsChoice) button.GetComponentInChildren<TextMeshProUGUI>().text = "Download";
         else if (GeneralManager.isComingFromLocalLevelsChoice) button.GetComponentInChildren<TextMeshProUGUI>().text = "Play";
 
-        if (level.isInDarkMode) GetComponent<Image>().color = new Color(0,0,0, GetComponent<Image>().color.a);
+        if (level.isInDarkMode) GetComponent<Image>().color = new Color(0, 0, 0, GetComponent<Image>().color.a);
+
+        if ((level.creatorName != Environment.UserName) && GeneralManager.isComingFromDatabaseLevelsChoice) transform.GetChild(1).gameObject.SetActive(false);
 
         DisplayImages();
     }
@@ -78,15 +81,17 @@ public class WindowConstructor : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     string DateParsed(string a_date)
     {
+        string tempDate = a_date;
+
         string[] charsToRemove = new string[] { "‘", "’"};
-        a_date = a_date.Replace("T", "\nTime: ");
 
-        a_date = a_date.Replace("-", "/");
+        tempDate = tempDate.Replace("T", "\nTime: ").Replace("-", "/");
 
-        foreach (string c in charsToRemove)
-            a_date = a_date.Replace(c, string.Empty);
+        foreach (string c in charsToRemove) tempDate = tempDate.Replace(c, string.Empty);
 
-        return a_date;
+        if(GeneralManager.isComingFromDatabaseLevelsChoice) tempDate = tempDate.Substring(0, tempDate.Length - 7);
+
+        return tempDate;
     }
 
     public void OnPointerEnter(PointerEventData eventData) { if(level.description != null) DisplayLevelManager.descriptionTMP.text = level.description; }

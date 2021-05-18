@@ -96,7 +96,6 @@ public class DataBaseRequest : MonoBehaviour
                 string jsonResult = System.Text.Encoding.UTF8.GetString(www.downloadHandler.data);
 
                 JsonLevelsResponse response = JsonUtility.FromJson<JsonLevelsResponse>(jsonResult);
-
                 DisplayLevelManager.levelsToDisplay.Clear();
 
                 for (int i = 0; i < response.data.Count; i++)

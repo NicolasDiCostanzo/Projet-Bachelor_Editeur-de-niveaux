@@ -10,8 +10,6 @@ public class DisplayLocallySavedLevels : MonoBehaviour
         string directory = SaveLoadLevelData.directoryDownloadedLevels;
         string path = Application.persistentDataPath + directory;
 
-        Debug.Log(path);
-
         if (Directory.Exists(path))
         {
             foreach (string file in Directory.GetFiles(path))
@@ -25,6 +23,7 @@ public class DisplayLocallySavedLevels : MonoBehaviour
             }
 
             GetComponent<DisplayLevelManager>().f_DisplayLevels();
+
         }
     }
 }

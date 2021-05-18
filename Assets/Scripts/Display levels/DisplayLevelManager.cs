@@ -40,7 +40,6 @@ public class DisplayLevelManager : MonoBehaviour
                 GameObject windowInstance = Instantiate(window, windowsParent.transform);
                 windows.Add(windowInstance);
                 windowInstance.name = "Level data " + (i + 1);
-
                 windowInstance.GetComponent<WindowConstructor>().CreateWindow(newLevel);
             }
         }

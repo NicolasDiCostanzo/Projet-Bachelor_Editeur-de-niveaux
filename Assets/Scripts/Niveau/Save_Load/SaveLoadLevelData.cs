@@ -44,25 +44,24 @@ public class SaveLoadLevelData : MonoBehaviour
 
             boxDatas.index = i;
 
-            if (box.transform.childCount == 1 && box.transform.GetChild(0).name == "Player")     boxDatas.type = LevelBoardBoxType.Player;
+            if (box.transform.childCount == 1 && box.transform.GetChild(0).name == "Player") boxDatas.type = LevelBoardBoxType.Player;
             else if (box.transform.childCount == 1 && box.transform.GetChild(0).name == "Witch") boxDatas.type = LevelBoardBoxType.Witch;
 
-            //if(boxDatas.type != LevelBoardBoxType.None) Debug.Log(boxDatas.type);
             levelToSave.boxes.Add(boxDatas);
         }
 
         levelToSave.creationDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+
         GiveValueToObjectContained();
         levelToSave_json = JsonUtility.ToJson(levelToSave, true);
 
-        //Debug.Log(levelToSave_json);
     }
 
     public void SaveLevelNameToLevelStructure()
     {
         string _levelName = GameObject.Find("LevelName_InputField").GetComponent<InputField>().text;
 
-        if(_levelName != null && _levelName != "") levelToSave.levelName = _levelName;
+        if (_levelName != null && _levelName != "") levelToSave.levelName = _levelName;
     }
 
     void GiveValueToObjectContained()
