@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject descriptionGO;
     [SerializeField] GameObject clueGO;
 
+    public static bool canBuild = true;
+
     public List<Level> levels;
 
     public int w;
@@ -129,6 +131,8 @@ isInBuildMode = true;
         level.isInDarkMode = false;
     }
 
+    public void SetCanBuildValue(bool a_canBuild) { canBuild = a_canBuild; }
+
     public void ToggleDarkMode() { level.isInDarkMode = GameObject.Find("DarkMode_toggle").GetComponent<Toggle>().isOn; }
 
     void StartInBuildMode()
@@ -148,6 +152,8 @@ isInBuildMode = true;
 
     public void CreateLevel(Level level)
     {
+        Debug.Log("create level");
+
         alreadyDied = false;
         currentTurn = 0;
 

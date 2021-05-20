@@ -13,7 +13,6 @@ public class GeneralManager : MonoBehaviour
 
     [SerializeField] int fpsLimit, levelToReachToUnlockLevelCreation;
     [SerializeField] List<GameObject> editionsButtons = new List<GameObject>();
-    [SerializeField] GameObject continueButton;
 
     //Variables pour scène "Niveau"
     public static bool isInStoryMode, isInBuildMode, isComingFromDatabaseLevelsChoice, isComingFromLocalLevelsChoice, editionUnlocked;
@@ -47,6 +46,7 @@ public class GeneralManager : MonoBehaviour
 
         _levelToReachToUnlockLevelCreation = levelToReachToUnlockLevelCreation;
 
+        SetEditionsButtons();
         LoadBinaryData();
     }
 
@@ -66,11 +66,14 @@ public class GeneralManager : MonoBehaviour
         GameData gameData = SaveSystem.GetBinarySavedData();
         levelReached = gameData.levelReached;
 
-        if (levelReached > 0) continueButton.transform.GetComponent<Button>().interactable = true;
-
         editionUnlocked = gameData.editionUnlocked;
 
         if (!gameData.editionUnlocked) UnlockEditionButtons();
+    }
+
+    void SetEditionsButtons()
+    {
+        editionsButtons.Add(GameObject.Find("Level editor").gameObject);
     }
 
     void UnlockEditionButtons()

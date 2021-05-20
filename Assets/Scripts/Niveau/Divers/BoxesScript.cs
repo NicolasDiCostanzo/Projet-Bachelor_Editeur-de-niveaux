@@ -7,7 +7,6 @@ public class BoxesScript : MonoBehaviour
     public Color startColor;
 
     private Renderer rend;
-    GameManager _GM;
     BuildManager _BM;
 
     [SerializeField] Vector3 offset;
@@ -17,7 +16,6 @@ public class BoxesScript : MonoBehaviour
     void Start()
     {
         GameObject gameManagerGO = GameObject.Find("Game Manager");
-        _GM = gameManagerGO.GetComponent<GameManager>();
         _BM = gameManagerGO.GetComponent<BuildManager>();
 
         //Mémorisation de l'index de la case
@@ -31,7 +29,7 @@ public class BoxesScript : MonoBehaviour
     private void Update()
     {
         //Destruction d'objets
-        if (GameManager.state == State.Build)
+        if (GameManager.state == State.Build && GameManager.canBuild)
         {
             Ray ray;
             RaycastHit hit;
@@ -56,7 +54,7 @@ public class BoxesScript : MonoBehaviour
     //Changement couleur case quand la souris la survole
     private void OnMouseOver()
     {
-        if (GameManager.state == State.Build) rend.material.color = overColor;
+        if (GameManager.state == State.Build && GameManager.canBuild) rend.material.color = overColor;
     }
 
     //Case reprend sa couleur originale quand la souris ne la survole plus
@@ -68,7 +66,7 @@ public class BoxesScript : MonoBehaviour
     private void OnMouseDown()
     {
         //Création d'objet
-        if (GameManager.state == State.Build)
+        if (GameManager.state == State.Build && GameManager.canBuild)
         {
             if (Input.GetMouseButtonDown(0)) _BM.CreateObject(UI_Manager.selectedObject, transform);//_BM.CreateObject(transform, boxIndex, -1);
         }

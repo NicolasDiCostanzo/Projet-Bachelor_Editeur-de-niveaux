@@ -1539,6 +1539,7 @@ GameObject:
   - component: {fileID: 804629379}
   - component: {fileID: 804629378}
   - component: {fileID: 804629377}
+  - component: {fileID: 804629380}
   m_Layer: 5
   m_Name: Level editor
   m_TagString: Untagged
@@ -1672,6 +1673,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804629375}
   m_CullTransparentMesh: 0
+--- !u!114 &804629380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804629375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c39993f20d4384ba9ae80f10bc05da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &889047997
 GameObject:
   m_ObjectHideFlags: 0
@@ -4912,6 +4925,7 @@ GameObject:
   - component: {fileID: 2107419364}
   - component: {fileID: 2107419363}
   - component: {fileID: 2107419362}
+  - component: {fileID: 2107419365}
   m_Layer: 5
   m_Name: Continue
   m_TagString: Untagged
@@ -5057,6 +5071,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107419360}
   m_CullTransparentMesh: 0
+--- !u!114 &2107419365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107419360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25e983e9fb89dfa4aa8d2d5767806044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &876125524619185273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5064,6 +5090,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 876125524197980193, guid: 29cf98da1347c5e45a14a9dfa91edd3d,
+        type: 3}
+      propertyPath: errorMessagePanel
+      value: 
+      objectReference: {fileID: 4338548620959958252, guid: f8012e1240a329e47843b8aacab2c76f,
+        type: 3}
     - target: {fileID: 876125524197980204, guid: 29cf98da1347c5e45a14a9dfa91edd3d,
         type: 3}
       propertyPath: m_Name

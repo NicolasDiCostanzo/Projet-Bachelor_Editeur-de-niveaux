@@ -45,7 +45,7 @@ public class DisplayLevelManager : MonoBehaviour
         }
         else
         {
-            DisplayAlertMessages.DisplayMessage("No level stored");
+            DisplayAlertMessages.DisplayMessage("No level");
         }
 
         ReinitData();

@@ -6,18 +6,27 @@ public class DisplayAlertMessages : MonoBehaviour
     [SerializeField] public GameObject errorMessagePanel;
     public static GameObject staticErrorMessagePanel;
 
-    private void Start() {
+    private void Start()
+    {
         if (errorMessagePanel) staticErrorMessagePanel = errorMessagePanel;
     }
 
     public static void DisplayMessage(string message)
     {
+
         if (staticErrorMessagePanel)
         {
             GameObject messagePanel = Instantiate(staticErrorMessagePanel);
             messagePanel.transform.SetParent(GameObject.Find("Canvas").transform);
-            messagePanel.transform.position = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
+
+            RectTransform rectTransform = messagePanel.GetComponent<RectTransform>();
+
+            rectTransform.offsetMin = Vector2.zero;
+            rectTransform.offsetMax = Vector2.zero;
+            rectTransform.localScale = Vector2.one;
             messagePanel.GetComponentInChildren<TextMeshProUGUI>().text = message;
+
+            GameManager.canBuild = false;
         }
         else
         {

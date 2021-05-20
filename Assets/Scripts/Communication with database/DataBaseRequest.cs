@@ -89,7 +89,7 @@ public class DataBaseRequest : MonoBehaviour
             yield return www.SendWebRequest();
             DestroyLoadingImage();
 
-            if (www.result == UnityWebRequest.Result.ConnectionError) DisplayAlertMessages.DisplayMessage(www.error);
+            if (www.result == UnityWebRequest.Result.ConnectionError) Debug.LogWarning(www.error);//DisplayAlertMessages.DisplayMessage(www.error);
 
             if (www.isDone)
             {
@@ -168,7 +168,8 @@ public class DataBaseRequest : MonoBehaviour
 
             if (www.result != UnityWebRequest.Result.Success)
             {
-                DisplayAlertMessages.DisplayMessage("Error: " + www.error);
+                //DisplayAlertMessages.DisplayMessage("Error: " + www.error);
+                Debug.LogWarning("Error: " + www.error);
             }
             else
             {
@@ -193,7 +194,7 @@ public class DataBaseRequest : MonoBehaviour
                     else
                     {
                         LevelError erreur = JsonUtility.FromJson<LevelError>(jsonResult);
-                        DisplayAlertMessages.DisplayMessage(erreur.error.message);
+                        //DisplayAlertMessages.DisplayMessage(erreur.error.message);
                     }
                 }
             }

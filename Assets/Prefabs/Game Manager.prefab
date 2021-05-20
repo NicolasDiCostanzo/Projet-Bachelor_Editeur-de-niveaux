@@ -1,0 +1,255 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2742026554593135189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2742026554593135186}
+  - component: {fileID: 2742026554593135188}
+  - component: {fileID: 2742026554593135187}
+  - component: {fileID: 2742026554593135185}
+  m_Layer: 0
+  m_Name: States Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2742026554593135186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742026554593135189}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2742026555288757703}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2742026554593135188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742026554593135189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f6470ed05f2ca4a8192751ca3148f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testLevelState_script: {fileID: 2742026554593135187}
+  movementManager_script: {fileID: 2742026555288757702}
+  switchStateBtn: {fileID: 0}
+  btnText: Test level
+  buildUI: {fileID: 0}
+  quitScene: 0
+--- !u!114 &2742026554593135187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742026554593135189}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e817ce4a8d0f3c346b26cc515bd06b91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildLevelState_script: {fileID: 2742026554593135188}
+  movementManager_script: {fileID: 2742026555288757702}
+  testUI: {fileID: 0}
+  switchStateBtn: {fileID: 0}
+  btnText: Build Level
+  buildUI: {fileID: 0}
+  uiManager: {fileID: 0}
+--- !u!114 &2742026554593135185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742026554593135189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9437e77d58f88e48af844efd1234bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testLevelState_script: {fileID: 2742026554593135187}
+  buildLevelState_script: {fileID: 2742026554593135188}
+--- !u!1 &2742026555235279440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2742026555235279454}
+  - component: {fileID: 2742026555235279455}
+  m_Layer: 0
+  m_Name: Save Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2742026555235279454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742026555235279440}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2742026555288757703}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2742026555235279455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742026555235279440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45cbdb2bd4b91241baa70cb36fa4fa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2742026555288757721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2742026555288757703}
+  - component: {fileID: 2742026555288757720}
+  - component: {fileID: 2742026555288757702}
+  - component: {fileID: 2742026555288757700}
+  - component: {fileID: 2742026555288757698}
+  - component: {fileID: 2742026555288757701}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2742026555288757703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742026555288757721}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2742026554593135186}
+  - {fileID: 2742026555235279454}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2742026555288757720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742026555288757721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61e538b08fb8a59409e4510739ea8c03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Plateau: {fileID: 0}
+  switchState_btn: {fileID: 0}
+  save_btn: {fileID: 0}
+  pausePanel: {fileID: 0}
+  descriptionGO: {fileID: 0}
+  clueGO: {fileID: 0}
+  levels: []
+  w: 8
+  h: 8
+  BOX_SIZE: 1
+  maxMoves_go: {fileID: 0}
+--- !u!114 &2742026555288757702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742026555288757721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccb81706b86a7047be8b85d7b406a82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nbOfMoves_Displayer: {fileID: 0}
+  board: {fileID: 0}
+--- !u!114 &2742026555288757700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742026555288757721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddb6c27b387aa3c4cb41956d5abf03d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2742026555288757698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742026555288757721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f050d703a8143ea4bbe22c8b55d527f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  local: 0
+  url: http://nicolasdicostanzo.atwebpages.com/levelEditor/webservice/database_queries.php?functionToCall=
+  urlLocal: http://localhost/Level%20editor/webservice_rashid.php?functionToCall=
+  addLevel: Send
+  waitingPanel: {fileID: 5743483784171504758, guid: ac58cbfe1045feb45a08d8f4c7b4ab52,
+    type: 3}
+--- !u!114 &2742026555288757701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742026555288757721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f0ee87dd85a5bc41be05e14c941fd95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 4386348819001177772, guid: 8b2bc2a662b89e64d8edab133d4e7e84, type: 3}
+  - {fileID: 6013546689971063837, guid: 879afaefd20195f4388e0f736f86665d, type: 3}
+  - {fileID: 5246273423147503112, guid: 47257f49ae2e0e24ca0681ad5e92461e, type: 3}
+  - {fileID: 6760362676562834332, guid: c272f36cf74217d43bd66c90ab066e6c, type: 3}
+  - {fileID: 2236786917856894477, guid: 8d9702b9b87e1dc41a4d007e3f185424, type: 3}
+  - {fileID: 2210401485838915063, guid: 5e1af33e3485f684db4521dabd1dcaf1, type: 3}
+  - {fileID: 5246273423147503112, guid: 3da05eff0a544fb419d3afa037eabc06, type: 3}
+  - {fileID: 3765697242638923675, guid: a8c9151b24fabdc40aa0db9b08f7faa8, type: 3}
+  selectedObject: 0
