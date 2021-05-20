@@ -168,7 +168,8 @@ public class DataBaseRequest : MonoBehaviour
 
             if (www.result != UnityWebRequest.Result.Success)
             {
-                DisplayAlertMessages.DisplayMessage("Error: " + www.error);
+                //DisplayAlertMessages.DisplayMessage("Error: " + www.error);
+                Debug.Log("Error: " + www.error);
             }
             else
             {
@@ -193,7 +194,8 @@ public class DataBaseRequest : MonoBehaviour
                     else
                     {
                         LevelError erreur = JsonUtility.FromJson<LevelError>(jsonResult);
-                        DisplayAlertMessages.DisplayMessage(erreur.error.message);
+                        Debug.Log(erreur.error.message);
+                        //DisplayAlertMessages.DisplayMessage(erreur.error.message);
                     }
                 }
             }

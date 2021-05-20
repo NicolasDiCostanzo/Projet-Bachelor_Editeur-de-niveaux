@@ -23,8 +23,6 @@ public class PlayState : MonoBehaviour
 
         if (GeneralManager.isInBuildMode) GameObject.Find("Save Manager").GetComponent<SaveLoadLevelData>().RecordLevelData();
 
-        Debug.Log("coucou");
-
         buildUI.SetActive(false);
 
         buildLevelState_script.enabled = false;

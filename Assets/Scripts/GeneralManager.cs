@@ -70,13 +70,23 @@ public class GeneralManager : MonoBehaviour
 
         editionUnlocked = gameData.editionUnlocked;
 
+        SetEditionsButtons();
+
         if (!gameData.editionUnlocked) UnlockEditionButtons();
+        //else Debug.Log("dev car assez de lvls réussis");
+    }
+
+    void SetEditionsButtons()
+    {
+        editionsButtons.Add(GameObject.Find("Level editor").gameObject);
     }
 
     void UnlockEditionButtons()
     {
+        //Debug.Log("lock car pas assez de lvls réussis");
+
         foreach (GameObject go in editionsButtons)
-            go.transform.GetComponent<UnityEngine.UI.Button>().interactable = false;
+            if (go) go.transform.GetComponent<Button>().interactable = true;
     }
 
     public static void SetIsInStoryModeToTrue()
@@ -114,7 +124,7 @@ public class GeneralManager : MonoBehaviour
     public static void QuitApp()
     {
 #if UNITY_EDITOR
-            EditorApplication.isPlaying = false;
+        EditorApplication.isPlaying = false;
 #else
 		    Application.Quit();
 #endif

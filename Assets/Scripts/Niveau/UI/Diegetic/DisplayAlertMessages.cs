@@ -14,9 +14,17 @@ public class DisplayAlertMessages : MonoBehaviour
     {
         if (staticErrorMessagePanel)
         {
+            GameManager.SetCanBuild(false);
+
             GameObject messagePanel = Instantiate(staticErrorMessagePanel);
             messagePanel.transform.SetParent(GameObject.Find("Canvas").transform);
-            messagePanel.transform.position = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
+
+            RectTransform rect = messagePanel.GetComponent<RectTransform>();
+
+            rect.position = Vector3.zero;
+            rect.offsetMin = Vector2.zero;
+            rect.offsetMax = Vector2.zero;
+            rect.localScale = Vector3.one;
             messagePanel.GetComponentInChildren<TextMeshProUGUI>().text = message;
         }
         else
