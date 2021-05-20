@@ -3,18 +3,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using TMPro;
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
     public static State state;
     GeneralManager generalManager_script;
     public static int i_currentLevel;
-    public static bool canBuild = true;
 
     public GameObject Plateau;
     [SerializeField] GameObject switchState_btn;
@@ -32,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     public static Level level = new Level();
 
+    MovementManager _MM;
     BuildManager _BM;
     PlayState playState_script;
     GameObject statesManagers_go;
@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        _MM = GetComponent<MovementManager>();
         _BM = GetComponent<BuildManager>();
         statesManagers_go = GameObject.Find("States Managers");
 
@@ -106,30 +107,27 @@ isInBuildMode = true;
         }
         else
         {
-            if (isInStoryMode) levelNameToStartWith = generalManager_script.storyLevelsName[i_currentLevel];
+            if (isInStoryMode)                     levelNameToStartWith = generalManager_script.storyLevelsName[i_currentLevel];
             else if (isComingFromLocalLevelChoice) levelNameToStartWith = GeneralManager.sceneNameToLoad;
 
             StartInPlayMode(levelNameToStartWith);
-
+            
             playState_script.enabled = true;
         }
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape)) pausePanel.SetActive(!pausePanel.activeInHierarchy);
-        if (Input.GetKeyDown(KeyCode.Space) && !GeneralManager.isInBuildMode) StartCoroutine(LevelTransition());
 
+    void Update() { 
+        if (Input.GetKeyDown(KeyCode.Escape)) pausePanel.SetActive(!pausePanel.activeInHierarchy); 
+        if (Input.GetKeyDown(KeyCode.Space) && !GeneralManager.isInBuildMode)  StartCoroutine(LevelTransition()); 
+    
     }
 
-    private void OnDisable()
-    {
-        if (level != null) EraseLevel(level);
+    private void OnDisable() { 
+        if(level != null) EraseLevel(level);
         GeneralManager.sceneNameToLoad = "";
         level.isInDarkMode = false;
     }
-
-    public static void SetCanBuild(bool a_canBuild) { canBuild = a_canBuild; }
 
     public void ToggleDarkMode() { level.isInDarkMode = GameObject.Find("DarkMode_toggle").GetComponent<Toggle>().isOn; }
 
@@ -165,8 +163,7 @@ isInBuildMode = true;
         descriptionGO.GetComponent<TextMeshProUGUI>().text = level.description;
         clueGO.GetComponent<TextMeshProUGUI>().text = level.clue;
 
-        if (level.isInDarkMode)
-        {
+        if (level.isInDarkMode) {
             if (state == State.Build) GameObject.Find("DarkMode_toggle").GetComponent<Toggle>().isOn = true;
             else LightManagement.ToggleLight(false);
         }
@@ -193,7 +190,7 @@ isInBuildMode = true;
                         newCreatedBoxDatas.blinkingFrq = boxData.blinkingFrq;
                         newCreatedBoxDatas.blinkingMode = boxData.blinkingMode;
 
-                        if (newObject.GetComponent<ObjectBlinking>()) newObject.GetComponent<ObjectBlinking>().enabled = true;
+                        if(newObject.GetComponent<ObjectBlinking>()) newObject.GetComponent<ObjectBlinking>().enabled = true;
 
                     }
                     else if (boxData.buildTurn != 0 || boxData.destroyTurn != 0)
@@ -224,8 +221,8 @@ isInBuildMode = true;
 
     public static void RepositionBothCharacters()
     {
-        if (player) RepositionCharacter(player.transform, playerIndex);
-        if (witch) RepositionCharacter(witch.transform, witchIndex);
+        if(player) RepositionCharacter(player.transform, playerIndex);
+        if(witch)  RepositionCharacter(witch.transform, witchIndex);
     }
 
     public static void RepositionCharacter(Transform charac_transform, int boxIndex)
