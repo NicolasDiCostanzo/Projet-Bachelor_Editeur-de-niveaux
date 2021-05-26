@@ -28,8 +28,6 @@ public class WindowButtonBehavior : MonoBehaviour
 
         GeneralManager.sceneNameToLoad = levelName;
         GeneralManager.levelToCreateChosenFromDisplayLevelsScene = windowConstructor.level;
-
-        Debug.Log(windowConstructor.level.creatorName);
     }
 
     public void LoadLevel()

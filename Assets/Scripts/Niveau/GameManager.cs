@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     string levelNameToStartWith;
 
-    void Awake()
+    void Start()
     {
         _MM = GetComponent<MovementManager>();
         _BM = GetComponent<BuildManager>();
@@ -74,6 +74,8 @@ isInBuildMode = true;
 
         boxesParent = GameObject.Find("Squares");
 
+        Debug.Log(GameObject.Find("Squares"));
+
         switchState_script = statesManagers_go.GetComponent<SwitchState>();
 
         level.w = w;
@@ -83,10 +85,7 @@ isInBuildMode = true;
         int n = h * w;
 
         for (int i = 0; i < n; i++) level.boxes.Add(new LevelBoardBox(LevelBoardBoxType.None));
-    }
 
-    private void Start()
-    {
         bool newGame = GeneralManager.newGame;
 
         if (!newGame)
@@ -109,11 +108,11 @@ isInBuildMode = true;
         }
         else
         {
-            if (isInStoryMode)                     levelNameToStartWith = generalManager_script.storyLevelsName[i_currentLevel];
+            if (isInStoryMode) levelNameToStartWith = generalManager_script.storyLevelsName[i_currentLevel];
             else if (isComingFromLocalLevelChoice) levelNameToStartWith = GeneralManager.sceneNameToLoad;
 
             StartInPlayMode(levelNameToStartWith);
-            
+
             playState_script.enabled = true;
         }
     }
@@ -152,8 +151,6 @@ isInBuildMode = true;
 
     public void CreateLevel(Level level)
     {
-        Debug.Log("create level");
-
         alreadyDied = false;
         currentTurn = 0;
 
@@ -178,11 +175,19 @@ isInBuildMode = true;
             LightManagement.ToggleLight(true);
         }
 
+        if (boxesParent == null)
+        {
+            Debug.LogError("boxesParent est null... Pas bien :(");
+            return;
+        }
+
         for (int i = 0; i < n; i++)
         {
+
+
             if (boxesParent.transform.GetChild(i) == null)
             {
-                Debug.LogWarning("boxesParent.transform.GetChild(i) est null... Pas bien :(");
+                Debug.LogError("boxesParent.transform.GetChild(i) est null... Pas bien :(");
                 return;
             }
 
@@ -325,6 +330,8 @@ isInBuildMode = true;
 
 
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+
+        if (TutorialManager._pressSpaceTxt.activeInHierarchy) TutorialManager.DisplayPressSpace(false);
 
         DisplayInformationMessage.HideInfoPanel();
         EraseLevel(level);
