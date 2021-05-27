@@ -191,8 +191,6 @@ isInBuildMode = true;
 
         for (int i = 0; i < n; i++)
         {
-
-
             if (boxesParent.transform.GetChild(i) == null)
             {
                 Debug.LogError("boxesParent.transform.GetChild(i) est null... Pas bien :(");
@@ -200,9 +198,7 @@ isInBuildMode = true;
             }
 
             Transform currentBox = boxesParent.transform.GetChild(i);
-
             LevelBoardBox boxData = level.boxes[i];
-
 
             if (boxData.type != LevelBoardBoxType.None)
             {
