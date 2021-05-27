@@ -212,6 +212,9 @@ MonoBehaviour:
   rotateOnX: 0
   rotateOnY: 1
   rotateOnZ: 0
+  startWithRandomRotationX: 0
+  startWithRandomRotationY: 1
+  startWithRandomRotationZ: 0
   direction: 0
   maxSpeed: 0
   minSpeed: 10

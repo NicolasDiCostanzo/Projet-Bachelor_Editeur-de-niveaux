@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class ObjectRotation : MonoBehaviour
 {
-    [SerializeField] bool rotateOnX, rotateOnY, rotateOnZ;
+    [SerializeField] bool rotateOnX, rotateOnY, rotateOnZ, 
+        startWithRandomRotationX, startWithRandomRotationY, startWithRandomRotationZ;
     [SerializeField] Direction direction;
 
     [SerializeField] float maxSpeed, minSpeed;
@@ -10,11 +11,17 @@ public class ObjectRotation : MonoBehaviour
 
     void Start()
     {
+        Quaternion startingRotation = transform.rotation;
+
+        if (startWithRandomRotationX) transform.Rotate(Random.Range(0, 180), startingRotation.y, startingRotation.z);
+        if (startWithRandomRotationY) transform.Rotate(startingRotation.x, Random.Range(0, 180), startingRotation.z);
+        if (startWithRandomRotationZ) transform.Rotate(startingRotation.x, startingRotation.y, Random.Range(0, 180));
+
         rotationSpeed = Random.Range(minSpeed, maxSpeed);
 
         if (direction == Direction.CanBeBoth)
             do { direction = (Direction)Random.Range(-1, 2); } while (direction == 0);
-        
+
         rotation = rotationSpeed * (int)direction;
     }
 
