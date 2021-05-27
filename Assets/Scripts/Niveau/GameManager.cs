@@ -3,11 +3,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using TMPro;
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     string levelNameToStartWith;
 
-    void VariableInitialisation()
+    void Start()
     {
         _MM = GetComponent<MovementManager>();
         _BM = GetComponent<BuildManager>();
@@ -74,16 +74,13 @@ isInBuildMode = true;
 
         boxesParent = GameObject.Find("Squares");
 
+        Debug.Log(GameObject.Find("Squares"));
+
         switchState_script = statesManagers_go.GetComponent<SwitchState>();
 
         level.w = w;
         level.h = h;
         level.boxes = new List<LevelBoardBox>();
-    }
-
-    void Start()
-    {
-        VariableInitialisation();
 
         int n = h * w;
 
@@ -121,17 +118,14 @@ isInBuildMode = true;
     }
 
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape)) pausePanel.SetActive(!pausePanel.activeInHierarchy);
-
-        if (Input.GetKeyDown(KeyCode.Space) && !GeneralManager.isInBuildMode) StartCoroutine(LevelTransition());
-
+    void Update() { 
+        if (Input.GetKeyDown(KeyCode.Escape)) pausePanel.SetActive(!pausePanel.activeInHierarchy); 
+        if (Input.GetKeyDown(KeyCode.Space) && !GeneralManager.isInBuildMode)  StartCoroutine(LevelTransition()); 
+    
     }
 
-    private void OnDisable()
-    {
-        if (level != null) EraseLevel(level);
+    private void OnDisable() { 
+        if(level != null) EraseLevel(level);
         GeneralManager.sceneNameToLoad = "";
         level.isInDarkMode = false;
     }
@@ -160,8 +154,7 @@ isInBuildMode = true;
         alreadyDied = false;
         currentTurn = 0;
 
-        if (_MM) _MM.ResetNbOfMovesDisplayed();
-        else GetComponent<MovementManager>().ResetNbOfMovesDisplayed();
+        GetComponent<MovementManager>().ResetNbOfMovesDisplayed();
 
         int n = level.w * level.h;
 
@@ -173,8 +166,7 @@ isInBuildMode = true;
         descriptionGO.GetComponent<TextMeshProUGUI>().text = level.description;
         clueGO.GetComponent<TextMeshProUGUI>().text = level.clue;
 
-        if (level.isInDarkMode)
-        {
+        if (level.isInDarkMode) {
             if (state == State.Build) GameObject.Find("DarkMode_toggle").GetComponent<Toggle>().isOn = true;
             else LightManagement.ToggleLight(false);
         }
@@ -216,7 +208,7 @@ isInBuildMode = true;
                         newCreatedBoxDatas.blinkingFrq = boxData.blinkingFrq;
                         newCreatedBoxDatas.blinkingMode = boxData.blinkingMode;
 
-                        if (newObject.GetComponent<ObjectBlinking>()) newObject.GetComponent<ObjectBlinking>().enabled = true;
+                        if(newObject.GetComponent<ObjectBlinking>()) newObject.GetComponent<ObjectBlinking>().enabled = true;
 
                     }
                     else if (boxData.buildTurn != 0 || boxData.destroyTurn != 0)
@@ -247,8 +239,8 @@ isInBuildMode = true;
 
     public static void RepositionBothCharacters()
     {
-        if (player) RepositionCharacter(player.transform, playerIndex);
-        if (witch) RepositionCharacter(witch.transform, witchIndex);
+        if(player) RepositionCharacter(player.transform, playerIndex);
+        if(witch)  RepositionCharacter(witch.transform, witchIndex);
     }
 
     public static void RepositionCharacter(Transform charac_transform, int boxIndex)
@@ -297,7 +289,7 @@ isInBuildMode = true;
         else
         {
             levelCompleted = true;
-            //StartCoroutine(LevelTransition());
+            StartCoroutine(LevelTransition());
         }
     }
 
@@ -331,7 +323,7 @@ isInBuildMode = true;
 
     public IEnumerator LevelTransition()
     {
-        _MM.enabled = false;
+        GetComponent<MovementManager>().enabled = false;
 
         if (!GeneralManager.isInStoryMode && levelCompleted) WhenCompleteLocallySavedLevel();
 
@@ -344,12 +336,9 @@ isInBuildMode = true;
         EraseLevel(level);
 
         yield return new WaitForSeconds(.5f);
-        _MM.enabled = true;
+        GetComponent<MovementManager>().enabled = true;
 
-        if (isInStoryMode)
-        {
-            StoryModeTransition();
-        }
+        if (isInStoryMode) StoryModeTransition();
         else
         {
             if (levelCompleted)
@@ -371,9 +360,8 @@ isInBuildMode = true;
         {
             string levelName = generalManager_script.storyLevelsName[i_currentLevel];
             SaveLoadLevelData.LoadFromSavedLevelsDirectory(levelName);
-            _MM.enabled = true;
+            GetComponent<MovementManager>().enabled = true;
             playState_script.StartToPlay();
-            TutorialManager.DisplayTutorial();
         }
         else
         {
