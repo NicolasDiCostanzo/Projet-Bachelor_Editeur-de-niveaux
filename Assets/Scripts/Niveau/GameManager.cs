@@ -191,12 +191,15 @@ isInBuildMode = true;
 
         for (int i = 0; i < n; i++)
         {
+<<<<<<< HEAD
             if (boxesParent.transform.GetChild(i) == null)
             {
                 Debug.LogError("boxesParent.transform.GetChild(i) est null... Pas bien :(");
                 return;
             }
 
+=======
+>>>>>>> parent of dbfea25 (fix d'un null reference excetption dans le game manager de "Niveau")
             Transform currentBox = boxesParent.transform.GetChild(i);
             LevelBoardBox boxData = level.boxes[i];
 
