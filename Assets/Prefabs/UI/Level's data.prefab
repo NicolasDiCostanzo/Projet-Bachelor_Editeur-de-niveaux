@@ -596,7 +596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 528522230bbddb9449c32ff5628f4aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  confirmationPanel: {fileID: 737870958846048560, guid: 5f94b84ee5d93754f955aac21e4176a2,
+  confirmationPanel: {fileID: 737870958846048560, guid: b3c572f1374ce01499d6f8e9ac88d3a3,
     type: 3}
   levelName: 
 --- !u!1 &1725774696629697894

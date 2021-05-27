@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2856334339560446804}
   - component: {fileID: -254696332518778284}
   - component: {fileID: 4545127636651336158}
+  - component: {fileID: -6128307926290597261}
   m_Layer: 8
   m_Name: Teleport_IN
   m_TagString: Untagged
@@ -140,3 +141,21 @@ MonoBehaviour:
   positionOffset: {x: 0, y: 0, z: 0}
   type: 4
   canBeInstantiatedSeveralTimes: 0
+--- !u!114 &-6128307926290597261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2236786917856894477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb447a7d5a833414ea579a60ba532b9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateOnX: 1
+  rotateOnY: 1
+  rotateOnZ: 1
+  direction: 1
+  maxSpeed: 10
+  minSpeed: 20

@@ -54,7 +54,8 @@ public class GameManager : MonoBehaviour
 
     string levelNameToStartWith;
 
-    void Start()
+    //TOUTES LES fonctions qui étaient dans Start sont passées dans Awake. DONC IL PEUT Y AVOIR DES BUGS A CAUSE DE CA !!!!!
+    void Awake()
     {
         _MM = GetComponent<MovementManager>();
         _BM = GetComponent<BuildManager>();
@@ -183,15 +184,12 @@ isInBuildMode = true;
 
         for (int i = 0; i < n; i++)
         {
-<<<<<<< HEAD
             if (boxesParent.transform.GetChild(i) == null)
             {
                 Debug.LogError("boxesParent.transform.GetChild(i) est null... Pas bien :(");
                 return;
             }
 
-=======
->>>>>>> parent of dbfea25 (fix d'un null reference excetption dans le game manager de "Niveau")
             Transform currentBox = boxesParent.transform.GetChild(i);
             LevelBoardBox boxData = level.boxes[i];
 
@@ -338,7 +336,10 @@ isInBuildMode = true;
         yield return new WaitForSeconds(.5f);
         GetComponent<MovementManager>().enabled = true;
 
-        if (isInStoryMode) StoryModeTransition();
+        if (isInStoryMode)
+        {
+            StoryModeTransition();
+        }
         else
         {
             if (levelCompleted)
@@ -362,6 +363,7 @@ isInBuildMode = true;
             SaveLoadLevelData.LoadFromSavedLevelsDirectory(levelName);
             GetComponent<MovementManager>().enabled = true;
             playState_script.StartToPlay();
+            TutorialManager.DisplayTutorial();
         }
         else
         {
