@@ -9,9 +9,6 @@ public class BoxDatas : MonoBehaviour
     void Start()
     {
         int boxIndex = transform.GetSiblingIndex();
-
-        //Debug.Log(GameManager.level);
-        Debug.Log(GameManager.level.boxes.Count);
         box = GameManager.level.boxes[boxIndex];
         index = transform.GetSiblingIndex();
     }

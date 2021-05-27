@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2124082284846708181}
   - component: {fileID: 1068540035713127463}
   - component: {fileID: 8065069646569999635}
+  - component: {fileID: 1915527252877175638}
   m_Layer: 8
   m_Name: Teleport_OUT
   m_TagString: Untagged
@@ -139,3 +140,17 @@ MonoBehaviour:
   positionOffset: {x: 0, y: 0, z: 0}
   type: 7
   canBeInstantiatedSeveralTimes: 0
+--- !u!114 &1915527252877175638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3765697242638923675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 242df8b07c3539d439ac58baa3afb848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementAmplitude: 0.25
+  speed: 0.4
