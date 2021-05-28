@@ -21,6 +21,7 @@ public class WindowButtonBehavior : MonoBehaviour
 
     void PlayLevel()
     {
+        Debug.Log("play level from wbb");
         SceneManager.LoadScene("Niveau");
         string levelName;
 

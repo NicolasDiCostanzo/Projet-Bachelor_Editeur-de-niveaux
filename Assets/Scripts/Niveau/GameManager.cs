@@ -87,6 +87,12 @@ isInBuildMode = true;
 
         for (int i = 0; i < n; i++) level.boxes.Add(new LevelBoardBox(LevelBoardBoxType.None));
 
+        
+    }
+
+    private void Start()
+    {
+        Debug.Log("start game manager");
         bool newGame = GeneralManager.newGame;
 
         if (!newGame)
@@ -146,6 +152,7 @@ isInBuildMode = true;
 
     void StartInPlayMode(string a_levelNameToStartWith)
     {
+        Debug.Log("start in play mode");
         state = State.Play;
         SaveLoadLevelData.LoadFromSavedLevelsDirectory(a_levelNameToStartWith);
     }
@@ -357,6 +364,8 @@ isInBuildMode = true;
 
     void StoryModeTransition()
     {
+        Debug.Log("storyModeTransition");
+
         if (i_currentLevel < generalManager_script.storyLevelsName.Count)
         {
             string levelName = generalManager_script.storyLevelsName[i_currentLevel];
@@ -373,6 +382,7 @@ isInBuildMode = true;
 
     void PlayCustomedLevelTransition()
     {
+        Debug.Log("play customed level transition");
         string levelName = GeneralManager.sceneNameToLoad;
         SaveLoadLevelData.LoadFromSavedLevelsDirectory(levelName);
         playState_script.StartToPlay();

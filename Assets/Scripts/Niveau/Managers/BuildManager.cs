@@ -11,7 +11,11 @@ public class BuildManager : MonoBehaviour
         GameManager.RepositionBothCharacters();
 
         //PEUT Y AVOIR UN BUG ICIIIIIIIII
-        if(GeneralManager.sceneNameToLoad != "") SaveLoadLevelData.LoadFromSavedLevelsDirectory(GeneralManager.sceneNameToLoad);
+        if (GeneralManager.sceneNameToLoad != "")
+        {
+            Debug.Log("on enable build manager script");
+            SaveLoadLevelData.LoadFromSavedLevelsDirectory(GeneralManager.sceneNameToLoad);
+        }
     }
 
 
@@ -46,6 +50,9 @@ public class BuildManager : MonoBehaviour
 
     public void RemoveObjectsFromBox(Transform boxTransform)
     {
+        EraseBoxDatas(boxTransform.GetComponent<BoxDatas>().box);
+
+
         for (int i = 0; i < boxTransform.childCount; i++)
         {
             GameObject objectGO = boxTransform.GetChild(i).gameObject;
@@ -84,6 +91,8 @@ public class BuildManager : MonoBehaviour
         {
             int boxIndex = parentBox.GetComponent<BoxesScript>().boxIndex;
             GameManager.level.boxes[boxIndex].type = LevelBoardBoxType.None;
+            Debug.Log(boxIndex);
+            //Debug.Log(GameManager.level.boxes[boxIndex].type);
             go.GetComponent<Renderer>().enabled = false;
         }
     }

@@ -59,6 +59,8 @@ public class PlayState : MonoBehaviour
                 RestartLevel(false);
             else
                 RestartLevel(true);
+
+            Debug.Log("on disable play state");
         }
         else //Si on rentre dans ce 'else', c'est que tous les niveaux sont terminés
         {
@@ -96,6 +98,7 @@ public class PlayState : MonoBehaviour
                     customizedLife_list.Add(go);
             }
         }
+        Debug.Log("start to play");
 
         if (generalManager_script && GameManager.i_currentLevel < generalManager_script.storyLevelsName.Count) RestartLevel(false);
     }
@@ -111,7 +114,6 @@ public class PlayState : MonoBehaviour
         {
             Destroy(redSquares[i]);
         }
-
 
         if (!goToBuildMode)
         {

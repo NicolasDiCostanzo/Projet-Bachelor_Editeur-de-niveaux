@@ -127,7 +127,6 @@ public class SaveLoadLevelData : MonoBehaviour
     //Pour charger
     public static void LoadLevelFromJson(string level_json)
     {
-        //Debug.Log(level_json);
         GameManager.level = JsonUtility.FromJson<Level>(level_json);
         _GM.CreateLevel(GameManager.level);
     }

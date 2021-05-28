@@ -2092,6 +2092,7 @@ GameObject:
   - component: {fileID: 1096578320}
   - component: {fileID: 1096578319}
   - component: {fileID: 1096578318}
+  - component: {fileID: 1096578321}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2164,6 +2165,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1096578321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096578317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1117274917
 GameObject:
   m_ObjectHideFlags: 0
@@ -5163,6 +5196,11 @@ PrefabInstance:
       objectReference: {fileID: 2107419360}
     - target: {fileID: 876125524197980207, guid: 29cf98da1347c5e45a14a9dfa91edd3d,
         type: 3}
+      propertyPath: storyLevelsName.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 876125524197980207, guid: 29cf98da1347c5e45a14a9dfa91edd3d,
+        type: 3}
       propertyPath: editionsButtons.Array.data[0]
       value: 
       objectReference: {fileID: 1166099032}
@@ -5171,5 +5209,50 @@ PrefabInstance:
       propertyPath: editionsButtons.Array.data[1]
       value: 
       objectReference: {fileID: 804629375}
+    - target: {fileID: 876125524197980207, guid: 29cf98da1347c5e45a14a9dfa91edd3d,
+        type: 3}
+      propertyPath: storyLevelsName.Array.data[0]
+      value: StoryLvl1
+      objectReference: {fileID: 0}
+    - target: {fileID: 876125524197980207, guid: 29cf98da1347c5e45a14a9dfa91edd3d,
+        type: 3}
+      propertyPath: storyLevelsName.Array.data[1]
+      value: StoryLvl2
+      objectReference: {fileID: 0}
+    - target: {fileID: 876125524197980207, guid: 29cf98da1347c5e45a14a9dfa91edd3d,
+        type: 3}
+      propertyPath: storyLevelsName.Array.data[2]
+      value: StoryLvl3
+      objectReference: {fileID: 0}
+    - target: {fileID: 876125524197980207, guid: 29cf98da1347c5e45a14a9dfa91edd3d,
+        type: 3}
+      propertyPath: storyLevelsName.Array.data[3]
+      value: StoryLvl4
+      objectReference: {fileID: 0}
+    - target: {fileID: 876125524197980207, guid: 29cf98da1347c5e45a14a9dfa91edd3d,
+        type: 3}
+      propertyPath: storyLevelsName.Array.data[4]
+      value: StoryLvl5
+      objectReference: {fileID: 0}
+    - target: {fileID: 876125524197980207, guid: 29cf98da1347c5e45a14a9dfa91edd3d,
+        type: 3}
+      propertyPath: storyLevelsName.Array.data[5]
+      value: StoryLvl6
+      objectReference: {fileID: 0}
+    - target: {fileID: 876125524197980207, guid: 29cf98da1347c5e45a14a9dfa91edd3d,
+        type: 3}
+      propertyPath: storyLevelsName.Array.data[6]
+      value: StoryLvl7
+      objectReference: {fileID: 0}
+    - target: {fileID: 876125524197980207, guid: 29cf98da1347c5e45a14a9dfa91edd3d,
+        type: 3}
+      propertyPath: storyLevelsName.Array.data[7]
+      value: StoryLvl8
+      objectReference: {fileID: 0}
+    - target: {fileID: 876125524197980207, guid: 29cf98da1347c5e45a14a9dfa91edd3d,
+        type: 3}
+      propertyPath: storyLevelsName.Array.data[8]
+      value: StoryLvl9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29cf98da1347c5e45a14a9dfa91edd3d, type: 3}

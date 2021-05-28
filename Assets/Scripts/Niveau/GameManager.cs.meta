@@ -15,7 +15,7 @@ MonoImporter:
   - Plateau: {fileID: 3875074767358216400, guid: 0e8a5ab0c385a324b8457ff063491b50,
       type: 3}
   - Witch: {fileID: 6013546689971063837, guid: 879afaefd20195f4388e0f736f86665d, type: 3}
-  executionOrder: 0
+  executionOrder: 500
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 
