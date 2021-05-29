@@ -91,8 +91,6 @@ public class BuildManager : MonoBehaviour
         {
             int boxIndex = parentBox.GetComponent<BoxesScript>().boxIndex;
             GameManager.level.boxes[boxIndex].type = LevelBoardBoxType.None;
-            Debug.Log(boxIndex);
-            //Debug.Log(GameManager.level.boxes[boxIndex].type);
             go.GetComponent<Renderer>().enabled = false;
         }
     }
