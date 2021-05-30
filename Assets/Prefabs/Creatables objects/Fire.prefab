@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1624112843700802278}
   - component: {fileID: -5927336691571421124}
   - component: {fileID: 8334241363604931312}
+  - component: {fileID: -8940225517727863601}
   m_Layer: 8
   m_Name: Fire
   m_TagString: Untagged
@@ -126,3 +127,24 @@ MonoBehaviour:
   positionOffset: {x: 0, y: 0, z: 0}
   type: 5
   canBeInstantiatedSeveralTimes: 0
+--- !u!114 &-8940225517727863601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2210401485838915063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb447a7d5a833414ea579a60ba532b9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateOnX: 0
+  rotateOnY: 1
+  rotateOnZ: 0
+  startWithRandomRotationX: 0
+  startWithRandomRotationY: 0
+  startWithRandomRotationZ: 0
+  direction: 1
+  maxSpeed: 60
+  minSpeed: 60
