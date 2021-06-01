@@ -7,9 +7,16 @@ public class UI_Manager : MonoBehaviour
     public static LevelBoardBoxType selectedObject = LevelBoardBoxType.None;
 
     [SerializeField] Transform buttonsParent;
+    [SerializeField] GameObject tpText;
+    public static GameObject _tpText;
     public RawImage deactiveButtonsImg;
 
     public List<GameObject> isNotActiveWhenNotInEditor = new List<GameObject>();
+
+    private void Start()
+    {
+        _tpText = tpText;
+    }
 
     public void DisplayPanel(GameObject panelToDisplay) { if (!panelToDisplay.activeInHierarchy) panelToDisplay.SetActive(true); }
 
@@ -30,6 +37,11 @@ public class UI_Manager : MonoBehaviour
             }
         }
 
+    }
+
+    public static void SetTPTextDisplaying(bool displayText)
+    {
+        if(_tpText.activeInHierarchy != displayText) _tpText.SetActive(displayText);
     }
 
     public void ButtonOutlineManagement()

@@ -52,7 +52,6 @@ public class BuildManager : MonoBehaviour
     {
         EraseBoxDatas(boxTransform.GetComponent<BoxDatas>().box);
 
-
         for (int i = 0; i < boxTransform.childCount; i++)
         {
             GameObject objectGO = boxTransform.GetChild(i).gameObject;

@@ -46,7 +46,10 @@ public class BoxesScript : MonoBehaviour
                 else if ((layer == 9) && (hit.transform.childCount == 1))    //clique sur l'objet qui est sur la case
                     tr = hit.transform;
 
-                if (tr != null) _BM.RemoveObjectsFromBox(tr);
+                if (tr != null)
+                {
+                    _BM.RemoveObjectsFromBox(tr);
+                }
             }
         }
     }
