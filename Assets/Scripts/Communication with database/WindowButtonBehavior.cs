@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,20 +19,17 @@ public class WindowButtonBehavior : MonoBehaviour
 
     void PlayLevel()
     {
-        Debug.Log("play level from wbb");
-        SceneManager.LoadScene("Niveau");
-        string levelName;
-
-        levelName = windowConstructor.levelName;
-
-        GeneralManager.sceneNameToLoad = levelName;
+        GeneralManager.sceneNameToLoad = windowConstructor.levelName;
         GeneralManager.levelToCreateChosenFromDisplayLevelsScene = windowConstructor.level;
+
+        SceneManager.LoadScene("Niveau");
     }
 
     public void LoadLevel()
     {
         GeneralManager.SetIsInBuildModeToTrue();
         GeneralManager.sceneNameToLoad = windowConstructor.levelName;
+
         SceneManager.LoadScene("Niveau");
     }
 

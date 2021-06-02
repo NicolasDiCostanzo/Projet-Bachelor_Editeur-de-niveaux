@@ -75,8 +75,6 @@ isInBuildMode = true;
 
         boxesParent = GameObject.Find("Squares");
 
-        Debug.Log(GameObject.Find("Squares"));
-
         switchState_script = statesManagers_go.GetComponent<SwitchState>();
 
         level.w = w;
@@ -92,7 +90,6 @@ isInBuildMode = true;
 
     private void Start()
     {
-        Debug.Log("start game manager");
         bool newGame = GeneralManager.newGame;
 
         if (!newGame)
@@ -152,7 +149,6 @@ isInBuildMode = true;
 
     void StartInPlayMode(string a_levelNameToStartWith)
     {
-        Debug.Log("start in play mode");
         state = State.Play;
         SaveLoadLevelData.LoadFromSavedLevelsDirectory(a_levelNameToStartWith);
     }

@@ -11,11 +11,7 @@ public class BuildManager : MonoBehaviour
         GameManager.RepositionBothCharacters();
 
         //PEUT Y AVOIR UN BUG ICIIIIIIIII
-        if (GeneralManager.sceneNameToLoad != "")
-        {
-            Debug.Log("on enable build manager script");
-            SaveLoadLevelData.LoadFromSavedLevelsDirectory(GeneralManager.sceneNameToLoad);
-        }
+        if (GeneralManager.sceneNameToLoad != "") SaveLoadLevelData.LoadFromSavedLevelsDirectory(GeneralManager.sceneNameToLoad);
     }
 
 

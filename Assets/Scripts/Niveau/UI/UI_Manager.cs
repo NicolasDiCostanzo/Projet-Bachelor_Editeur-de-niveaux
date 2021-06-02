@@ -41,7 +41,7 @@ public class UI_Manager : MonoBehaviour
 
     public static void SetTPTextDisplaying(bool displayText)
     {
-        if(_tpText.activeInHierarchy != displayText) _tpText.SetActive(displayText);
+        if(_tpText) if(_tpText.activeInHierarchy != displayText) _tpText.SetActive(displayText);
     }
 
     public void ButtonOutlineManagement()

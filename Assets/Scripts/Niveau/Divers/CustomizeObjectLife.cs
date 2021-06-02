@@ -34,12 +34,10 @@ public class CustomizeObjectLife : MonoBehaviour
 
     void LateUpdate()
     {
-        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.DownArrow)) && GameManager.state == State.Play)
-        {
+        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.LeftArrow) 
+            || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.DownArrow)) 
+            && GameManager.state == State.Play)
             ObjectLifeManagement();
-            Debug.Log("object life management");
-
-        }
     }
 
     public void ActiveObject()
@@ -66,7 +64,6 @@ public class CustomizeObjectLife : MonoBehaviour
         {
             if (GameManager.currentTurn == 0 && thisBox.box.buildTurn > 0)
             {
-                Debug.Log("object life management");
                 isActive = true;
                 DeactiveObject();
                 return;
