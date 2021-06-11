@@ -13,7 +13,7 @@ public class SwitchState : MonoBehaviour
 
             if (SaveLoadLevelData.levelToSave.levelName == null || SaveLoadLevelData.levelToSave.levelName == "")
             {
-                DisplayAlertMessages.DisplayMessage("Le niveau n'a pas de nom...");
+                DisplayAlertMessages.DisplayMessage("Level has no name...");
                 return;
             }
 
@@ -23,7 +23,7 @@ public class SwitchState : MonoBehaviour
 
             if (!playerIsOnBoard || !witchIsOnBoard)
             {
-                DisplayAlertMessages.DisplayMessage("Il manque un joueur et/ou une sorcière pour pouvoir tester ce niveau.");
+                DisplayAlertMessages.DisplayMessage("A Pawn and/or an Enemy is missing to test this level.");
                 return;
             }
 
@@ -34,7 +34,7 @@ public class SwitchState : MonoBehaviour
 
             if (levelHasPortalIn && !levelHasPortalOut)
             {
-                DisplayAlertMessages.DisplayMessage("Une entrée de portail de téléportation est posée, mais il manque sa sortie.");
+                DisplayAlertMessages.DisplayMessage("A teleportation portal entrance is installed, but its exit is missing.");
                 return;
             }
 
@@ -44,13 +44,13 @@ public class SwitchState : MonoBehaviour
 
             if (!levelHasBonfire)
             {
-                DisplayAlertMessages.DisplayMessage("Il manque le bûcher, donc le niveau n'a pas d'arrivée...");
+                DisplayAlertMessages.DisplayMessage("Arrival is missing, so the level has no finish...");
                 return;
             }
 
 
             //Enregistrement du nombre maximum de coups autorisés
-            string maxMoves = GameObject.Find("maxMoves_nb").GetComponent<InputField>().text;
+            string maxMoves = GameObject.Find("maxMoves_nb").GetComponent<TMPro.TMP_InputField>().text;
 
             GameManager.alreadyDied = false;
 

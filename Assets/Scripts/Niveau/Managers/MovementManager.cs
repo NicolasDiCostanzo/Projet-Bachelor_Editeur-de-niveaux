@@ -38,7 +38,7 @@ public class MovementManager : MonoBehaviour
     public void ResetNbOfMovesDisplayed()
     {
         nbOfMoves_Displayer.text = GameManager.currentTurn.ToString() + " / " + GameManager.nbOfMovesLimit;
-        nbOfMoves_Displayer.color = Color.black;
+        nbOfMoves_Displayer.color = Color.white;
     }
 
     private void Update()
@@ -57,7 +57,7 @@ public class MovementManager : MonoBehaviour
             }
             else
             {
-                if (nbOfMoves_Displayer.color != new Color32(0, 0, 0, 255)) nbOfMoves_Displayer.color = new Color32(0, 0, 0, 255);
+                if (nbOfMoves_Displayer.color != new Color32(255, 255, 255, 255)) nbOfMoves_Displayer.color = new Color32(255, 255, 255, 255);
             }
 
             for (int i = 0; i < GameManager.boxesParent.transform.childCount; i++)

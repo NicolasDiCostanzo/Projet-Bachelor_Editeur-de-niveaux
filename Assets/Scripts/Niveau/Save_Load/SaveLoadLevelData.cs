@@ -1,8 +1,7 @@
 ﻿using System;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UI;
-
+using TMPro;
 
 public class SaveLoadLevelData : MonoBehaviour
 {
@@ -59,10 +58,15 @@ public class SaveLoadLevelData : MonoBehaviour
 
     public void SaveLevelNameToLevelStructure()
     {
-        string _levelName = GameObject.Find("LevelName_InputField").GetComponent<InputField>().text;
+        string _levelName = GameObject.Find("LevelName_InputField").GetComponent<TMP_InputField>().text;
+        Debug.Log(_levelName);
 
         if (_levelName != null && _levelName != "") levelToSave.levelName = _levelName;
     }
+
+    public void SaveDescription() { levelToSave.description = GameObject.Find("Description Text").GetComponent<TextMeshProUGUI>().text; }
+
+    public void SaveClue() { levelToSave.clue = GameObject.Find("ClueText").GetComponent<TextMeshProUGUI>().text; }
 
     void GiveValueToObjectContained()
     {
@@ -106,7 +110,7 @@ public class SaveLoadLevelData : MonoBehaviour
         string directory = "";
 
         if (GeneralManager.isInStoryMode) directory = directoryStoryModeLevels;
-        else if (GeneralManager.isComingFromLocalLevelsChoice/* || GeneralManager.isComingFromDatabaseLevelsChoice*/|| GeneralManager.isInBuildMode) directory = directoryDownloadedLevels;
+        else if (GeneralManager.isComingFromLocalLevelsChoice || GeneralManager.isInBuildMode) directory = directoryDownloadedLevels;
 
         string fullPath = Application.persistentDataPath + directory + a_levelNameToLoad + ".txt";
 

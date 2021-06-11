@@ -165,9 +165,10 @@ isInBuildMode = true;
         BuildManager _BM = GetComponent<BuildManager>();
 
         nbOfMovesLimit = level.nbTurns;
-        maxMoves_go.GetComponent<InputField>().text = nbOfMovesLimit.ToString();
-
+        Debug.Log(level.description);
+        maxMoves_go.GetComponent<TextMeshProUGUI>().text = nbOfMovesLimit.ToString();
         descriptionGO.GetComponent<TextMeshProUGUI>().text = level.description;
+
         clueGO.GetComponent<TextMeshProUGUI>().text = level.clue;
 
         if (level.isInDarkMode) {

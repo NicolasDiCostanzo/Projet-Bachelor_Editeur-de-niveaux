@@ -488,9 +488,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec67bbc7cc4bae45b54f156116fabc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapSprite: {fileID: 21300000, guid: aaa4edb722eba92489c869d5a99e3562, type: 3}
-  treeSprite: {fileID: 21300000, guid: 695569e604b94fb47b8a66bfe5665bd8, type: 3}
-  teleportSprite: {fileID: 21300000, guid: b3333fcac511f6f4e8c07cff81fe8660, type: 3}
+  trapSprite: {fileID: 21300000, guid: bf6a9783f080a344d9e592f5c753793a, type: 3}
+  treeSprite: {fileID: 21300000, guid: 25f3dd507b80edc4ab902c17cd4577d9, type: 3}
+  teleportSprite: {fileID: 21300000, guid: eb5731706f10ae54eaf98d64d7732e5d, type: 3}
   imageGo: {fileID: 5841103181197511607, guid: 9cd13be7b316f08468da398567e497fa, type: 3}
   levelName: 
   json: '{"h": 0, "w": 0, "boxes": [{"type": -1, "index": 0, "buildTurn": 0, "blinkingFrq":
