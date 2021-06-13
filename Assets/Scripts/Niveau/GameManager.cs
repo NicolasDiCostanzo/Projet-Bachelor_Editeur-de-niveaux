@@ -361,8 +361,6 @@ isInBuildMode = true;
 
     void StoryModeTransition()
     {
-        Debug.Log("storyModeTransition");
-
         if (i_currentLevel < generalManager_script.storyLevelsName.Count)
         {
             string levelName = generalManager_script.storyLevelsName[i_currentLevel];

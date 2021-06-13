@@ -1,0 +1,527 @@
+{
+    "creatorName": "Nicolas",
+    "levelName": "StoryLvl5",
+    "creationDate": "2021/05/28 14:28:51",
+    "description": "",
+    "clue": "",
+    "objectsContained": "tree trap teleport ^^",
+    "w": 8,
+    "h": 8,
+    "nbTurns": 8,
+    "isInDarkMode": false,
+    "boxes": [
+        {
+            "type": 0,
+            "index": 0,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 1,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 2,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 3,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 4,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 5,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 6,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 7,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 8,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 9,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 10,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 11,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 12,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 13,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 14,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 15,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 16,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 17,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 18,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 19,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 20,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 21,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 22,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 23,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": 5,
+            "index": 24,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 25,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 26,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 27,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 28,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 29,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 30,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 31,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": 7,
+            "index": 32,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 33,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 34,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 35,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 36,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 37,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 38,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 39,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": 3,
+            "index": 40,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": 2,
+            "index": 41,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": 3,
+            "index": 42,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": 2,
+            "index": 43,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": 3,
+            "index": 44,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": 2,
+            "index": 45,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": 3,
+            "index": 46,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": 2,
+            "index": 47,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": 2,
+            "index": 48,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": 3,
+            "index": 49,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": 2,
+            "index": 50,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": 3,
+            "index": 51,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": 2,
+            "index": 52,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": 3,
+            "index": 53,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": 2,
+            "index": 54,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": 3,
+            "index": 55,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": 4,
+            "index": 56,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 57,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 58,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 59,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 60,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 61,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": -1,
+            "index": 62,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        },
+        {
+            "type": 1,
+            "index": 63,
+            "blinkingMode": 0,
+            "blinkingFrq": 0,
+            "buildTurn": 0,
+            "destroyTurn": 0
+        }
+    ],
+    "completed": true
+}

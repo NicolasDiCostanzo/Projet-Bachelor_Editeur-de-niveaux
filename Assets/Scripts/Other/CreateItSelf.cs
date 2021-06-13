@@ -4,12 +4,25 @@ using UnityEngine;
 
 public class CreateItSelf : MonoBehaviour
 {
-    [SerializeField] RectTransform parent;
-    
-    public void CreateThis()
+    GameObject instance;
+
+    public void CreateThis(bool adaptParameters)
     {
-        Instantiate(this);
-        name = gameObject.name;
-        transform.parent = GameObject.Find("Canvas").transform;
+        instance = Instantiate(this).gameObject;
+        instance.name = gameObject.name;
+        instance.transform.SetParent(GameObject.Find("Canvas").transform);
+
+        if (adaptParameters) AdaptParameters();
+    }
+
+    void AdaptParameters()
+    {
+        if (instance)
+        {
+            RectTransform rectTransform = instance.GetComponent<RectTransform>();
+            rectTransform.offsetMin = Vector2.zero;
+            rectTransform.offsetMax = Vector2.zero;
+            rectTransform.localScale = Vector3.one;
+        }
     }
 }

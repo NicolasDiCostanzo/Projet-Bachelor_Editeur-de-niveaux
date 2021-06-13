@@ -107,14 +107,18 @@ public class SaveLoadLevelData : MonoBehaviour
     {
         _GM = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
-        string directory = "";
+        string fullPath = "";
 
-        if (GeneralManager.isInStoryMode) directory = directoryStoryModeLevels;
-        else if (GeneralManager.isComingFromLocalLevelsChoice || GeneralManager.isInBuildMode) directory = directoryDownloadedLevels;
+        if (GeneralManager.isInStoryMode)
+        {
+            fullPath = Application.persistentDataPath + directoryStoryModeLevels + a_levelNameToLoad + ".txt"; ;
+        }
+        else if (GeneralManager.isComingFromLocalLevelsChoice || GeneralManager.isInBuildMode)
+        {
+            fullPath = Application.persistentDataPath + directoryDownloadedLevels + a_levelNameToLoad + ".txt";
+        }
 
-        string fullPath = Application.persistentDataPath + directory + a_levelNameToLoad + ".txt";
-
-        //Debug.Log(fullPath);
+        Debug.Log(fullPath);
 
         if (File.Exists(fullPath))
         {
@@ -125,7 +129,8 @@ public class SaveLoadLevelData : MonoBehaviour
         }
 
         //Affiche un message si le niveau n'existe pas
-        //DisplayAlertMessages.DisplayMessage("Ce niveau n'a pas été trouvé.");
+        DisplayAlertMessages.DisplayMessage("Level " + a_levelNameToLoad + " not found.");
+        Debug.LogWarning(fullPath);
     }
 
     //Pour charger

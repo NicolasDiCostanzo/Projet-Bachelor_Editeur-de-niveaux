@@ -8,7 +8,7 @@ using UnityEditor;
 
 public class GeneralManager : MonoBehaviour
 {
-    [Tooltip("Dans cette liste, référencer le nom des niveaux à charger les uns à la suite des autres.")]
+    [Tooltip("Dans cette liste, référencer le nom des niveaux à charger.")]
     public List<string> storyLevelsName = new List<string>();
 
     [SerializeField] int fpsLimit, levelToReachToUnlockLevelCreation;
