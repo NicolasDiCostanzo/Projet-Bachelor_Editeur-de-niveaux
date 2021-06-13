@@ -165,7 +165,7 @@ isInBuildMode = true;
         BuildManager _BM = GetComponent<BuildManager>();
 
         nbOfMovesLimit = level.nbTurns;
-        Debug.Log(level.description);
+
         maxMoves_go.GetComponent<TextMeshProUGUI>().text = nbOfMovesLimit.ToString();
         descriptionGO.GetComponent<TextMeshProUGUI>().text = level.description;
 

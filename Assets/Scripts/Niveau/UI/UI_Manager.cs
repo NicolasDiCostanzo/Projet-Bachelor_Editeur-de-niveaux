@@ -16,6 +16,12 @@ public class UI_Manager : MonoBehaviour
     private void Start()
     {
         _tpText = tpText;
+        selectedObject = LevelBoardBoxType.None;
+    }
+
+    private void Update()
+    {
+        Debug.Log(selectedObject);
     }
 
     public void DisplayPanel(GameObject panelToDisplay) { if (!panelToDisplay.activeInHierarchy) panelToDisplay.SetActive(true); }

@@ -36,6 +36,8 @@ public class SaveLoadLevelData : MonoBehaviour
 
         levelToSave.boxes.Clear();
 
+        bool witchAlreayRecorded = false, playerAlreadyRecorded = false;
+
         for (int i = 0; i < boxesNb; i++)
         {
             GameObject box = boxes.transform.GetChild(i).gameObject;
@@ -43,8 +45,20 @@ public class SaveLoadLevelData : MonoBehaviour
 
             boxDatas.index = i;
 
-            if (box.transform.childCount == 1 && box.transform.GetChild(0).name == "Player") boxDatas.type = LevelBoardBoxType.Player;
-            else if (box.transform.childCount == 1 && box.transform.GetChild(0).name == "Witch") boxDatas.type = LevelBoardBoxType.Witch;
+            if (box.transform.childCount == 1 && box.transform.GetChild(0).name == "Player")
+            {
+                if(playerAlreadyRecorded) boxDatas.type = LevelBoardBoxType.Witch;
+                else boxDatas.type = LevelBoardBoxType.Player;
+
+                playerAlreadyRecorded = true;
+            }
+            else if (box.transform.childCount == 1 && box.transform.GetChild(0).name == "Witch")
+            {
+                if (witchAlreayRecorded) boxDatas.type = LevelBoardBoxType.Player;
+                else boxDatas.type = LevelBoardBoxType.Witch;
+
+                witchAlreayRecorded = true;
+            }
 
             levelToSave.boxes.Add(boxDatas);
         }
@@ -130,7 +144,6 @@ public class SaveLoadLevelData : MonoBehaviour
 
         //Affiche un message si le niveau n'existe pas
         DisplayAlertMessages.DisplayMessage("Level " + a_levelNameToLoad + " not found.");
-        Debug.LogWarning(fullPath);
     }
 
     //Pour charger
