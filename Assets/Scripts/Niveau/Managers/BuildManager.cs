@@ -6,12 +6,24 @@ public class BuildManager : MonoBehaviour
     public int selectedObject;
     GameManager _GM;
 
-    private void OnEnable() { 
+    private void OnEnable() {
+        if (!GeneralManager.isInBuildMode)
+        {
+            enabled = false;
+            return;
+        }
+
+        Debug.Log(GeneralManager.isInBuildMode);
+
         _GM = GameObject.Find("Game Manager").GetComponent<GameManager>();
         GameManager.RepositionBothCharacters();
 
         //PEUT Y AVOIR UN BUG ICIIIIIIIII
-        if (GeneralManager.sceneNameToLoad != "") SaveLoadLevelData.LoadFromSavedLevelsDirectory(GeneralManager.sceneNameToLoad);
+        if (GeneralManager.sceneNameToLoad != "")
+        {
+            Debug.Log("build manager");
+            SaveLoadLevelData.LoadFromSavedLevelsDirectory(GeneralManager.sceneNameToLoad);
+        }
     }
 
 

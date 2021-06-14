@@ -52,8 +52,12 @@ public class MovementManager : MonoBehaviour
             if ((GameManager.currentTurn > GameManager.nbOfMovesLimit) && GameManager.nbOfMovesLimit > 0)
             {
                 if (nbOfMoves_Displayer.color != new Color32(255, 0, 0, 255)) nbOfMoves_Displayer.color = new Color32(255, 0, 0, 255);
-                
-                if(!GeneralManager.isInBuildMode) _GM.LevelLost();
+
+                if (!GeneralManager.isInBuildMode)
+                {
+                    _GM.LevelLost();
+                    AudioManager.Play("TooManyMoves");
+                }
             }
             else
             {
@@ -78,7 +82,8 @@ public class MovementManager : MonoBehaviour
 
     void LateUpdate()
     {
-        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.DownArrow)))
+        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.LeftArrow) 
+            || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.DownArrow)))
             Movement();
     }
 
@@ -87,7 +92,12 @@ public class MovementManager : MonoBehaviour
         witch = GameObject.Find("Witch");
         player = GameObject.Find("Player");
 
-        if (!player || !witch) return;
+        if (!player || !witch)
+        {
+            if (!player) Debug.LogError("Manque player");
+            if (!witch) Debug.LogError("Manque enemy");
+            return;
+        }
 
         if (player) playerBehavioursScript = player.GetComponent<CharactersBehaviour>();
         if (witch) witchBehavioursScript = witch.GetComponent<CharactersBehaviour>();

@@ -20,6 +20,9 @@ public class CharactersBehaviour : MonoBehaviour
 
     public void CharacMove(float xMove, float zMove)
     {
+
+        //AudioManager.Play("Mouv");
+
         transform.position = new Vector3(transform.position.x + xMove, transform.position.y, transform.position.z + zMove);
         DisplayInformationMessage.HideInfoPanel();
 
@@ -52,6 +55,13 @@ public class CharactersBehaviour : MonoBehaviour
 
     public void Die(LevelBoardBoxType boxType)
     {
+        string soundToPlay;
+
+        if (name == "Witch") soundToPlay = "EnemyDies";
+        else                 soundToPlay = "PawnDies";
+
+        if(soundToPlay != "") AudioManager.Play(soundToPlay);
+        
         int x = gameManager_script.ConvertPosToBoxes(transform.position).x + 1;
         int y = gameManager_script.ConvertPosToBoxes(transform.position).y + 1;
 

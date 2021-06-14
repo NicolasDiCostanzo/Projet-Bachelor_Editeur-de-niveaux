@@ -48,12 +48,11 @@ public class GeneralManager : MonoBehaviour
 
         SetEditionsButtons();
         LoadBinaryData();
+
+        AudioManager.Play("BackgroundMusic");
     }
 
-    public static void SetNewGame(bool newGameValue)
-    {
-        newGame = newGameValue;
-    }
+    public static void SetNewGame(bool newGameValue) { newGame = newGameValue; }
 
     public void ResetDataSaved()
     {

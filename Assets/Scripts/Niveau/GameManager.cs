@@ -149,6 +149,7 @@ isInBuildMode = true;
 
     void StartInPlayMode(string a_levelNameToStartWith)
     {
+        Debug.Log("start in play mode");
         state = State.Play;
         SaveLoadLevelData.LoadFromSavedLevelsDirectory(a_levelNameToStartWith);
     }
@@ -280,6 +281,7 @@ isInBuildMode = true;
     public void SetAlreadyDied(bool a_alreadyDied) { alreadyDied = a_alreadyDied; }
     public void LevelCompleted()
     {
+        AudioManager.Play("Win");
         i_currentLevel++;
 
         if (isInBuildMode)
@@ -361,6 +363,7 @@ isInBuildMode = true;
 
     void StoryModeTransition()
     {
+        Debug.Log("story mode transition");
         if (i_currentLevel < generalManager_script.storyLevelsName.Count)
         {
             string levelName = generalManager_script.storyLevelsName[i_currentLevel];

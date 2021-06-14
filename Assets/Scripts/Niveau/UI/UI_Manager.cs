@@ -19,11 +19,6 @@ public class UI_Manager : MonoBehaviour
         selectedObject = LevelBoardBoxType.None;
     }
 
-    private void Update()
-    {
-        Debug.Log(selectedObject);
-    }
-
     public void DisplayPanel(GameObject panelToDisplay) { if (!panelToDisplay.activeInHierarchy) panelToDisplay.SetActive(true); }
 
     public void HidePanel(GameObject panelToHide) { if (panelToHide.activeInHierarchy) panelToHide.SetActive(false); }

@@ -1,2 +1,7 @@
 //feedback quand niveau réussi en mode histoire
-//incorporer les niveaux de base pour le build
+
+//-----------------------------------------------Erreurs-----------------------------------------------
+//-------------------Warning-----------------
+//Should not be capturing when there is a hotcontrol
+//-------------------Error-----------------
+//

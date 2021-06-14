@@ -29,8 +29,15 @@ public class SaveLoadLevelData : MonoBehaviour
 
         GameObject boxes = null;
 
-        if (GameObject.Find("Squares")) boxes = GameObject.Find("Squares");
-        else return;
+        if (GameObject.Find("Squares"))
+        {
+            boxes = GameObject.Find("Squares");
+        }
+        else
+        {
+            Debug.LogError("boxes object not found");
+            return;
+        }
 
         int boxesNb = boxes.transform.childCount;
 
@@ -119,31 +126,36 @@ public class SaveLoadLevelData : MonoBehaviour
 
     public static void LoadFromSavedLevelsDirectory(string a_levelNameToLoad)
     {
+        Debug.Log("load level from saved levels directory");
+
         _GM = GameObject.Find("Game Manager").GetComponent<GameManager>();
+
 
         string fullPath = "";
 
         if (GeneralManager.isInStoryMode)
         {
-            fullPath = Application.persistentDataPath + directoryStoryModeLevels + a_levelNameToLoad + ".txt"; ;
+            TextAsset doc = Resources.Load<TextAsset>(a_levelNameToLoad);
+
+            LoadLevelFromJson(doc.text);
         }
         else if (GeneralManager.isComingFromLocalLevelsChoice || GeneralManager.isInBuildMode)
         {
             fullPath = Application.persistentDataPath + directoryDownloadedLevels + a_levelNameToLoad + ".txt";
+
+            if (File.Exists(fullPath))
+            {
+                string json = File.ReadAllText(fullPath);
+                LoadLevelFromJson(json);
+
+                return;
+            }
         }
 
-        Debug.Log(fullPath);
 
-        if (File.Exists(fullPath))
-        {
-            string json = File.ReadAllText(fullPath);
-            LoadLevelFromJson(json);
-
-            return;
-        }
 
         //Affiche un message si le niveau n'existe pas
-        DisplayAlertMessages.DisplayMessage("Level " + a_levelNameToLoad + " not found.");
+        //DisplayAlertMessages.DisplayMessage("Level " + a_levelNameToLoad + " not found.");
     }
 
     //Pour charger

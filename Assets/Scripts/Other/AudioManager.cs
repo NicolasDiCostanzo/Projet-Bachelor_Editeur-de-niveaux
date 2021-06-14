@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -7,7 +6,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] Sound[] sounds;
     public static Sound[] _sounds;
 
-    private void Awake()
+    void Start()
     {
         _sounds = sounds;
 
@@ -17,20 +16,27 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
 
             s.source.volume = s.volume;
+            s.source.loop = s.loop;
         }
     }
 
     public static void Play(string name)
     {
         Sound s = Array.Find(_sounds, sound => sound.name == name);
-        s.source.Play();
 
-        Debug.Log("play " + name);
+        if (s == null)
+        {
+            Debug.LogWarning(name + " not found");
+            return;
+        }
+
+        s.source.Play();
     }
 
 
     [Serializable]
-    public class Sound{
+    public class Sound
+    {
         public string name;
 
         public AudioClip clip;
@@ -40,7 +46,7 @@ public class AudioManager : MonoBehaviour
 
         [HideInInspector] public AudioSource source;
     }
-    
+
     enum SoundName
     {
         MusicBackground,
