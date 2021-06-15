@@ -7,7 +7,7 @@ public class ObjectManager : MonoBehaviour
 {
     public Vector3 positionOffset;
     public LevelBoardBoxType type;
-    UI_Manager UI_Manager;
+    UI_Manager uiManagerReference;
 
     public bool canBeInstantiatedSeveralTimes;
     GameObject teleportIN;
@@ -15,7 +15,7 @@ public class ObjectManager : MonoBehaviour
 
     private void Awake()
     {
-        UI_Manager = GameObject.Find("Canvas").GetComponent<UI_Manager>();
+        uiManagerReference = FindObjectOfType<UI_Manager>();
         positionOffset.y = transform.localScale.y;
 
         if (type == LevelBoardBoxType.Tree || type == LevelBoardBoxType.Trap) positionOffset.y = transform.localScale.y / 2;
@@ -23,14 +23,17 @@ public class ObjectManager : MonoBehaviour
 
     private void OnEnable()
     {
+        Debug.Log("on enable d'object manager");
+        Debug.Log(transform.name);
+        Debug.Log(transform.position);
         transform.name = type.ToString();
         transform.position += positionOffset;
 
         if (!canBeInstantiatedSeveralTimes)
         {
-            UI_Manager.ButtonManagement(type, false);
+            uiManagerReference.ButtonManagement(type, false);
             UI_Manager.selectedObject = LevelBoardBoxType.None;
-            UI_Manager.ButtonOutlineManagement();
+            uiManagerReference.ButtonOutlineManagement();
         }
 
         ManageTeleportsExceptionOnCreation();
@@ -38,9 +41,9 @@ public class ObjectManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (!canBeInstantiatedSeveralTimes) UI_Manager.ButtonManagement(type, true);
+        if (!canBeInstantiatedSeveralTimes) uiManagerReference.ButtonManagement(type, true);
         ManageTeleportsExceptionOnDestroy();
-        UI_Manager.ButtonOutlineManagement();
+        uiManagerReference.ButtonOutlineManagement();
     }
 
     void ManageTeleportsExceptionOnCreation()
@@ -51,8 +54,8 @@ public class ObjectManager : MonoBehaviour
         if (teleportIN && !teleportOut) UI_Manager.SetTPTextDisplaying(true);
         else UI_Manager.SetTPTextDisplaying(false);
 
-        if (type == LevelBoardBoxType.Teleport_IN) UI_Manager.DeactiveButtons(true);
-        if (type == LevelBoardBoxType.Teleport_OUT) UI_Manager.DeactiveButtons(false);
+        if (type == LevelBoardBoxType.Teleport_IN) uiManagerReference.DeactiveButtons(true);
+        if (type == LevelBoardBoxType.Teleport_OUT) uiManagerReference.DeactiveButtons(false);
     }
 
     void ManageTeleportsExceptionOnDestroy()
@@ -75,7 +78,7 @@ public class ObjectManager : MonoBehaviour
         //Si l'objet détruit un TP_OUT et qu'il n'y a pas de TP_IN sur le plateau, on garde en selection un TP_IN
         if (UI_Manager.selectedObject == LevelBoardBoxType.Teleport_OUT && !teleportIN) UI_Manager.selectedObject = LevelBoardBoxType.Teleport_IN;
 
-        if (type == LevelBoardBoxType.Teleport_OUT && teleportIN) UI_Manager.DeactiveButtons(true);
-        else if (type == LevelBoardBoxType.Teleport_IN) UI_Manager.DeactiveButtons(false);
+        if (type == LevelBoardBoxType.Teleport_OUT && teleportIN) uiManagerReference.DeactiveButtons(true);
+        else if (type == LevelBoardBoxType.Teleport_IN) uiManagerReference.DeactiveButtons(false);
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.37112844, g: 0.389678, b: 0.44031712, a: 1}
+  m_IndirectSpecularColor: {r: 0.43748927, g: 0.48531222, b: 0.56558746, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6253,7 +6253,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7790055, y: 1}
+    m_SensorSize: {x: 1.7775629, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -9322,7 +9322,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7790055, y: 1}
+    m_SensorSize: {x: 1.7775629, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -11674,7 +11674,7 @@ MonoBehaviour:
   informationPanel: {fileID: 6118556885408345947, guid: 9a5e0d628adf7f849805f147232fa927,
     type: 3}
   informationPanelMargin: 200
-  mouseOverText: The peasant is YOU. You must avoid that he ends up on the same square
+  mouseOverText: The pawn is YOU. You must avoid that he ends up on the same square
     as a trap or the stake, otherwise it is death...
 --- !u!114 &1405909159
 MonoBehaviour:

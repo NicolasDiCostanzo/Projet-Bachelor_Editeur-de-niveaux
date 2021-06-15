@@ -16,11 +16,18 @@ public class BuildButton : MonoBehaviour
 
     public void SetSelectedObject()
     {
-        UI_Manager uiManager_script = GameObject.Find("Canvas").GetComponent<UI_Manager>();
+        Debug.Log("find object of type : " + FindObjectOfType<UI_Manager>());
 
+        UI_Manager uiManager_script = GameObject.Find("Canvas").GetComponent<UI_Manager>();//FindObjectOfType<UI_Manager>();
+        Debug.Log("ui manager script : " + uiManager_script);
         UI_Manager.selectedObject = typeAssociated;
         uiManager_script.ButtonOutlineManagement();
+
+        Debug.Log("outline : " + GetComponent<Outline>());
         GetComponent<Outline>().enabled = true;
+
+        Debug.Log("pliiiiiiiiiiiz");
+
     }
 
     GameObject instanceOfPrefab;

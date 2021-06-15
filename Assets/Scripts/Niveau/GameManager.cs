@@ -292,6 +292,7 @@ isInBuildMode = true;
         }
         else
         {
+            Debug.Log("win playmode");
             levelCompleted = true;
             StartCoroutine(LevelTransition());
         }
@@ -330,6 +331,7 @@ isInBuildMode = true;
         GetComponent<MovementManager>().enabled = false;
 
         if (!GeneralManager.isInStoryMode && levelCompleted) WhenCompleteLocallySavedLevel();
+        Debug.Log("win playmode");
 
 
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));

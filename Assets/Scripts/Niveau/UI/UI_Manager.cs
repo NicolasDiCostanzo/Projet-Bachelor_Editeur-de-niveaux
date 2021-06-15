@@ -26,6 +26,7 @@ public class UI_Manager : MonoBehaviour
     public List<Button> buttonAlreadyDeactivated = new List<Button>();
     public void ButtonManagement(LevelBoardBoxType objectType, bool buttonIsInteractable)
     {
+        Debug.Log("button management");
         if (objectType == LevelBoardBoxType.Teleport_IN) buttonAlreadyDeactivated.Clear();
 
         if (buttonsParent)
@@ -47,8 +48,12 @@ public class UI_Manager : MonoBehaviour
 
     public void ButtonOutlineManagement()
     {
+        Debug.Log("button outine man");
         if (buttonsParent)
         {
+            Debug.Log("buttonsParent");
+            Debug.Log(buttonsParent.childCount);
+
             for (int i = 0; i < buttonsParent.childCount; i++)
             {
                 GameObject buttonGO = buttonsParent.GetChild(i).gameObject;

@@ -37,7 +37,7 @@ public static class SaveSystem
         }
         else
         {
-            Debug.LogWarning("Binary file not found");
+            Debug.LogWarning("Binary file not found at " + path);
         }
 
         return data;

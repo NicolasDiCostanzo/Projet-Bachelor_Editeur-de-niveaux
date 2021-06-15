@@ -126,8 +126,6 @@ public class SaveLoadLevelData : MonoBehaviour
 
     public static void LoadFromSavedLevelsDirectory(string a_levelNameToLoad)
     {
-        Debug.Log("load level from saved levels directory");
-
         _GM = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
 

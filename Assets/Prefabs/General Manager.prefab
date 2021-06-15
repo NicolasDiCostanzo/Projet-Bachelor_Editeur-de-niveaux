@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 876125524197980206}
   - component: {fileID: 876125524197980207}
   - component: {fileID: 876125524197980193}
+  - component: {fileID: 876125524619185275}
   m_Layer: 0
   m_Name: General Manager
   m_TagString: Untagged
@@ -45,20 +46,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storyLevelsName:
-  - testPierre
-  - testPierre
-  - testbug
-  - testbug2
-  - testEditErase
-  - testLocal
-  - testMemoryLeak
-  - Recharge
+  - StoryLvl1
+  - StoryLvl2
+  - StoryLvl3
+  - StoryLvl4
+  - StoryLvl5
+  - StoryLvl6
   fpsLimit: 90
-  levelToReachToUnlockLevelCreation: 3
+  levelToReachToUnlockLevelCreation: 0
   editionsButtons:
   - {fileID: 0}
   - {fileID: 0}
-  continueButton: {fileID: 0}
 --- !u!114 &876125524197980193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,5 +69,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf4a0501d919ea4ca09593badc2d291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  errorMessagePanel: {fileID: 3883596340692684331, guid: bc5ce81cbb76d8d4d9e3c80097fc8291,
+  errorMessagePanel: {fileID: 4338548620959958252, guid: f8012e1240a329e47843b8aacab2c76f,
     type: 3}
+--- !u!114 &876125524619185275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876125524197980204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb32f752d17823242a8ad15d5a406aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: BackgroundMusic
+    clip: {fileID: 8300000, guid: 22f2d4c5e49bd5146be0c7fc9c63acf9, type: 3}
+    volume: 0.2
+    loop: 1
+    source: {fileID: 0}
+  - name: Mouv
+    clip: {fileID: 8300000, guid: fcc99e156a0ad1f4f90d138e59f91c3a, type: 3}
+    volume: 0.2
+    loop: 0
+    source: {fileID: 0}
+  - name: Click
+    clip: {fileID: 8300000, guid: c27789a31e6bd4043a80ab82070d9fa2, type: 3}
+    volume: 0.2
+    loop: 0
+    source: {fileID: 0}
+  - name: BigClick
+    clip: {fileID: 8300000, guid: 49afe39339ee72841941a6cf2c4223d7, type: 3}
+    volume: 0.2
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyDies
+    clip: {fileID: 8300000, guid: d7017667f44fd8246828239a0356d900, type: 3}
+    volume: 0.2
+    loop: 0
+    source: {fileID: 0}
+  - name: PawnDies
+    clip: {fileID: 8300000, guid: 135aa199a6804334e9d3c2978f87600a, type: 3}
+    volume: 0.2
+    loop: 0
+    source: {fileID: 0}
+  - name: Win
+    clip: {fileID: 8300000, guid: 2ed9973080113ea41a6880bd6ec46333, type: 3}
+    volume: 0.2
+    loop: 0
+    source: {fileID: 0}
+  - name: TooManyMoves
+    clip: {fileID: 8300000, guid: d9945ea05fde43543babd11ba2dab7dc, type: 3}
+    volume: 0.2
+    loop: 0
+    source: {fileID: 0}

@@ -4,7 +4,6 @@ public class BuildManager : MonoBehaviour
 {
     public GameObject[] objects = new GameObject[7];
     public int selectedObject;
-    GameManager _GM;
 
     private void OnEnable() {
         if (!GeneralManager.isInBuildMode)
@@ -13,17 +12,11 @@ public class BuildManager : MonoBehaviour
             return;
         }
 
-        Debug.Log(GeneralManager.isInBuildMode);
-
-        _GM = GameObject.Find("Game Manager").GetComponent<GameManager>();
         GameManager.RepositionBothCharacters();
 
         //PEUT Y AVOIR UN BUG ICIIIIIIIII
         if (GeneralManager.sceneNameToLoad != "")
-        {
-            Debug.Log("build manager");
             SaveLoadLevelData.LoadFromSavedLevelsDirectory(GeneralManager.sceneNameToLoad);
-        }
     }
 
 

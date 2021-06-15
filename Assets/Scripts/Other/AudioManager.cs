@@ -5,20 +5,28 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] Sound[] sounds;
     public static Sound[] _sounds;
+    public static bool started = false;
 
     void Start()
     {
+        if (started) return;
+        started = true;
+
         _sounds = sounds;
 
         foreach (Sound s in sounds)
         {
-            s.source = gameObject.AddComponent<AudioSource>();
+            AudioSource audiosource = gameObject.AddComponent<AudioSource>();
+
+            s.source = audiosource;
             s.source.clip = s.clip;
 
             s.source.volume = s.volume;
             s.source.loop = s.loop;
         }
     }
+
+    
 
     public static void Play(string name)
     {
