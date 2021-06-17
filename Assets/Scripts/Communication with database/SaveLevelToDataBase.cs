@@ -37,8 +37,19 @@ public class SaveLevelToDataBase : MonoBehaviour
         using (UnityWebRequest www = UnityWebRequest.Post(url + addLevel, form))
         {
             www.downloadHandler = new DownloadHandlerBuffer();
+            Debug.Log("wating panel go : " + waitingPanel);
+            //GameObject waitingPanelInstance = Instantiate(waitingPanel, new Vector3(806,453.5f, 0), Quaternion.Euler(Vector3.zero), GameObject.Find("Canvas").transform);
+            GameObject waitingPanelInstance = Instantiate(waitingPanel, new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0), Quaternion.Euler(Vector3.zero));
+            waitingPanelInstance.transform.SetParent(GameObject.Find("Canvas").transform, false);
 
-            GameObject waitingPanelInstance = Instantiate(waitingPanel, new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0), Quaternion.Euler(Vector3.zero), GameObject.Find("Canvas").transform);
+            Debug.Log("wating panel instance : " + waitingPanelInstance);
+            Debug.Log("wating panel instance name: " + waitingPanelInstance.name);
+            Debug.Log("wating panel instance parent : " + waitingPanelInstance.transform.parent);
+            Debug.Log("wating panel instance position : " + waitingPanelInstance.transform.position);
+            Debug.Log("wating panel instance parent name: " + waitingPanelInstance.transform.parent.name);
+            Debug.Log("canvas : " + GameObject.Find("Canvas"));
+            Debug.Log("canvas transform : " + GameObject.Find("Canvas").transform);
+            Debug.Log("canvas transform name : " + GameObject.Find("Canvas").transform.name);
 
             yield return www.SendWebRequest();
 

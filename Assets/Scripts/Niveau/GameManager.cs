@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
 
     public static Level level = new Level();
 
-    MovementManager _MM;
     BuildManager _BM;
     PlayState playState_script;
     GameObject statesManagers_go;
@@ -57,7 +56,6 @@ public class GameManager : MonoBehaviour
     //TOUTES LES fonctions qui étaient dans Start sont passées dans Awake. DONC IL PEUT Y AVOIR DES BUGS A CAUSE DE CA !!!!!
     void Awake()
     {
-        _MM = GetComponent<MovementManager>();
         _BM = GetComponent<BuildManager>();
         statesManagers_go = GameObject.Find("States Managers");
 
@@ -69,7 +67,7 @@ public class GameManager : MonoBehaviour
 #if TEST
 isInBuildMode = true;
 #else
-        generalManager_script = GameObject.Find("General Manager").GetComponent<GeneralManager>();
+        generalManager_script = FindObjectOfType<GeneralManager>();
 #endif
         playState_script = statesManagers_go.GetComponent<PlayState>();
 
@@ -121,11 +119,9 @@ isInBuildMode = true;
         }
     }
 
-
     void Update() { 
         if (Input.GetKeyDown(KeyCode.Escape)) pausePanel.SetActive(!pausePanel.activeInHierarchy); 
         if (Input.GetKeyDown(KeyCode.Space) && !GeneralManager.isInBuildMode)  StartCoroutine(LevelTransition()); 
-    
     }
 
     private void OnDisable() { 
@@ -134,13 +130,15 @@ isInBuildMode = true;
         level.isInDarkMode = false;
     }
 
-    public void SetCanBuildValue(bool a_canBuild) { canBuild = a_canBuild; }
+    public void SetCanBuildValue(bool a_canBuild) { canBuild = a_canBuild; Debug.Log(canBuild); }
 
     public void ToggleDarkMode() { level.isInDarkMode = GameObject.Find("DarkMode_toggle").GetComponent<Toggle>().isOn; }
 
     void StartInBuildMode()
     {
+        Debug.Log("start in build");
         state = State.Build;
+        Debug.Log(state);
 
         switchState_btn.SetActive(true);
         save_btn.SetActive(true);
@@ -331,8 +329,6 @@ isInBuildMode = true;
         GetComponent<MovementManager>().enabled = false;
 
         if (!GeneralManager.isInStoryMode && levelCompleted) WhenCompleteLocallySavedLevel();
-        Debug.Log("win playmode");
-
 
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
 

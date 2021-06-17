@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CreateItSelf : MonoBehaviour
@@ -10,7 +8,8 @@ public class CreateItSelf : MonoBehaviour
     {
         instance = Instantiate(this).gameObject;
         instance.name = gameObject.name;
-        instance.transform.SetParent(GameObject.Find("Canvas").transform);
+        Debug.Log("create itself " + name + " " + GameObject.Find("Canvas"));
+        instance.transform.SetParent(GameObject.Find("Canvas").transform, false);
 
         if (adaptParameters) AdaptParameters();
     }
@@ -20,9 +19,9 @@ public class CreateItSelf : MonoBehaviour
         if (instance)
         {
             RectTransform rectTransform = instance.GetComponent<RectTransform>();
+            Debug.Log(instance.GetComponent<RectTransform>());
             rectTransform.offsetMin = Vector2.zero;
             rectTransform.offsetMax = Vector2.zero;
-            rectTransform.localScale = Vector3.one;
         }
     }
 }

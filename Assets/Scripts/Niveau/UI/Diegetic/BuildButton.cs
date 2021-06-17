@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class BuildButton : MonoBehaviour
 {
-    //public bool canBeInstanciedSeveralTimes;
     public LevelBoardBoxType typeAssociated;
 
     [SerializeField] GameObject informationPanel;
@@ -16,18 +15,11 @@ public class BuildButton : MonoBehaviour
 
     public void SetSelectedObject()
     {
-        Debug.Log("find object of type : " + FindObjectOfType<UI_Manager>());
-
-        UI_Manager uiManager_script = GameObject.Find("Canvas").GetComponent<UI_Manager>();//FindObjectOfType<UI_Manager>();
-        Debug.Log("ui manager script : " + uiManager_script);
+        UI_Manager uiManager_script = FindObjectOfType<UI_Manager>();
         UI_Manager.selectedObject = typeAssociated;
         uiManager_script.ButtonOutlineManagement();
 
-        Debug.Log("outline : " + GetComponent<Outline>());
         GetComponent<Outline>().enabled = true;
-
-        Debug.Log("pliiiiiiiiiiiz");
-
     }
 
     GameObject instanceOfPrefab;

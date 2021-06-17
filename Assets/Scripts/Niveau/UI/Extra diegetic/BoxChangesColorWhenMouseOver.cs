@@ -7,14 +7,11 @@ public class BoxChangesColorWhenMouseOver : MonoBehaviour
 
     Renderer parentRend;
 
-    BuildManager _BM;
-
     private void Start()
     {
         parentRend = transform.parent.GetComponent<Renderer>();
         overColor = transform.parent.GetComponent<BoxesScript>().overColor;
         startColor = transform.parent.GetComponent<BoxesScript>().startColor;
-        _BM = GameObject.Find("Game Manager").GetComponent<BuildManager>();
     }
 
     private void OnMouseOver()

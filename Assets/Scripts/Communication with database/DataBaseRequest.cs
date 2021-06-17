@@ -140,12 +140,6 @@ public class DataBaseRequest : MonoBehaviour
             DestroyLoadingImage();
 
             if (www.result == UnityWebRequest.Result.ConnectionError) Debug.LogWarning(www.error);
-
-            if (www.isDone)
-            {
-                string jsonResult = System.Text.Encoding.UTF8.GetString(www.downloadHandler.data);
-                Debug.Log(jsonResult);
-            }
         }
     }
 

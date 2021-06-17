@@ -80,7 +80,6 @@ public class SaveLoadLevelData : MonoBehaviour
     public void SaveLevelNameToLevelStructure()
     {
         string _levelName = GameObject.Find("LevelName_InputField").GetComponent<TMP_InputField>().text;
-        Debug.Log(_levelName);
 
         if (_levelName != null && _levelName != "") levelToSave.levelName = _levelName;
     }

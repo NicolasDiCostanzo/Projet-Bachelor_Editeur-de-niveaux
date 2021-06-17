@@ -17,6 +17,7 @@ public class UI_Manager : MonoBehaviour
     {
         _tpText = tpText;
         selectedObject = LevelBoardBoxType.None;
+        ButtonsAreDisabled(false);
     }
 
     public void DisplayPanel(GameObject panelToDisplay) { if (!panelToDisplay.activeInHierarchy) panelToDisplay.SetActive(true); }
@@ -26,7 +27,6 @@ public class UI_Manager : MonoBehaviour
     public List<Button> buttonAlreadyDeactivated = new List<Button>();
     public void ButtonManagement(LevelBoardBoxType objectType, bool buttonIsInteractable)
     {
-        Debug.Log("button management");
         if (objectType == LevelBoardBoxType.Teleport_IN) buttonAlreadyDeactivated.Clear();
 
         if (buttonsParent)
@@ -48,19 +48,17 @@ public class UI_Manager : MonoBehaviour
 
     public void ButtonOutlineManagement()
     {
-        Debug.Log("button outine man");
         if (buttonsParent)
         {
-            Debug.Log("buttonsParent");
-            Debug.Log(buttonsParent.childCount);
-
             for (int i = 0; i < buttonsParent.childCount; i++)
             {
                 GameObject buttonGO = buttonsParent.GetChild(i).gameObject;
                 Outline buttonOutline = buttonGO.GetComponent<Outline>();
 
-                if (buttonGO.GetComponent<BuildButton>().typeAssociated != selectedObject) buttonOutline.enabled = false;
-                else buttonOutline.enabled = true;
+                if (buttonGO.GetComponent<BuildButton>().typeAssociated != selectedObject) 
+                    buttonOutline.enabled = false;
+                else 
+                    buttonOutline.enabled = true;
             }
         }
     }
@@ -70,5 +68,5 @@ public class UI_Manager : MonoBehaviour
             isNotActiveWhenNotInEditor[i].SetActive(false); 
     }
 
-    public void DeactiveButtons(bool active) { deactiveButtonsImg.raycastTarget = active; }
+    public void ButtonsAreDisabled(bool active) { if(active != deactiveButtonsImg.raycastTarget) deactiveButtonsImg.raycastTarget = active; }
 }
