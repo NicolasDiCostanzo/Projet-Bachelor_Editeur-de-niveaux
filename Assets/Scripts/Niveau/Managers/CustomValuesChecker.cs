@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
@@ -6,6 +7,8 @@ using UnityEngine.UI;
 /// </summary>
 public class CustomValuesChecker : MonoBehaviour
 {
+    [SerializeField] GameObject alertMessage;
+
     public void VerifyCustomValues()
     {
         GameObject buildTourValueInput = GameObject.Find("Build_InputValue");
@@ -29,7 +32,11 @@ public class CustomValuesChecker : MonoBehaviour
         else i_buildTourValue = int.Parse(s_buildTurnValue);
 
 
-        if (i_buildTourValue > i_destroyTurnValue && (i_destroyTurnValue != 0)) DisplayAlertMessages.DisplayMessage("Le numéro du tour auquel l'objet doit apparaître est plus grand que le tour où il doit disparaître.");
+        if (i_buildTourValue > i_destroyTurnValue && (i_destroyTurnValue != 0))
+        {
+            alertMessage.SetActive(true);
+            alertMessage.GetComponentInChildren<TextMeshProUGUI>().text = "The number of the turn in which the object is to appear is greater than the turn in which it is to disappear.";
+        }
 
         GameObject goToModify = GameObject.Find("CustomisationPanel").GetComponent<LinkedGameObject>().linkedGameObject;
         if (goToModify) SetObjectCustomValues(goToModify, i_buildTourValue, i_destroyTurnValue);
@@ -49,7 +56,8 @@ public class CustomValuesChecker : MonoBehaviour
             int i_blinkingFrequency = int.Parse(blinkingFrequency_InputField.GetComponent<Text>().text);
             if (i_blinkingFrequency <= 1)
             {
-                DisplayAlertMessages.DisplayMessage("La fréquence de clignotement ne peut pas être inférieure à 2.");
+                alertMessage.SetActive(true);
+                alertMessage.GetComponentInChildren<TextMeshProUGUI>().text = "The blinking frequency may not be less than 2.";
             }
             else
             {

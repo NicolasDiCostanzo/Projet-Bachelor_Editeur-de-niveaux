@@ -14,7 +14,6 @@ public class GameData
             return;
         }
 
-        if(levelReached >= GeneralManager._levelToReachToUnlockLevelCreation) 
-            this.editionUnlocked = true;
+        if(levelReached >= GeneralManager._levelToReachToUnlockLevelCreation) this.editionUnlocked = true;
     }
 }

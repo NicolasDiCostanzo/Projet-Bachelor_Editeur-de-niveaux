@@ -563,6 +563,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  colorIfNotInteractable: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &521852068 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 876125524619185275, guid: 29cf98da1347c5e45a14a9dfa91edd3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 876125524619185273}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb32f752d17823242a8ad15d5a406aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &606609939
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,6 +725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  colorIfNotInteractable: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &644808165
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +831,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 521852068}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Big Click
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!222 &644808169
@@ -1275,6 +1301,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 521852068}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!222 &711338035
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1468,6 +1506,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 521852068}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!222 &758350224
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1625,6 +1675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  colorIfNotInteractable: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &804629375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1703,11 +1754,23 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 521852068}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 974925538}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -1906,6 +1969,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 521852068}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Big Click
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1777169494}
         m_TargetAssemblyTypeName: GeneralManager, Assembly-CSharp
         m_MethodName: SetNewGame
@@ -2075,6 +2150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  colorIfNotInteractable: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &970051759
 GameObject:
   m_ObjectHideFlags: 0
@@ -2578,6 +2654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  colorIfNotInteractable: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1132397268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2765,6 +2842,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 521852068}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Big Click
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1166099036
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2892,6 +2981,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 521852068}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Big Click
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!222 &1179916552
@@ -3146,6 +3247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  colorIfNotInteractable: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1385882527
 GameObject:
   m_ObjectHideFlags: 0
@@ -3295,6 +3397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  colorIfNotInteractable: {r: 0.74509805, g: 0.74509805, b: 0.74509805, a: 0.5019608}
 --- !u!1 &1513480134
 GameObject:
   m_ObjectHideFlags: 0
@@ -3536,6 +3639,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 521852068}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1777169494}
         m_TargetAssemblyTypeName: GeneralManager, Assembly-CSharp
         m_MethodName: QuitApp
@@ -3771,6 +3886,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 521852068}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1777169494}
         m_TargetAssemblyTypeName: GeneralManager, Assembly-CSharp
         m_MethodName: ResetDataSaved
@@ -3940,6 +4067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  colorIfNotInteractable: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1707544074
 GameObject:
   m_ObjectHideFlags: 0
@@ -4122,6 +4250,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 521852068}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!222 &1783931378
@@ -4487,6 +4627,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 521852068}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1876431449
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4644,6 +4796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  colorIfNotInteractable: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1991480881
 GameObject:
   m_ObjectHideFlags: 0
@@ -4795,6 +4948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  colorIfNotInteractable: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2017218293
 GameObject:
   m_ObjectHideFlags: 0
@@ -4944,6 +5098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  colorIfNotInteractable: {r: 0.74509805, g: 0.74509805, b: 0.74509805, a: 0.5019608}
 --- !u!1 &2033293507
 GameObject:
   m_ObjectHideFlags: 0
@@ -5093,6 +5248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  colorIfNotInteractable: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2107419360
 GameObject:
   m_ObjectHideFlags: 0
@@ -5198,6 +5354,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 521852068}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Big Click
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1777169494}
@@ -5309,6 +5477,16 @@ PrefabInstance:
       propertyPath: editionsButtons.Array.data[1]
       value: 
       objectReference: {fileID: 804629375}
+    - target: {fileID: 876125524197980207, guid: 29cf98da1347c5e45a14a9dfa91edd3d,
+        type: 3}
+      propertyPath: levelToReachToUnlockLevelCreation
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 876125524619185275, guid: 29cf98da1347c5e45a14a9dfa91edd3d,
+        type: 3}
+      propertyPath: sounds.Array.data[3].name
+      value: Big Click
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29cf98da1347c5e45a14a9dfa91edd3d, type: 3}
 --- !u!1001 &1984235886368617274
@@ -5338,26 +5516,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -480
       objectReference: {fileID: 0}
-    - target: {fileID: 367074629126930726, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 559277643651569855, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 959632274434269760, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1968033427120819247, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1984235886875314345, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -5366,12 +5524,12 @@ PrefabInstance:
     - target: {fileID: 1984235886875314345, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.99999994
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1984235886875314345, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5179684
+      value: 0.5179143
       objectReference: {fileID: 0}
     - target: {fileID: 2139928110864452787, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
         type: 3}
@@ -5392,21 +5550,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -1760
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896631460089005331, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3092718337876237804, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3299634973178602709, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3695394032568059658, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
         type: 3}
@@ -5448,16 +5591,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -160
       objectReference: {fileID: 0}
-    - target: {fileID: 3929274643676486872, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3929274644014831427, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3997042424359241070, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -5478,20 +5611,35 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -1440
       objectReference: {fileID: 0}
-    - target: {fileID: 4677115228438923644, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
+    - target: {fileID: 4677115228865010044, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
         type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677115228865010044, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5893626579280808402}
+    - target: {fileID: 4677115228865010044, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 521852068}
+    - target: {fileID: 4677115228865010044, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677115228865010044, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4677115229732289293, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1160.2494
-      objectReference: {fileID: 0}
-    - target: {fileID: 5231344620026695492, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
+      value: 1160.128
       objectReference: {fileID: 0}
     - target: {fileID: 5351175910252886760, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
         type: 3}
@@ -5627,21 +5775,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -2080
-      objectReference: {fileID: 0}
-    - target: {fileID: 6422933261060272713, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6846871912368519327, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8559702307654906960, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8655081486163921560, guid: 9681495e3ebff174a9d7849a9d1f8ae3,
         type: 3}

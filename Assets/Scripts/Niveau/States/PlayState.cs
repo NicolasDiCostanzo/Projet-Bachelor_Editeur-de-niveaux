@@ -38,7 +38,9 @@ public class PlayState : MonoBehaviour
     {
         bool editionUnlocked = GeneralManager.editionUnlocked;
 
-        if (GameManager.i_currentLevel >= GeneralManager._levelToReachToUnlockLevelCreation) editionUnlocked = true;
+        if (GameManager.i_currentLevel >= GeneralManager._levelToReachToUnlockLevelCreation)
+            editionUnlocked = true;
+
 
         SaveSystem.SaveLevelReached(GameManager.i_currentLevel, editionUnlocked);
 

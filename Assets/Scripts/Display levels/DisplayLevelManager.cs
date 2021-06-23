@@ -13,7 +13,7 @@ public class DisplayLevelManager : MonoBehaviour
     public static List<string> jsons = new List<string>();
 
     [SerializeField] GameObject window;
-    [SerializeField] GameObject windowsParent;
+    [SerializeField] GameObject windowsParent, alertMessage;
 
     public static TextMeshProUGUI descriptionTMP;
 
@@ -45,7 +45,9 @@ public class DisplayLevelManager : MonoBehaviour
         }
         else
         {
-            DisplayAlertMessages.DisplayMessage("No level");
+
+            alertMessage.SetActive(true);
+            alertMessage.GetComponentInChildren<TextMeshProUGUI>().text = "No level";
         }
 
         ReinitData();

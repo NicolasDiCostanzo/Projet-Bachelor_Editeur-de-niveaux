@@ -221,7 +221,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: A level with the same name already exists...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 40ca209b6cded4c48843c3c49f294e20, type: 2}
   m_sharedMaterial: {fileID: -4664544014027723533, guid: 40ca209b6cded4c48843c3c49f294e20,
@@ -425,17 +425,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 6278494110260036823}
-        m_TargetAssemblyTypeName: DestroyItSelf, Assembly-CSharp
-        m_MethodName: DestroyThisGO
-        m_Mode: 1
+      - m_Target: {fileID: 4338548620959958252}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4338548620959958252
 GameObject:

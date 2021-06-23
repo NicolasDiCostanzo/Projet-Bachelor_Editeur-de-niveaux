@@ -10,7 +10,8 @@ public class PlaceWayOut : MonoBehaviour
 
     void OnDestroy()
     {
-        FindObjectOfType<BuildManager>().EraseBoxDatas(assimilatedWayOut.transform.parent.GetComponent<BoxDatas>().box);
+        LevelBoardBox tpOutBox = assimilatedWayOut.transform.parent.GetComponent<BoxDatas>().box;
+        if (tpOutBox != null && FindObjectOfType<BuildManager>()) FindObjectOfType<BuildManager>().EraseBoxDatas(tpOutBox);
         Destroy(assimilatedWayOut.gameObject);
         assimilatedWayOut = null;
     }

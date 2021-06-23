@@ -52,7 +52,7 @@ public class GeneralManager : MonoBehaviour
         AudioManager.Play("BackgroundMusic");
     }
 
-    public static void SetNewGame(bool newGameValue) {Debug.Log("set new game"); newGame = newGameValue; }
+    public static void SetNewGame(bool newGameValue) { newGame = newGameValue; }
 
     public void ResetDataSaved()
     {
@@ -67,7 +67,7 @@ public class GeneralManager : MonoBehaviour
 
         editionUnlocked = gameData.editionUnlocked;
 
-        if (!gameData.editionUnlocked) UnlockEditionButtons();
+        if (gameData.editionUnlocked) UnlockEditionButtons();
     }
 
     void SetEditionsButtons()
@@ -78,7 +78,7 @@ public class GeneralManager : MonoBehaviour
     void UnlockEditionButtons()
     {
         foreach (GameObject go in editionsButtons)
-            go.transform.GetComponent<Button>().interactable = false;
+            go.transform.GetComponent<Button>().interactable = true;
     }
 
     public static void SetIsInStoryModeToTrue()

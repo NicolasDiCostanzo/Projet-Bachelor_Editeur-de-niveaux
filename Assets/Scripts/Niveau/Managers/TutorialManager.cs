@@ -38,9 +38,9 @@ public class TutorialManager : MonoBehaviour
         else if (currentLevel == _firstDarkLevel) DisplayDarkTuto();
     }
 
-    public static void DisplayTreeTuto() { Debug.Log("tree tuto"); }
-    public static void DisplayTPTuto() { Debug.Log("tp tuto"); }
-    public static void DisplayDarkTuto() { Debug.Log("dark tuto"); }
+    public static void DisplayTreeTuto() { /*Debug.Log("tree tuto");*/ }
+    public static void DisplayTPTuto() { /*Debug.Log("tp tuto");*/ }
+    public static void DisplayDarkTuto() { /*Debug.Log("dark tuto");*/ }
 
     public static void DisplayPressSpace(bool display) { _pressSpaceTxt.SetActive(display); }
 

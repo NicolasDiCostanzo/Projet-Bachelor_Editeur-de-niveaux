@@ -2,6 +2,7 @@ using System.Collections;
 using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
+using TMPro;
 
 public class SaveLevelToDataBase : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class SaveLevelToDataBase : MonoBehaviour
     [SerializeField] string urlLocal;
     [SerializeField] string addLevel;
 
-    [SerializeField] GameObject waitingPanel;
+    [SerializeField] GameObject waitingPanel, alertMessage;
 
     public void SaveData() { StartCoroutine(SendLevelToDatabase()); }
 
@@ -37,27 +38,31 @@ public class SaveLevelToDataBase : MonoBehaviour
         using (UnityWebRequest www = UnityWebRequest.Post(url + addLevel, form))
         {
             www.downloadHandler = new DownloadHandlerBuffer();
-            Debug.Log("wating panel go : " + waitingPanel);
-            //GameObject waitingPanelInstance = Instantiate(waitingPanel, new Vector3(806,453.5f, 0), Quaternion.Euler(Vector3.zero), GameObject.Find("Canvas").transform);
-            GameObject waitingPanelInstance = Instantiate(waitingPanel, new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0), Quaternion.Euler(Vector3.zero));
-            waitingPanelInstance.transform.SetParent(GameObject.Find("Canvas").transform, false);
+            //Debug.Log("wating panel go : " + waitingPanel);
+            ////GameObject waitingPanelInstance = Instantiate(waitingPanel, new Vector3(806,453.5f, 0), Quaternion.Euler(Vector3.zero), GameObject.Find("Canvas").transform);
+            ////Screen.width * 0.5f, Screen.height * 0.5f  Quaternion.Euler(Vector3.zero), 
+            //GameObject waitingPanelInstance = Instantiate(waitingPanel, GameObject.Find("Canvas").transform);
+            //waitingPanelInstance.transform.SetParent(GameObject.Find("Canvas").transform, false);
+            //Debug.Log("wating panel instance : " + waitingPanel);
+            //Debug.Log("wating panel instance name: " + waitingPanel.name);
+            //Debug.Log("wating panel instance parent : " + waitingPanel.transform.parent);
+            //Debug.Log("wating panel instance position : " + waitingPanel.transform.position);
+            //Debug.Log("wating panel instance parent name: " + waitingPanel.transform.parent.name);
+            //Debug.Log("canvas : " + GameObject.Find("Canvas"));
+            //Debug.Log("canvas transform : " + GameObject.Find("Canvas").transform);
+            //Debug.Log("canvas transform name : " + GameObject.Find("Canvas").transform.name);
 
-            Debug.Log("wating panel instance : " + waitingPanelInstance);
-            Debug.Log("wating panel instance name: " + waitingPanelInstance.name);
-            Debug.Log("wating panel instance parent : " + waitingPanelInstance.transform.parent);
-            Debug.Log("wating panel instance position : " + waitingPanelInstance.transform.position);
-            Debug.Log("wating panel instance parent name: " + waitingPanelInstance.transform.parent.name);
-            Debug.Log("canvas : " + GameObject.Find("Canvas"));
-            Debug.Log("canvas transform : " + GameObject.Find("Canvas").transform);
-            Debug.Log("canvas transform name : " + GameObject.Find("Canvas").transform.name);
-
+            waitingPanel.SetActive(true);
             yield return www.SendWebRequest();
+            waitingPanel.SetActive(false);
 
-            Destroy(waitingPanelInstance);
+            //Destroy(waitingPanelInstance);
+            alertMessage.SetActive(true);
 
             if (www.result != UnityWebRequest.Result.Success)
             {
-                DisplayAlertMessages.DisplayMessage("Error: " + www.error);
+                alertMessage.GetComponentInChildren<TextMeshProUGUI>().text = "Error: " + www.error;
+                //DisplayAlertMessages.DisplayMessage("Error: " + www.error);
             }
             else
             {
@@ -65,10 +70,13 @@ public class SaveLevelToDataBase : MonoBehaviour
                 LevelError response = JsonUtility.FromJson<LevelError>(responseText);
 
                 if (!response.success)
-                    DisplayAlertMessages.DisplayMessage(response.error.message);
+                {
+                    alertMessage.GetComponentInChildren<TextMeshProUGUI>().text = response.error.message;
+                }
                 else
-                    DisplayAlertMessages.DisplayMessage("Niveau enregistré ! :D");
-
+                {
+                    alertMessage.GetComponentInChildren<TextMeshProUGUI>().text = "Level recorded";
+                }
             }
         }
 

@@ -130,13 +130,12 @@ isInBuildMode = true;
         level.isInDarkMode = false;
     }
 
-    public void SetCanBuildValue(bool a_canBuild) { canBuild = a_canBuild; Debug.Log(canBuild); }
+    public void SetCanBuildValue(bool a_canBuild) { canBuild = a_canBuild; }
 
     public void ToggleDarkMode() { level.isInDarkMode = GameObject.Find("DarkMode_toggle").GetComponent<Toggle>().isOn; }
 
     void StartInBuildMode()
     {
-        Debug.Log("start in build");
         state = State.Build;
         Debug.Log(state);
 
@@ -147,7 +146,6 @@ isInBuildMode = true;
 
     void StartInPlayMode(string a_levelNameToStartWith)
     {
-        Debug.Log("start in play mode");
         state = State.Play;
         SaveLoadLevelData.LoadFromSavedLevelsDirectory(a_levelNameToStartWith);
     }
@@ -290,7 +288,6 @@ isInBuildMode = true;
         }
         else
         {
-            Debug.Log("win playmode");
             levelCompleted = true;
             StartCoroutine(LevelTransition());
         }
@@ -361,7 +358,6 @@ isInBuildMode = true;
 
     void StoryModeTransition()
     {
-        Debug.Log("story mode transition");
         if (i_currentLevel < generalManager_script.storyLevelsName.Count)
         {
             string levelName = generalManager_script.storyLevelsName[i_currentLevel];

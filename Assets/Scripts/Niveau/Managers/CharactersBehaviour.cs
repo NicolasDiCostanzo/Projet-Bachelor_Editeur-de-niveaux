@@ -21,7 +21,7 @@ public class CharactersBehaviour : MonoBehaviour
     public void CharacMove(float xMove, float zMove)
     {
 
-        //AudioManager.Play("Mouv");
+        AudioManager.Play("Mouv");
 
         transform.position = new Vector3(transform.position.x + xMove, transform.position.y, transform.position.z + zMove);
         DisplayInformationMessage.HideInfoPanel();

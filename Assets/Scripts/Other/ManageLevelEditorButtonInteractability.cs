@@ -8,6 +8,7 @@ public class ManageLevelEditorButtonInteractability : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         if (SaveSystem.GetBinarySavedData().editionUnlocked) GetComponent<UnityEngine.UI.Button>().interactable = true;
+        GetComponentInChildren<ChangeTextColorOnMouseOver>().DetermineColorOnStart();
 
     }
     void OnEnable()

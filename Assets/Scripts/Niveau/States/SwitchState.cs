@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-
+using TMPro;
 public class SwitchState : MonoBehaviour
 {
     [SerializeField] PlayState testLevelState_script = null;
     [SerializeField] BuildLevelState buildLevelState_script = null;
+    [SerializeField] GameObject alertMessage;
     public void F_SwitchState()
     {
         //Si on va de l'état de construction vers celui de test, on vérifie si le niveau est viable.
@@ -13,7 +13,9 @@ public class SwitchState : MonoBehaviour
 
             if (SaveLoadLevelData.levelToSave.levelName == null || SaveLoadLevelData.levelToSave.levelName == "")
             {
-                DisplayAlertMessages.DisplayMessage("Level has no name...");
+                alertMessage.SetActive(true);
+                alertMessage.GetComponentInChildren<TextMeshProUGUI>().text = "Level has no name...";
+
                 return;
             }
 
@@ -23,7 +25,8 @@ public class SwitchState : MonoBehaviour
 
             if (!playerIsOnBoard || !witchIsOnBoard)
             {
-                DisplayAlertMessages.DisplayMessage("A Pawn and/or an Enemy is missing to test this level.");
+                alertMessage.SetActive(true);
+                alertMessage.GetComponentInChildren<TextMeshProUGUI>().text = "A Pawn and/or an Enemy is missing to test this level.";
                 return;
             }
 
@@ -34,7 +37,8 @@ public class SwitchState : MonoBehaviour
 
             if (levelHasPortalIn && !levelHasPortalOut)
             {
-                DisplayAlertMessages.DisplayMessage("A teleportation portal entrance is installed, but its exit is missing.");
+                alertMessage.SetActive(true);
+                alertMessage.GetComponentInChildren<TextMeshProUGUI>().text = "A teleportation portal entrance is installed, but its exit is missing.";
                 return;
             }
 
@@ -44,7 +48,9 @@ public class SwitchState : MonoBehaviour
 
             if (!levelHasBonfire)
             {
-                DisplayAlertMessages.DisplayMessage("Arrival is missing, so the level has no finish...");
+
+                alertMessage.SetActive(true);
+                alertMessage.GetComponentInChildren<TextMeshProUGUI>().text = "Arrival is missing, so the level has no finish...";
                 return;
             }
 

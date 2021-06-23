@@ -11,20 +11,28 @@ public class DisplayAlertMessages : MonoBehaviour
         if (errorMessagePanel) staticErrorMessagePanel = errorMessagePanel;
     }
 
-    public static void DisplayMessage(string message)
+
+    public /*static*/ void Deactive()
+    {
+        staticErrorMessagePanel.SetActive(false);
+    }
+
+    public /*static*/ void DisplayMessage(string message)
     {
 
         if (staticErrorMessagePanel)
         {
-            GameObject messagePanel = Instantiate(staticErrorMessagePanel);
-            messagePanel.transform.SetParent(GameObject.Find("Canvas").transform);
+            staticErrorMessagePanel.SetActive(true);
 
-            RectTransform rectTransform = messagePanel.GetComponent<RectTransform>();
+            //GameObject messagePanel = Instantiate(staticErrorMessagePanel);
+            //staticErrorMessagePanel.transform.SetParent(GameObject.Find("Canvas").transform);
 
-            rectTransform.offsetMin = Vector2.zero;
-            rectTransform.offsetMax = Vector2.zero;
-            rectTransform.localScale = Vector2.one;
-            messagePanel.GetComponentInChildren<TextMeshProUGUI>().text = message;
+            //RectTransform rectTransform = staticErrorMessagePanel.GetComponent<RectTransform>();
+
+            //rectTransform.offsetMin = Vector2.zero;
+            //rectTransform.offsetMax = Vector2.zero;
+            //rectTransform.localScale = Vector2.one;
+            staticErrorMessagePanel.GetComponentInChildren<TextMeshProUGUI>().text = message;
 
             GameManager.canBuild = false;
         }
