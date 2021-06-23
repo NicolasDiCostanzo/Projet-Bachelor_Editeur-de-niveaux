@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject descriptionGO;
     [SerializeField] GameObject clueGO;
+    [SerializeField] GameObject winPanelStory;
 
     public static bool canBuild = true;
 
@@ -325,6 +326,8 @@ isInBuildMode = true;
     {
         GetComponent<MovementManager>().enabled = false;
 
+        if (isInStoryMode && levelCompleted) winPanelStory.SetActive(true);
+
         if (!GeneralManager.isInStoryMode && levelCompleted) WhenCompleteLocallySavedLevel();
 
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
@@ -358,13 +361,15 @@ isInBuildMode = true;
 
     void StoryModeTransition()
     {
+        winPanelStory.SetActive(false);
+
         if (i_currentLevel < generalManager_script.storyLevelsName.Count)
         {
             string levelName = generalManager_script.storyLevelsName[i_currentLevel];
             SaveLoadLevelData.LoadFromSavedLevelsDirectory(levelName);
             GetComponent<MovementManager>().enabled = true;
             playState_script.StartToPlay();
-            TutorialManager.DisplayTutorial();
+            //TutorialManager.DisplayTutorial();
         }
         else
         {
